@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/Filipe.Araujo/Dropbox/Development/Personal/devices",
+            "folder_exclude_patterns": [
+                "node_modules"
+            ]
+		}
+	]
+}

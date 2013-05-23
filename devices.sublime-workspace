@@ -1,0 +1,1667 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ex",
+				"execute_script"
+			],
+			[
+				"filter",
+				"filterAvailable"
+			],
+			[
+				"current",
+				"currentFilterType"
+			],
+			[
+				"toggle",
+				"toggleFilter"
+			],
+			[
+				"bind",
+				"bindImgError"
+			],
+			[
+				"get",
+				"getAttribute"
+			],
+			[
+				"build",
+				"buildBreadCrumb"
+			],
+			[
+				"selectors",
+				"selectorGroups"
+			],
+			[
+				"ab",
+				"availableFilterGroups"
+			],
+			[
+				"av",
+				"availableFilterGroups"
+			],
+			[
+				"is",
+				"isStreampix"
+			],
+			[
+				"return",
+				"returnFiltersBy"
+			],
+			[
+				"opts",
+				"options"
+			],
+			[
+				"input",
+				"inputCallbacks"
+			],
+			[
+				"checkbo",
+				"checkboxCallbacks"
+			],
+			[
+				"a",
+				"alphabet"
+			],
+			[
+				"obs",
+				"obsRenderView"
+			],
+			[
+				"options",
+				"optionsToStore"
+			],
+			[
+				"store",
+				"storeFilters"
+			],
+			[
+				"local",
+				"localStorage"
+			],
+			[
+				"document",
+				"documentElement"
+			],
+			[
+				"browse-",
+				"browse-gallery"
+			],
+			[
+				"trans",
+				"translateX"
+			],
+			[
+				"brows",
+				"browseHeight"
+			],
+			[
+				"items",
+				"itemsPerRow"
+			],
+			[
+				"pro",
+				"providerQuery"
+			],
+			[
+				"pr",
+				"providerQuery"
+			],
+			[
+				"brow",
+				"browseContent"
+			],
+			[
+				"browse",
+				"browseGalleryView"
+			],
+			[
+				"data",
+				"dataLoaded"
+			],
+			[
+				"if",
+				"iframeLoaded"
+			],
+			[
+				"browse-b",
+				"browse-breadcrumb-sort"
+			],
+			[
+				"pop",
+				"popularity"
+			],
+			[
+				"view",
+				"viewMapping"
+			],
+			[
+				"brose",
+				"browseGalleryView"
+			],
+			[
+				"toBe",
+				"toBeTruthy"
+			],
+			[
+				"thumb",
+				"thumbnail"
+			],
+			[
+				"filt",
+				"filterMapping"
+			],
+			[
+				"ob",
+				"observerSpy"
+			],
+			[
+				"cached",
+				"cachedFilters"
+			],
+			[
+				"br",
+				"browseDBWidget"
+			],
+			[
+				"has",
+				"hasOwnProperty"
+			],
+			[
+				"token",
+				"tokenSuccess"
+			],
+			[
+				"offer",
+				"offerToken"
+			],
+			[
+				"pla",
+				"platfData"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"test",
+				"testManifestUrls"
+			],
+			[
+				"respon",
+				"respondWith"
+			],
+			[
+				"respond",
+				"respondWithFail"
+			],
+			[
+				"most",
+				"mostRecentCall"
+			],
+			[
+				"request",
+				"requestSpy"
+			],
+			[
+				"meta",
+				"metafile"
+			],
+			[
+				"check",
+				"checkQueueCookie"
+			],
+			[
+				"state",
+				"stateChange"
+			],
+			[
+				"chann",
+				"channelData"
+			],
+			[
+				"inject",
+				"injectListings"
+			],
+			[
+				"inje",
+				"injectListings"
+			],
+			[
+				"com",
+				"compressedFile"
+			],
+			[
+				"lock",
+				"lockedEntities"
+			],
+			[
+				"favo",
+				"favoriteChannels"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"H",
+				"HttpServletRequest"
+			],
+			[
+				"assert",
+				"assertSelectorHasText"
+			],
+			[
+				"waitFor",
+				"waitForSelector"
+			],
+			[
+				"random",
+				"randomIndexes"
+			],
+			[
+				"rand",
+				"randomIndexes"
+			],
+			[
+				"ass",
+				"assertExists"
+			],
+			[
+				"onaft",
+				"onAfterAddBack"
+			],
+			[
+				"remov",
+				"removedFromQueueTempl"
+			],
+			[
+				"_",
+				"_methodPriority"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 187.0,
+		"selected_items":
+		[
+			[
+				"for",
+				"Gherkin/Cucumber: Format"
+			],
+			[
+				"format",
+				"Gherkin/Cucumber: Format"
+			],
+			[
+				"form",
+				"Gherkin/Cucumber: Format"
+			],
+			[
+				"git hi",
+				"Git: Commit history"
+			],
+			[
+				"git hist",
+				"Git: Commit history"
+			],
+			[
+				"pack in",
+				"Package Control: Install Package"
+			],
+			[
+				"git blm",
+				"Git: Blame"
+			],
+			[
+				"his",
+				"Local History: Open"
+			],
+			[
+				"hist",
+				"Local History: Incremental Diff"
+			],
+			[
+				"forma",
+				"Format: Ruby"
+			],
+			[
+				"pack install",
+				"Package Control: Install Package"
+			],
+			[
+				"git check",
+				"Git: Checkout Current File"
+			],
+			[
+				"git blame",
+				"Git: Blame"
+			],
+			[
+				"git res",
+				"Git: Reset (unstage) Current File"
+			],
+			[
+				"pac r",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack install ",
+				"Package Control: Install Package"
+			],
+			[
+				"gherkin",
+				"Gherkin/Cucumber: Format"
+			],
+			[
+				"gherk",
+				"Gherkin/Cucumber: Format"
+			],
+			[
+				"git dif",
+				"Git: Diff Current File"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"git checkout",
+				"Git: Checkout Current File"
+			],
+			[
+				"git log",
+				"Git: Log Current File"
+			],
+			[
+				"git lo",
+				"Git: Log All"
+			],
+			[
+				"git bla",
+				"Git: Blame"
+			],
+			[
+				"git an",
+				"Git: Toggle Annotations"
+			],
+			[
+				"history",
+				"Local History: Open"
+			],
+			[
+				"histor",
+				"Local History: Open"
+			],
+			[
+				"jav",
+				"Format: Javascript"
+			],
+			[
+				"git checout",
+				"Git: Checkout Current File"
+			],
+			[
+				"git checkout ",
+				"Git: Checkout Current File"
+			],
+			[
+				"git checl",
+				"Git: Checkout Current File"
+			],
+			[
+				"git checki",
+				"Git: Checkout Current File"
+			],
+			[
+				"gut c",
+				"Git: Checkout Current File"
+			],
+			[
+				"git blam",
+				"Git: Blame"
+			],
+			[
+				"git b",
+				"Git: Blame"
+			],
+			[
+				"git checkot",
+				"Git: Checkout Current File"
+			],
+			[
+				"pack inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pack rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack un",
+				"z:AAAPackageDev: New Plugin"
+			],
+			[
+				"git diff st",
+				"Git: Diff Staged"
+			],
+			[
+				"pack remov ",
+				"Package Control: Remove Package"
+			],
+			[
+				"tidy",
+				"Tidy HTML"
+			],
+			[
+				"html ",
+				"Tidy HTML"
+			],
+			[
+				"pakc ins",
+				"Package Control: Install Package"
+			],
+			[
+				"git chec",
+				"Git: Checkout Current File"
+			],
+			[
+				"pack re",
+				"Package Control: Remove Package"
+			],
+			[
+				"local",
+				"Local History: Open"
+			],
+			[
+				"locl",
+				"Local History: Open"
+			],
+			[
+				"ack remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"git reset",
+				"Git: Reset (unstage) Current File"
+			],
+			[
+				"histo",
+				"Local History: Open"
+			],
+			[
+				"git checku",
+				"Git: Checkout Current File"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git add ",
+				"Git: Add Current File"
+			],
+			[
+				"GIT CHECK",
+				"Git: Checkout Current File"
+			],
+			[
+				"javasc",
+				"Format: Javascript"
+			],
+			[
+				"git bl",
+				"Git: Blame"
+			],
+			[
+				"git checko",
+				"Git: Checkout Current File"
+			],
+			[
+				"git h",
+				"Git: Commit history"
+			],
+			[
+				"git histor",
+				"Git: Commit history"
+			],
+			[
+				"lo",
+				"Local History: Incremental Diff"
+			],
+			[
+				"local his",
+				"Local History: Open"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"pack int",
+				"Package Control: Install Package"
+			],
+			[
+				"inde",
+				"Indent XML"
+			],
+			[
+				"xml",
+				"Indent XML"
+			],
+			[
+				"gist",
+				"Gist: Create Private Gist"
+			],
+			[
+				"git",
+				"Git: Blame"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"pack insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack inst ",
+				"Package Control: Install Package"
+			],
+			[
+				" pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack li",
+				"Package Control: List Packages"
+			],
+			[
+				"pack i",
+				"Package Control: Install Package"
+			],
+			[
+				"ack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"PACK INS",
+				"Package Control: Install Package"
+			],
+			[
+				"pack in ",
+				"Package Control: Install Package"
+			],
+			[
+				"packa install",
+				"Package Control: Install Package"
+			],
+			[
+				"git p",
+				"Package Control: Install Package"
+			],
+			[
+				"packa in",
+				"Package Control: Install Package"
+			],
+			[
+				"packag insta",
+				"Package Control: Install Package"
+			],
+			[
+				"packag up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"package in",
+				"Package Control: Add Repository"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 458.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/websites/xfinitytv.comcast.net.xml",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/pages/onenetwork.css",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.tv.core.filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.movies.core.filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/browse/browse.family.core.filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/env.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/networks/all-networks.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/xtv.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/global_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/cimspire/js/cim.storage.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/browse/step_definitions/browse_entities_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.movies.current.filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/paths/step_definitions/xtv_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.tv.current.filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/browse/browse.family.current.filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/user/user.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.tv.sort.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.tv.page.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.tv.layout.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/base.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/browse/step_definitions/browse_filters_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/browse/browse.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/paths/step_definitions/streampix_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/browse/browse.family.layout.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/navigation/step_definitions/nav.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.services.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv3.0/pages/devices/fc.devices.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/dvr.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/browse/step_definitions/browse_sort_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/base_global.css",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.movies.sort.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.movies.page.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/browse.movies.layout.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/browse/browse.family.sort.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/browse/browse.family.page.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/family_and_kids_core_filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/family_and_kids_current_filters.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/family_and_kids_layout.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/family_and_kids_page.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/family_and_kids_sort.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/url/step_definitions/xtv_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/streampix.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/step_definitions/family_and_kids_page_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/browse/step_definitions/browse_breadcrumb_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/step_definitions/family_and_kids_sort_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/shared/browse/browse_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/step_definitions/browse_steps.rb",
+		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/step_definitions/2013-05-20_15.00.50.family_and_kids_page_steps.rb",
+		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/step_definitions/2013-05-16_13.50.30.family_and_kids_page_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/support/pages/browse/step_definitions/browse_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features_old/pages/browse/step_definitions/browse_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/browse/movies.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.browse.view.ui.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.browse.db.filter.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.browse.view.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.browse.db.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/pages/browse.css",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/xtv3.0/pages/playnow/browse.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/pages/shared_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/xtv3.0/components/shared/searchbox.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/common.xfinity.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/applicationContext.xml",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features_old/components/xfinitybar/step_definitions/xfinitybar_steps.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/cimspire/ruby/watir-cucumber/core/support/cucumber_watir_helpers.rb",
+		"/Users/Filipe.Araujo/Comcast/xtv/cucumber.sh",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/cucumber.sh",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.browse.db.sort.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/pages/tvlistings.css",
+		"/Users/Filipe.Araujo/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Filipe.Araujo/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Filipe.Araujo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/config/environments/anthill.yml",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/download2go/download2go.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/Gemfile",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/homepage/homepage.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.browse.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/applicationContext.xml",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/browse/iframe.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/sprint/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/sprint/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/cime/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/dnv/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/dev/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/cime/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/mr/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/load/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/mr/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/load/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/dnv/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/dev/ctv.properties",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/fonts/xfinitysans-med-webfont.svg",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/icons.css",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/demo/fonts/index.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/pages/popups/commonsense.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/pages/entity.css",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/components/tracking/spotlight_tag.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/family_and_kids_hd_and_cc.feature",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.browse.db.spec.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.browse.db.filter.spec.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/iframe/xtv3.0/header.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/xtv3.0/components/shared/header.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/pom.xml",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/base.css",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/xtv3.0/services/browse/browsedb.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/demo/entity_thumbnail.html",
+		"/Users/Filipe.Araujo/Comcast/xtv/target/ROOT/js/xtv.browse.db.filter.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/target/ROOT/js/xtv3.0/tvlistings/fc.tvlistings.filters.js",
+		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/2013-05-01_13.16.55.xtv.browse.db.js",
+		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/2013-05-01_11.11.48.xtv.browse.db.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/cimspire/python/wrc/wrc3/compressor.py",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.browse.spec.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/misc/devices.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/pre-commit.sh",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/fonts/xfinityindicators.woff",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/cachesvc/api/data/compressor/xtv3.0/browse.xml",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/cimspire/js/cim.page.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv3.0/browse/browse.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/cimspire/js/cim.utils.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/web.xml",
+		"/Users/Filipe.Araujo/Comcast/xtv/target/classes/fonts/XFINITYIndicators-Regular.otf",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/fonts/XFINITYIndicators-Regular.otf",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/fonts/XFINITYIndicatorsNew.glyphs",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/xtv3.0/pages/dvr_manager.ftl",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv3.0/pages/dvr_manager.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/functional/run.py",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.services.spec.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.browse.view.spec.js",
+		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.browse.view.ui.spec.js"
+	],
+	"find":
+	{
+		"height": 62.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber",
+			"/Users/Filipe.Araujo/Comcast/xtv/test/cucumber",
+			"/Users/Filipe.Araujo/Comcast/xtv",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/step_definitions",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine",
+			"/Users/Filipe.Araujo/Comcast/xtv, *.ftl",
+			"/Users/Filipe.Araujo/Comcast/xtv, *.ftl;",
+			"/Users/Filipe.Araujo/Comcast/xtv",
+			"/Users/Filipe.Araujo/Comcast/xtv, *.ftl",
+			"/Users/Filipe.Araujo/Comcast/xtv",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv3.0",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine",
+			"/Users/Filipe.Araujo/Comcast/xtv/src",
+			"/Users/Filipe.Araujo/Comcast/xtv/sr",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs",
+			"/Users/Filipe.Araujo/Comcast/xtv/src",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/fonts",
+			"/Users/Filipe.Araujo/Comcast/xtv/src",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/,<open files>",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/, *.spec.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *spec.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.spec.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.ftl",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.py",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.ftl",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.xml",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *spec.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.spec.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/, *.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/, .java",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/, *.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main, *.css",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main",
+			"<open files>",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main, *.ftl",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main, *.xml",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/cimspire/python/wrc/wrc3",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/python/resource_relocator",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/, *.py",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/, *.py",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/, .py",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/, .css",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js",
+			"<open files>",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv3.0/xtv.button*",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv3.0/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv3.0/xtv.button.spec.js",
+			"<open files>",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv3.0/tvlistings",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv3.0/tvlistings",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp",
+			"/Users/Filipe.Araujo/Comcast/xtv/, .js",
+			"/Users/Filipe.Araujo/Comcast/xtv/, .java",
+			"/Users/Filipe.Araujo/Comcast/xtv/*/*Test, .java",
+			"/Users/Filipe.Araujo/Comcast/xtv/*Test, .java",
+			"/Users/Filipe.Araujo/Comcast/xtv/, .java",
+			"/Users/Filipe.Araujo/Comcast/xtv/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/dresdenjs/pages/queue2.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/dresdenjs/pages",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/dresdenjs",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/WebPage",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/casperjs/casperjs",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs",
+			"/Users/Filipe.Araujo/Comcast/xtv",
+			"/Users/Filipe.Araujo/Comcast/xtv, *.js",
+			"/Users/Filipe.Araujo/Comcast/xtv, .js",
+			"/Users/Filipe.Araujo/Comcast/xtv",
+			"/Users/Filipe.Araujo/Comcast/xtv,*.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/,*.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/, *.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/*.js",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/casperjs/pages/entity",
+			"/Users/Filipe.Araujo/Comcast/xtv/src",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/dresdenjs/pages/entity",
+			"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"store",
+			"core",
+			"checkbox",
+			"app_host",
+			"set_url",
+			"seturl",
+			"clear",
+			"reset the browse",
+			"I clear the text",
+			"set",
+			"wait_for_results_ready",
+			"wait_for_results",
+			"I should see all entities",
+			"wait_for_results",
+			"capybara_results_done",
+			"wait",
+			"wait_for",
+			"I wait",
+			"wait",
+			"wait_for_results_ready",
+			"I uncheck the",
+			"I uncheck the ",
+			"search",
+			"set",
+			"search",
+			"I clear the text",
+			"hen I should see all entities",
+			"disabled_filter",
+			"all the \"Release Date\" filters should be selectable\n",
+			" filters should be selectable\n",
+			"all the \"Release Date\" filters should be selectable\n",
+			"release Date",
+			"tv",
+			"movie",
+			"Movies",
+			"family",
+			"be_displayed",
+			"load",
+			"@browse",
+			"browse",
+			"Download2Go",
+			"path_to",
+			"XTV.new",
+			"I am on XfinityTV Home Page",
+			"filter group should",
+			"open",
+			"the filters panel is open",
+			"I am on the Streampix Family & Kids page",
+			">network",
+			"network",
+			"title",
+			"Family",
+			"@Family",
+			"XTV Home Page",
+			"I am on the XTV Home Page",
+			"globalStreampix",
+			"family",
+			"browse",
+			"streampix",
+			"streampixglobalParent",
+			"globalParent",
+			"search",
+			"has_content?string",
+			"open?",
+			"buildBreadCrumb",
+			"channels",
+			".chanels {",
+			".chanels",
+			"fixed",
+			".channels",
+			"there are no entities",
+			"FilterPanelSection",
+			"filter_panel",
+			"checkbox",
+			"there is popular data",
+			"I should see all entities",
+			"\"no\"",
+			"No Res",
+			"Nor Res",
+			"if",
+			"I should see all entities",
+			"+v",
+			"alt+b",
+			"+u",
+			"+i",
+			"+b",
+			"@browse.results.posters.size",
+			"I should see all entities",
+			"there is popular data",
+			"I click on a random entity",
+			"new",
+			"CUCUMBER_CONFIG_FILE",
+			"I am on the \"Download2Go\" page",
+			"I should see all entities",
+			"secondAudioProgramEnabled",
+			"first",
+			"getConfig",
+			"hd",
+			"rottenTomatoesEnabled",
+			"rotten.tomatoes",
+			"rotten.tomatoes.enabled",
+			"Global header Streampix bar links",
+			"store.url",
+			"store.base.url",
+			"url",
+			"store",
+			"store.url",
+			"slide-in",
+			"article",
+			"console.log",
+			"checkbox",
+			"fancastSlider",
+			"popups",
+			"popups/cms",
+			"popups/csm",
+			"hd",
+			"-hd",
+			"cc",
+			"closed cap",
+			"The HD filter should",
+			"filterAvailable",
+			"alert",
+			"alert('t')",
+			"currentFilterT",
+			"is-active",
+			"getFilters",
+			"currentFilterGroups",
+			"toggleReset"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			">= ",
+			"movie_db_xtv3.widget",
+			"full_tvepisodes_db_xtv3.widget",
+			");\n",
+			"CIM.debug.info",
+			"XTV",
+			"XTV\nXTV",
+			"<span class=\"access_aid\">ON</span>",
+			"ON DEMAND"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"xfinit.xml",
+				"src/main/webapp/WEB-INF/websites/xfinitytv.comcast.net.xml"
+			],
+			[
+				"browse.css",
+				"src/main/webapp/styles/xtv3.0/pages/browse.css"
+			],
+			[
+				"one",
+				"src/main/webapp/styles/xtv3.0/pages/onenetwork.css"
+			],
+			[
+				"all-",
+				"src/test/cucumber/features/xtv/networks/all-networks.feature"
+			],
+			[
+				"cim.stor",
+				"src/main/webapp/cimspire/js/cim.storage.js"
+			],
+			[
+				"browse.rb",
+				"src/test/cucumber/features/support/pages/browse/browse.rb"
+			],
+			[
+				".feature",
+				"src/test/cucumber/features/xtv/user/user.feature"
+			],
+			[
+				"fc.devic",
+				"src/main/webapp/js/xtv3.0/pages/devices/fc.devices.js"
+			],
+			[
+				"dvr.js",
+				"src/main/webapp/js/dvr.js"
+			],
+			[
+				"nav.rb",
+				"src/test/cucumber/features/xtv/navigation/step_definitions/nav.rb"
+			],
+			[
+				"xtv.rb",
+				"src/test/cucumber/features/support/pages/xtv.rb"
+			],
+			[
+				"browse_s",
+				"src/test/cucumber/features/support/pages/browse/step_definitions/browse_sort_steps.rb"
+			],
+			[
+				"base_",
+				"src/main/webapp/styles/base_global.css"
+			],
+			[
+				"movie.f",
+				"src/test/cucumber/features/xtv/browse/movies.feature"
+			],
+			[
+				"browse_ste",
+				"src/test/cucumber/features_old/pages/browse/step_definitions/browse_steps.rb"
+			],
+			[
+				"view.js",
+				"src/main/webapp/js/xtv.browse.view.js"
+			],
+			[
+				"browse.ftl",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/pages/playnow/browse.ftl"
+			],
+			[
+				"db.js",
+				"src/main/webapp/js/xtv.browse.db.js"
+			],
+			[
+				"filter.js",
+				"src/main/webapp/js/xtv.browse.db.filter.js"
+			],
+			[
+				"ui.js",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"xfint.xml",
+				"src/main/webapp/WEB-INF/websites/xfinitytv.comcast.net.xml"
+			],
+			[
+				"appli",
+				"src/main/resources/applicationContext.xml"
+			],
+			[
+				"common.",
+				"src/main/resources/conf/common.xfinity.properties"
+			],
+			[
+				"searchbox",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/components/shared/searchbox.ftl"
+			],
+			[
+				"env.rb",
+				"src/test/cucumber/features/support/env.rb"
+			],
+			[
+				"cucumber",
+				"src/test/cucumber/cucumber.sh"
+			],
+			[
+				"cimspirecucumb",
+				"src/main/cimspire/ruby/watir-cucumber/core/support/cucumber_watir_helpers.rb"
+			],
+			[
+				"sort.js",
+				"src/main/webapp/js/xtv.browse.db.sort.js"
+			],
+			[
+				"xtv.browseui",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"tvlistings.css",
+				"src/main/webapp/styles/xtv3.0/pages/tvlistings.css"
+			],
+			[
+				"xtv.b",
+				"src/main/webapp/js/xtv.browse.js"
+			],
+			[
+				"browse.js",
+				"src/main/webapp/js/xtv.browse.db.js"
+			],
+			[
+				"xv.view",
+				"src/main/webapp/js/xtv.browse.view.js"
+			],
+			[
+				"common",
+				"src/main/resources/conf/common.xfinity.properties"
+			],
+			[
+				"xfin.xml",
+				"src/main/webapp/WEB-INF/websites/xfinitytv.comcast.net.xml"
+			],
+			[
+				"iframe.ftl",
+				"src/main/webapp/WEB-INF/templates/browse/iframe.ftl"
+			],
+			[
+				"xtv.browse.vie",
+				"src/main/webapp/js/xtv.browse.view.js"
+			],
+			[
+				"fonts.ftl",
+				"src/main/webapp/WEB-INF/templates/demo/fonts/index.ftl"
+			],
+			[
+				"icons.cs",
+				"src/main/webapp/styles/xtv3.0/icons.css"
+			],
+			[
+				"fonts/",
+				"src/main/webapp/styles/fonts/xfinitysans-med-webfont.svg"
+			],
+			[
+				"cuc",
+				"cucumber.sh"
+			],
+			[
+				"view.ui.j",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"entity.css",
+				"src/main/webapp/styles/xtv3.0/pages/entity.css"
+			],
+			[
+				"view.ui",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"xtv.sort",
+				"src/main/webapp/js/xtv.browse.db.sort.js"
+			],
+			[
+				"xtv.browse.db.spe",
+				"src/test/javascript/envjasmine/specs/xtv.browse.db.spec.js"
+			],
+			[
+				"filter.spe",
+				"src/test/javascript/envjasmine/specs/xtv.browse.db.filter.spec.js"
+			],
+			[
+				"filter.spec",
+				"src/test/javascript/envjasmine/specs/xtv.browse.db.filter.spec.js"
+			],
+			[
+				"xtv.browse.js",
+				"src/main/webapp/js/xtv.browse.js"
+			],
+			[
+				"view.uij",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"xtv.bro",
+				"src/main/webapp/js/xtv.browse.db.js"
+			],
+			[
+				"xtv.brow",
+				"src/main/webapp/js/xtv.browse.js"
+			],
+			[
+				"header.ftl",
+				"src/main/webapp/WEB-INF/templates/iframe/xtv3.0/header.ftl"
+			],
+			[
+				"browsedb",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/services/browse/browsedb.ftl"
+			],
+			[
+				"base.css",
+				"src/main/webapp/styles/xtv3.0/base.css"
+			],
+			[
+				"demo/e",
+				"src/main/webapp/WEB-INF/templates/demo/entity_thumbnail.html"
+			],
+			[
+				"pom.xml",
+				"pom.xml"
+			],
+			[
+				"compres",
+				"src/main/cimspire/python/wrc/wrc3/compressor.py"
+			],
+			[
+				"xtv.browse.db",
+				"src/main/webapp/js/xtv.browse.db.js"
+			],
+			[
+				"xtv.brow.d",
+				"src/main/webapp/js/xtv.browse.db.js"
+			],
+			[
+				"device.ftl",
+				"src/main/webapp/WEB-INF/templates/misc/devices.ftl"
+			],
+			[
+				"browse.spec",
+				"src/test/javascript/envjasmine/specs/xtv.browse.spec.js"
+			],
+			[
+				"precom",
+				"pre-commit.sh"
+			],
+			[
+				"icon.",
+				"src/main/webapp/styles/xtv3.0/icons.css"
+			],
+			[
+				"fonts/in",
+				"src/main/webapp/WEB-INF/templates/demo/fonts/index.ftl"
+			],
+			[
+				".wof",
+				"src/main/webapp/styles/fonts/xfinityindicators.woff"
+			],
+			[
+				"xtv.browse.sp",
+				"src/test/javascript/envjasmine/specs/xtv.browse.spec.js"
+			],
+			[
+				"xtv.brow.spec",
+				"src/test/javascript/envjasmine/specs/xtv.browse.spec.js"
+			],
+			[
+				"xtv.view.",
+				"src/main/webapp/js/xtv.browse.view.js"
+			],
+			[
+				"cim.page",
+				"src/main/webapp/cimspire/js/cim.page.js"
+			],
+			[
+				"cim.utils",
+				"src/main/webapp/cimspire/js/cim.utils.js"
+			],
+			[
+				"xtv.browse.",
+				"src/main/webapp/js/xtv.browse.view.js"
+			],
+			[
+				"xtv.br",
+				"src/main/webapp/js/xtv.browse.js"
+			],
+			[
+				"browse.cs",
+				"src/main/webapp/styles/xtv3.0/pages/browse.css"
+			],
+			[
+				"viewui.js",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"web.xml",
+				"src/main/webapp/WEB-INF/web.xml"
+			],
+			[
+				"xf",
+				"src/main/webapp/styles/fonts/xfinityindicators.woff"
+			],
+			[
+				"xfin",
+				"src/main/resources/fonts/XFINITYIndicators-Regular.otf"
+			],
+			[
+				"indicat",
+				"target/classes/fonts/XFINITYIndicators-Regular.otf"
+			],
+			[
+				"browe.ftl",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/pages/playnow/browse.ftl"
+			],
+			[
+				"xf.xml",
+				"src/main/webapp/WEB-INF/websites/xfinitytv.comcast.net.xml"
+			],
+			[
+				"dvrman.ft",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/pages/dvr_manager.ftl"
+			],
+			[
+				"dvrmana.j",
+				"src/main/webapp/js/xtv3.0/pages/dvr_manager.js"
+			],
+			[
+				"dvr_",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/pages/dvr_manager.ftl"
+			],
+			[
+				"functional",
+				"src/test/functional/run.py"
+			],
+			[
+				"xtv.serv.spec",
+				"src/test/javascript/envjasmine/specs/xtv.services.spec.js"
+			],
+			[
+				"xtv.db",
+				"src/main/webapp/js/xtv.browse.db.js"
+			],
+			[
+				"xtv.brow.js",
+				"src/main/webapp/js/xtv.browse.js"
+			],
+			[
+				"browse.uis",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"sort.specjs",
+				"src/test/javascript/envjasmine/specs/xtv.browse.db.sort.spec.js"
+			],
+			[
+				"sort.j",
+				"src/main/webapp/js/xtv.browse.db.sort.js"
+			],
+			[
+				"viewspec",
+				"src/test/javascript/envjasmine/specs/xtv.browse.view.spec.js"
+			],
+			[
+				"xtvdb.js",
+				"src/main/webapp/js/xtv.browse.db.js"
+			],
+			[
+				"browse.dbspec.js",
+				"src/test/javascript/envjasmine/specs/xtv.browse.db.spec.js"
+			],
+			[
+				"xtv.browse.db.sort.js",
+				"src/main/webapp/js/xtv.browse.db.sort.js"
+			],
+			[
+				"cim.pol",
+				"src/main/webapp/cimspire/js/cim.polyfills.js"
+			],
+			[
+				"brows.cs",
+				"src/main/webapp/styles/xtv3.0/pages/browse.css"
+			],
+			[
+				"fc.de",
+				"src/main/webapp/js/xtv3.0/pages/devices/fc.devices.js"
+			],
+			[
+				"xtvui.js",
+				"src/main/webapp/js/xtv.browse.view.ui.js"
+			],
+			[
+				"xtv.view",
+				"src/main/webapp/js/xtv.browse.view.js"
+			],
+			[
+				"template.ftl",
+				"src/main/webapp/WEB-INF/templates/include/macro/template.ftl"
+			],
+			[
+				"browse.view.",
+				"src/main/webapp/js/xtv.browse.view.js"
+			],
+			[
+				"family_li",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/components/browse/family_list.ftl"
+			],
+			[
+				"family",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/pages/playnow/family.ftl"
+			],
+			[
+				"fc.devi",
+				"src/main/webapp/js/xtv3.0/pages/devices/fc.devices.js"
+			],
+			[
+				"fc.dev",
+				"target/ROOT/js/xtv3.0/pages/devices/fc.devices.js"
+			],
+			[
+				"fc.device.",
+				"target/ROOT/js/xtv3.0/pages/devices/fc.devices.js"
+			],
+			[
+				"foresee",
+				"src/main/webapp/foresee/fsrtest.html"
+			],
+			[
+				"xtbrowse.js",
+				"target/ROOT/js/xtv.browse.js"
+			],
+			[
+				"search.cs",
+				"target/ROOT/styles/xtv3.0/components/search.css"
+			],
+			[
+				"search",
+				"target/ROOT/styles/components/search.css"
+			],
+			[
+				"browse.ft",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/pages/playnow/browse.ftl"
+			],
+			[
+				"demo.sass",
+				"src/main/webapp/styles/demo/test.sass"
+			],
+			[
+				"core.cs",
+				"target/ROOT/wro/css/core.css"
+			],
+			[
+				"core",
+				"target/ROOT/wro/css/core.css"
+			],
+			[
+				"core.css",
+				"target/ROOT/static/css/core.css"
+			],
+			[
+				"wro.p",
+				"src/main/webapp/WEB-INF/wro.properties"
+			],
+			[
+				"demo.cs",
+				"src/main/webapp/styles/demo/responsive/base.css"
+			],
+			[
+				"base.cs",
+				"src/main/webapp/styles/xtv3.0/base.css"
+			],
+			[
+				"run",
+				"runserver.sh"
+			],
+			[
+				"base",
+				"src/main/webapp/styles/xtv3.0/base.css"
+			],
+			[
+				"wro.xml",
+				"src/main/webapp/WEB-INF/wro.xml"
+			],
+			[
+				"fc.playx2",
+				"src/main/webapp/js/video/x2/fc.player.x2.messages.js"
+			],
+			[
+				"fc.browse",
+				"src/main/webapp/js/xtv3.0/fc.browse.js"
+			],
+			[
+				"fcbro",
+				"src/main/webapp/js/xtv3.0/fc.browse.js"
+			],
+			[
+				"xtv.server",
+				"src/main/webapp/WEB-INF/templates/xtv3.0/services/browse/browsedb.ftl"
+			],
+			[
+				"filters.js",
+				"src/test/javascript/envjasmine/specs/xtv.browse.db.filter.spec.js"
+			],
+			[
+				"browse.xml",
+				"src/main/webapp/cachesvc/api/data/compressor/xtv3.0/browse.xml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Filipe.Araujo/Sungard/skynet/skynet.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 312.0,
+	"status_bar_visible": true
+}
