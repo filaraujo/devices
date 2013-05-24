@@ -112,6 +112,9 @@ module.exports = function(){
     this.setOperatingSystem = function(uaObj){
         this.system = validate(uaObj.os, 'system');
         this.system.id = uaObj.os.toString();
+    };
 
+    this.setDevice = function(uaObj){
+        this.device = uaObj.device;
     };
 };

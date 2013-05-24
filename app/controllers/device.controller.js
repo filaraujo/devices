@@ -37,6 +37,7 @@ device.postDevice = function(req, res){
     device.setFeatures(req.body);
     device.setUserAgent(uaObj);
     device.setOperatingSystem(uaObj);
+    device.setDevice(uaObj);
 
     new Device( device ).save(function(err){
         if(err){

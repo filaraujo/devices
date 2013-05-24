@@ -1,0 +1,31 @@
+extends ../layout
+
+block append head-js
+    if !device.exists
+        script(src="javascripts/vendor/modernizr.custom.js")
+        script(src="javascripts/device.js")
+
+block content
+    h1= title
+
+    h2 Stored Devices
+    each device in devices
+        mixin device(device)
+
+    h2 This Device
+    article
+        include summary
+        //- span= device.toString()
+        //- |  running on
+        //- =   ' '
+        //- span= device.os.toString()
+        //- =   ' '
+        //- span= device.device.family
+
+        if device.exists
+            include features
+
+
+
+mixin device(device)
+    div= device.agent.id
