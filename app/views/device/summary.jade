@@ -1,13 +1,15 @@
 h3 profile
-div
-    span user agent
-    | #{device.id}
-div
-    span mongo id
-    | #{device._id}
-div
-    span Browser
-    | #{device.agent.id}
-div
-    span Operating System
-    | #{device.system.id}
+section
+    div.feature
+        span user agent
+        | #{device.id || device.string}
+    if device._id
+        div.feature
+            span mongo id
+            | #{device._id}
+    div.feature
+        span Browser
+        | #{device.agent.id}
+    div.feature
+        span Operating System
+        | #{device.system.id}

@@ -25,7 +25,7 @@ var cssFeatures = function(props){
             repeatround: props.bgrepeatround,
             repeatspace: props.bgrepeatspace,
             size: props.backgroundsize,
-            sizeCover: props.bgsizecover
+            sizecover: props.bgsizecover
         },
         border: {
             image: props.borderimage,
@@ -41,7 +41,7 @@ var cssFeatures = function(props){
             displayrunin: props['display-runin'],
             flexbox: props.flexbox,
             columns: props.csscolumns,
-            positionSticky: props.csspositionsticky
+            positionsticky: props.csspositionsticky
 
         },
         text: {},
@@ -60,7 +60,19 @@ var cssFeatures = function(props){
     };
 };
 
-var formFeatures = function(props){
+var deviceFeatures = function(props){
+    return {
+        color: {
+            depth: props.screen.colorDepth
+        },
+        screen: {
+            height: Number(props.screen.windowHeight),
+            width: Number(props.screen.windowWidth)
+        }
+    };
+};
+
+var htmlFeatures = function(props){
     return {
         input: {
             properties: {
@@ -99,22 +111,27 @@ var formFeatures = function(props){
 
 module.exports = function(){
     this.setFeatures = function(props){
-        this.css = validate(cssFeatures(props), 'css');
-        this.form = validate(formFeatures(props), 'form');
+        this.css = cssFeatures(props);
+        this.html = validate(htmlFeatures(props), 'form');
     };
 
     this.setUserAgent = function(uaObj){
         this.id = uaObj.string;
-        this.agent = validate(uaObj.ua, 'useragent');
+        this.agent = uaObj.ua;
         this.agent.id = uaObj.ua.toString();
+        this.agent.family = uaObj.family;
     };
 
     this.setOperatingSystem = function(uaObj){
-        this.system = validate(uaObj.os, 'system');
+        this.system = uaObj.os;
         this.system.id = uaObj.os.toString();
     };
 
-    this.setDevice = function(uaObj){
-        this.device = uaObj.device;
+    this.setDevice = function(props, uaObj){
+        this.device = _.assign(uaObj.device, deviceFeatures(props));
+    };
+
+    this.validateDevice = function(){
+        validate(this,'device');
     };
 };

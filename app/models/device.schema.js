@@ -57,8 +57,8 @@ var Device = new Schema({
             vw: Boolean
         }
     },
-    form: {
-        test: Boolean,
+    device: Object,
+    html: {
         input: {
             properties: {
                 autocomplete: Boolean,
@@ -92,7 +92,6 @@ var Device = new Schema({
     },
     system: {
         type: Object,
-        family: String,
         major: String,
         minor: String,
         patch: String,
@@ -107,7 +106,7 @@ Device.path('created').default(Date.now);
 Device.statics.getDevice = function(id, next) {
     clog.debug('searching for user-agent: ' + id);
     return this.find({
-        userAgent: id
+        id: id
     }, next);
 };
 
