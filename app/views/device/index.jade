@@ -8,18 +8,15 @@ block append head-js
 block content
     h1= title
 
-    h2 Stored Devices
-    each device in devices
-        mixin device(device)
+    if devices.length
+        h2 Stored Devices
+        each device in devices
+            mixin device(device)
 
-    h2 This Device
     article
         include profile
 
-        if device.exists
-            include features
-
-
 
 mixin device(device)
-    div= device.agent.id
+    div
+        a(href="/device/#{device._id}") #{device.agent.id}

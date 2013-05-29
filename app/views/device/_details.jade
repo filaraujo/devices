@@ -1,13 +1,14 @@
 mixin details(details, type)
     each value, id in details
-        if typeof value === "object"
-            div.detail-group
-                span #{id}
-                mixin details(details[id], type)
-        else
-            mixin detail(id, value, type)
+        if value
+            if typeof value === "object"
+                div.detail-group
+                    span #{id}
+                    mixin details(details[id], type+'.'+id)
+            else
+                mixin detail(id, value, type)
 
 mixin detail(id, value, type)
-    div.detail(class="detail-#{type}-#{id}")
-        span #{id}
+    div.detail
+        span #{type}.#{id}
         | #{value}

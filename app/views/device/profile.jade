@@ -1,7 +1,7 @@
 include _details
 
-h3 profile
-section
+h3 Device Profile
+section.profile
     div.detail
         span User Agent
         | #{device.id || device.string}
@@ -23,6 +23,19 @@ section
         span Device
         mixin details(device.device, 'device')
 
-    div.detail
-        span Date Collected
-        | #{device.created}
+    if device.created
+        div.detail
+            span Date Collected
+            | #{device.created}
+
+
+if device.exists
+    h3 css features
+    section.features-css
+        mixin details(device.css,'css')
+
+
+    h3 html features
+    h4 inputs
+    section.html
+        mixin details(device.html.input,'html.input')

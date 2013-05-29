@@ -103,13 +103,6 @@ var Device = new Schema({
 // define default for created
 Device.path('created').default(Date.now);
 
-Device.statics.getDevice = function(id, next) {
-    clog.debug('searching for user-agent: ' + id);
-    return this.find({
-        id: id
-    }, next);
-};
-
 Device.post('save', function() {
     clog.debug('action:\tDevice saved to database');
 });

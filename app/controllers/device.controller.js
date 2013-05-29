@@ -5,13 +5,11 @@ var clog = require('clog'),
     uaParser = require('ua-parser');
 
 
-device.getDevice = function (req, res, next) {
+device.getDeviceByAgent = function (req, res, next) {
     var ua = req.headers['user-agent'],
-        device = uaParser.parse(ua);
+        uaObj = uaParser.parse(ua);
 
-        console.log(device)
-
-    Device.getDevice(ua, function(err, docs){
+    Device.find({ id: ua }, function(err, docs){
         if( err ){
             return next( new Error( 'Unable to detect device from database') );
         }
@@ -19,14 +17,30 @@ device.getDevice = function (req, res, next) {
         if(docs.length > 0){
             device = docs[0].toObject();
         } else {
-            device.agent = device.ua;
-            device.system = device.os;
-            device.agent.id = device.ua.toString();
-            device.system.id = device.ua.toString();
+            var device = new DeviceHelper();
+            device.setUserAgent(uaObj);
+            device.setOperatingSystem(uaObj);
+            device.setDevice(uaObj);
+            device.validateDevice();
         }
 
         device.exists = !!docs.length;
 
+        res.device = device;
+        next();
+    });
+};
+
+device.getDeviceByHash = function(req, res, next){
+    var id = req.params.device;
+
+    Device.find({ _id: id }, function(err, docs){
+        if( err || !docs.length){
+            return next( new Error( 'Device does not exist') );
+        }
+
+        device = docs[0].toObject();
+        device.exists = !!docs.length;
         res.device = device;
         next();
     });
@@ -47,7 +61,7 @@ device.postDevice = function(req, res){
     device.setFeatures(props);
     device.setUserAgent(uaObj);
     device.setOperatingSystem(uaObj);
-    device.setDevice(props, uaObj);
+    device.setDevice(uaObj,props);
     device.validateDevice();
 
     console.log(uaObj);

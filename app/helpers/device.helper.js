@@ -127,8 +127,8 @@ module.exports = function(){
         this.system.id = uaObj.os.toString();
     };
 
-    this.setDevice = function(props, uaObj){
-        this.device = _.assign(uaObj.device, deviceFeatures(props));
+    this.setDevice = function(uaObj, props){
+        this.device = props ? _.assign(uaObj.device, deviceFeatures(props)) : uaObj.device;
     };
 
     this.validateDevice = function(){
