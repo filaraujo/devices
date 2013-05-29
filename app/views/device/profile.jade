@@ -1,0 +1,28 @@
+include _details
+
+h3 profile
+section
+    div.detail
+        span User Agent
+        | #{device.id || device.string}
+    if device._id
+        div.detail
+            span Mongo id
+            | #{device._id}
+
+    div.detail-group
+        span Browser
+        mixin details(device.agent, 'agent')
+
+
+    div.detail-group
+        span Operating System
+        mixin details(device.system, 'system')
+
+    div.detail-group
+        span Device
+        mixin details(device.device, 'device')
+
+    div.detail
+        span Date Collected
+        | #{device.created}

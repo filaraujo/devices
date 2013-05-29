@@ -17,7 +17,7 @@ device.getDevice = function (req, res, next) {
         }
 
         if(docs.length > 0){
-            device = docs[0];
+            device = docs[0].toObject();
         } else {
             device.agent = device.ua;
             device.system = device.os;

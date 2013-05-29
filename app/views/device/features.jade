@@ -1,25 +1,11 @@
+include _details
+
 h3 css features
 section.features-css
-    mixin features(device.css)
+    mixin details(device.css,'css')
 
 
 h3 html features
 h4 inputs
 section.features-html
-    mixin features(device.html.input)
-
-
-mixin features(features)
-    each featureVal, feature in features
-        if typeof featureVal === "boolean"
-            mixin feature(feature, featureVal)
-
-        if typeof featureVal === "object"
-            div.feature-group
-                span #{feature}
-                mixin features(features[feature])
-
-mixin feature(name, value)
-    div.feature(class="feature-css-#{name}")
-        span #{name}
-        | #{value}
+    mixin details(device.html.input,'html-input')
