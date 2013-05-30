@@ -1,0 +1,10 @@
+//- note the \, used for escaping attributes, jade hates it
+element(name="sg-tabs", \attributes="name nameColor")
+    template
+        | Hello! My name is
+        span(style="color:{{nameColor}}") {{name}}
+        <content select="*"></content>
+    script
+        Polymer.register(this, {
+            nameColor: "orange"
+        });
