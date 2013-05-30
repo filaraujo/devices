@@ -35,6 +35,7 @@ var cssFeatures = function(props){
             sizing: props.boxsizing,
             shadow: props.boxshadow
         },
+        checked: props.checked,
         filters: props.cssfilters,
         layouts: {
             displaytable: props['display-table'],

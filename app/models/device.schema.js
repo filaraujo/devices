@@ -35,6 +35,7 @@ var Device = new Schema({
             sizing: Boolean,
             shadow: Boolean
         },
+        checked: Boolean,
         filters: Boolean,
         layouts: {
             displayrunin: Boolean,

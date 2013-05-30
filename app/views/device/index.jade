@@ -1,9 +1,9 @@
 extends ../layout
 
 block append head-js
-    if !device.exists
-        script(src="javascripts/vendor/modernizr.custom.js")
-        script(src="javascripts/device.js")
+    //- if !device.exists
+    script(src="javascripts/vendor/modernizr.custom.js")
+    script(src="javascripts/device.js")
 
 block content
     h1= title

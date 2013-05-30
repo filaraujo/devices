@@ -7,9 +7,11 @@ var clog = require('clog'),
 
 device.getDeviceByAgent = function (req, res, next) {
     var ua = req.headers['user-agent'],
-        uaObj = uaParser.parse(ua);
+        uaObj = uaParser.parse(ua),
+        device;
 
     Device.find({ id: ua }, function(err, docs){
+
         if( err ){
             return next( new Error( 'Unable to detect device from database') );
         }
@@ -17,7 +19,7 @@ device.getDeviceByAgent = function (req, res, next) {
         if(docs.length > 0){
             device = docs[0].toObject();
         } else {
-            var device = new DeviceHelper();
+            device = new DeviceHelper();
             device.setUserAgent(uaObj);
             device.setOperatingSystem(uaObj);
             device.setDevice(uaObj);
@@ -32,7 +34,8 @@ device.getDeviceByAgent = function (req, res, next) {
 };
 
 device.getDeviceByHash = function(req, res, next){
-    var id = req.params.device;
+    var id = req.params.device,
+        device;
 
     Device.find({ _id: id }, function(err, docs){
         if( err || !docs.length){

@@ -3,7 +3,7 @@ mixin details(details, type)
         if value
             if typeof value === "object"
                 div.detail-group
-                    span #{id}
+                    span #{type}.#{id}
                     mixin details(details[id], type+'.'+id)
             else
                 mixin detail(id, value, type)
