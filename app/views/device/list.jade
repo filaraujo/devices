@@ -1,0 +1,17 @@
+extends ../layout
+
+block append head-js
+
+block content
+
+    h2 Stored Devices
+    if devices.length
+        each device in devices
+            mixin device(device)
+    else
+        div no devices
+
+
+mixin device(device)
+    div
+        a(href="/device/#{device._id}") #{device.agent.id}

@@ -1,41 +1,50 @@
+extends ../layout
 include _details
 
-h3 Device Profile
-section.profile
-    div.detail
-        span User Agent
-        | #{device.id || device.string}
-    if device._id
+block append head-js
+    script(src="/javascripts/vendor/jquery-2.0.0.min.js")
+    if !device.exists
+        script(src="javascripts/vendor/modernizr.custom.js")
+        script(src="javascripts/device.js")
+
+block content
+
+    h2 Device Profile
+    section.profile
         div.detail
-            span Mongo id
-            | #{device._id}
+            span User Agent
+            | #{device.id || device.string}
+        if device._id
+            div.detail
+                span Mongo id
+                | #{device._id}
 
-    div.detail-group
-        span Browser
-        mixin details(device.agent, 'agent')
-
-
-    div.detail-group
-        span Operating System
-        mixin details(device.system, 'system')
-
-    div.detail-group
-        span Device
-        mixin details(device.device, 'device')
-
-    if device.created
-        div.detail
-            span Date Collected
-            | #{device.created}
+        div.detail-group
+            span Browser
+            mixin details(device.agent, 'agent')
 
 
-if device.exists
-    h3 css features
-    section.features-css
-        mixin details(device.css,'css')
+        div.detail-group
+            span Operating System
+            mixin details(device.system, 'system')
+
+        div.detail-group
+            span Device
+            mixin details(device.device, 'device')
+
+        if device.created
+            div.detail
+                span Date Collected
+                | #{device.created}
 
 
-    h3 html features
-    h4 inputs
-    section.html
-        mixin details(device.html.input,'html.input')
+    if device.exists
+        h2 css features
+        section.features-css
+            mixin details(device.css,'css')
+
+
+        h2 html features
+        h3 inputs
+        section.html
+            mixin details(device.html.input,'html.input')

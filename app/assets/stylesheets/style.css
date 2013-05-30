@@ -9,17 +9,7 @@ body {
   font-size: 1rem;
 }
 body {
-  font-size: 1.6rem;
-}
-article {
   font-size: 1.3rem;
-}
-article div {
-  border-top: 1px solid #ccc;
-  line-height: 2rem;
-}
-article span {
-  float: left;
 }
 section {
   border: 1px solid #ccc;
@@ -30,6 +20,9 @@ section {
   line-height: 3rem;
   padding: 0 1rem;
   text-align: right;
+}
+.detail span {
+  float: left;
 }
 .detail-group {
   line-height: 3rem;

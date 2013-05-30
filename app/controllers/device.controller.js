@@ -83,10 +83,14 @@ device.postDevice = function(req, res){
 // views
 device.view = {};
 
-device.view.index = function(req, res){
-    return res.render('device/index', {
-        title: 'Device',
-        device: res.device || {},
+device.view.profile = function(req, res){
+    return res.render('device/profile', {
+        device: res.device || {}
+    });
+};
+
+device.view.list = function(req, res){
+    return res.render('device/list', {
         devices: res.devices || {}
     });
 };
