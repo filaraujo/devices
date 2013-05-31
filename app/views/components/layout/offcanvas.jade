@@ -28,11 +28,10 @@ element(name="ui-layout", \attributes="open fx")
                 position:fixed;
                 top: 0;
                 width: 300px;
+                overflow: auto;
             }
             .ui-layout-page {
                 background: #fcf;
-                    -webkit-transition: all 1s;
-                transition: all 1s;
                 z-index: 2;
                 overflow: auto;
             }
@@ -40,19 +39,22 @@ element(name="ui-layout", \attributes="open fx")
             [fx="slide']{
                 overflow: hidden;
             }
-            [fx="slide"][open="true"] .ui-layout-page {
-                   -ms-transform: translate3d(300px,0,0);
-                    -moz-transform: translate3d(300px,0,0);
-                    -webkit-transform: translate3d(300px,0,0);
-                transform: translate3d(300px,0,0);
-            }
 
-            [fx="pan"]{
+            [fx="pan"],
+            [fx="slide"] .ui-layout-page {
+                   -ms-transform: translate3d(0,0,0);
+                    -moz-transform: translate3d(0,0,0);
+                    -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+                    -ms-transition: all 1s;
+                    -moz-transition: all 1s;
                     -webkit-transition: all 1s;
                 transition: all 1s;
             }
-            [fx="pan"][open="true"]{
-                   -ms-transform: translate3d(300px,0,0);
+
+            [open="true"][fx="pan"],
+            [open="true"][fx="slide"] .ui-layout-page {
+                    -ms-transform: translate3d(300px,0,0);
                     -moz-transform: translate3d(300px,0,0);
                     -webkit-transform: translate3d(300px,0,0);
                 transform: translate3d(300px,0,0);
@@ -68,7 +70,6 @@ element(name="ui-layout", \attributes="open fx")
                 content(select="ui-layout-drawer")
             div.ui-layout-page
                 content(select="ui-layout-page")
-
 
     script
         Polymer.register(this, {
