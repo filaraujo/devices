@@ -1,0 +1,52 @@
+element(name="sg-layout", \attributes="open fx")
+    template
+        style
+            .sg-layout-page {
+                background: #eee;
+                    display: -webkit-flex;
+                    display: -moz-flex;
+                    display: -ms-flex;
+                display: flex;
+
+                    -webkit-flex-direction: column;
+                    -moz-flex-direction: column;
+                    -ms-flex-direction: column;
+                flex-direction: column;
+
+                min-height: 100%;
+                position: relative;
+                    -webkit-transition: all 1s;
+                transition: all 1s;
+            }
+            .sg-layout-page[open="true"]{
+                    -ms-transform: translate3d(300px,0,0);
+                    -moz-transform: translate3d(300px,0,0);
+                    -webkit-transform: translate3d(300px,0,0);
+                transform: translate3d(300px,0,0);
+            }
+            .sg-layout-drawer {
+                position: absolute;
+                right: 100%;
+                top: 0;
+                bottom: 0;
+                border: 1px solid #000;
+                width: 300px;
+            }
+
+        div.sg-layout-page(open="{{open}}")
+            content(select=".content")
+            div.sg-layout-drawer#drawer
+                content(select=".drawer")
+
+    script
+        Polymer.register(this, {
+            open: false,
+            fx: 'slide',
+            ready: function(){
+                var self= this;
+
+                this.$.drawer.addEventListener('click',function(){
+                    self.open = !self.open;
+                });
+            }
+        });

@@ -6,9 +6,16 @@ block append head-js
 
 block append html-import
     link(rel="import", href="/components/tabs")
+    link(rel="import", href="/components/layout/offcanvas")
 
 block content
-    h1= title
 
-    sg-tabs(name="Bill")
-        span test
+    // div.drawer seems bland, perhaps a convention?
+    // [role=drawer]? [ui-drawer]?
+    sg-layout(open)
+        div.drawer drawer
+        div.page test
+            //- sg-tabs(name="Bill")
+                span test
+                div test
+
