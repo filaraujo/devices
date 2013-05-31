@@ -1,52 +1,79 @@
-element(name="sg-layout", \attributes="open fx")
+//
+    ui-layout(open, fx)
+        | // open is optional, defaults to false
+        | // fx is optional, defaults to slide
+        | // properties can be accessed through dom
+        | //    document.querySelectorAll('ui-layout')[0].open = true
+        ui-layout-drawer
+            | // drawer-content
+        ui-layout-page
+            | // page-content
+
+element(name="ui-layout", \attributes="open fx")
     template
         style
-            .sg-layout-page {
-                background: #eee;
-                    display: -webkit-flex;
-                    display: -moz-flex;
-                    display: -ms-flex;
-                display: flex;
+            @host {
+                * {}
+            }
 
-                    -webkit-flex-direction: column;
-                    -moz-flex-direction: column;
-                    -ms-flex-direction: column;
-                flex-direction: column;
-
+            .ui-layout {
+                background: #fcc;
                 min-height: 100%;
-                position: relative;
+            }
+            .ui-layout-drawer {
+                background: #ccf;
+                border: 1px solid #000;
+                left: 0;
+                bottom: 0;
+                position:fixed;
+                top: 0;
+                width: 300px;
+            }
+            .ui-layout-page {
+                background: #fcf;
                     -webkit-transition: all 1s;
                 transition: all 1s;
+                z-index: 2;
+                overflow: auto;
             }
-            .sg-layout-page[open="true"]{
-                    -ms-transform: translate3d(300px,0,0);
+
+            [fx="slide']{
+                overflow: hidden;
+            }
+            [fx="slide"][open="true"] .ui-layout-page {
+                   -ms-transform: translate3d(300px,0,0);
                     -moz-transform: translate3d(300px,0,0);
                     -webkit-transform: translate3d(300px,0,0);
                 transform: translate3d(300px,0,0);
             }
-            .sg-layout-drawer {
-                position: absolute;
-                right: 100%;
-                top: 0;
-                bottom: 0;
-                border: 1px solid #000;
-                width: 300px;
+
+            [fx="pan"]{
+                    -webkit-transition: all 1s;
+                transition: all 1s;
+            }
+            [fx="pan"][open="true"]{
+                   -ms-transform: translate3d(300px,0,0);
+                    -moz-transform: translate3d(300px,0,0);
+                    -webkit-transform: translate3d(300px,0,0);
+                transform: translate3d(300px,0,0);
             }
 
-        div.sg-layout-page(open="{{open}}")
-            content(select=".content")
-            div.sg-layout-drawer#drawer
-                content(select=".drawer")
+            [fx="pan"] .ui-layout-drawer {
+                right: 100%;
+                left: inherit;
+            }
+
+        div.ui-layout(open="{{open}}", fx="{{fx}}")
+            div.ui-layout-drawer
+                content(select="ui-layout-drawer")
+            div.ui-layout-page
+                content(select="ui-layout-page")
+
 
     script
         Polymer.register(this, {
             open: false,
             fx: 'slide',
             ready: function(){
-                var self= this;
-
-                this.$.drawer.addEventListener('click',function(){
-                    self.open = !self.open;
-                });
             }
         });
