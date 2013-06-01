@@ -32,16 +32,16 @@ element(name="ui-layout", \attributes="open fx")
             }
             .ui-layout-page {
                 background: #fcf;
+                border: 1px solid #000;
                 z-index: 2;
                 overflow: auto;
             }
-
-            [fx="slide']{
+            [fx="slide"]{
                 overflow: hidden;
             }
 
             [fx="pan"],
-            [fx="slide"] .ui-layout-page {
+            [fx="slide"] .ui-layout-page{
                    -ms-transform: translate3d(0,0,0);
                     -moz-transform: translate3d(0,0,0);
                     -webkit-transform: translate3d(0,0,0);
@@ -65,10 +65,62 @@ element(name="ui-layout", \attributes="open fx")
                 left: inherit;
             }
 
+            [fx="meny"] {
+                height: 100%;
+                overflow: hidden;
+                    -ms-perspective: 800px;
+                    -moz-perspective: 800px;
+                    -webkit-perspective: 800px;
+                perspective: 800px;
+                    -ms-perspective-origin: 0px 50%;
+                    -moz-perspective-origin: 0px 50%;
+                    -webkit-perspective-origin: 0% 50%;
+                perspective-origin: 0% 50%;
+                width: 100%;
+            }
+
+            [fx="meny"] .ui-layout-drawer {
+                   -ms-transform: translateX(-100%);
+                    -moz-transform: translateX(-100%);
+                    -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+                    -ms-transform-origin: 100% 50%;
+                    -moz-transform-origin: 100% 50%;
+                    -webkit-transform-origin: 100% 50%;
+                transform-origin: 100% 50%;
+                    -ms-transition: all 1s;
+                    -moz-transition: all 1s;
+                    -webkit-transition: all 1s;
+                transition: all 1s;
+            }
+            [fx="meny"][open="true"] .ui-layout-drawer {
+                   -ms-transform: translateX(0);
+                    -moz-transform: translateX(0);
+                    -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+
+            [fx="meny"] .ui-layout-page {
+                    -ms-transform-origin: 0px 50%;
+                    -moz-transform-origin: 0px 50%;
+                    -webkit-transform-origin: 0px 50%;
+                transform-origin: 0px 50%;
+                    -ms-transition: all 1s;
+                    -moz-transition: all 1s;
+                    -webkit-transition: all 1s;
+                transition: all 1s;
+            }
+            [fx="meny"][open="true"] .ui-layout-page {
+                   -ms-transform: translateX(300px) rotateY(15deg);
+                    -moz-transform: translateX(300px) rotateY(15deg);
+                    -webkit-transform: translateX(300px) rotateY(15deg);
+                transform: translateX(300px) rotateY(15deg);
+            }
+
         div.ui-layout(open="{{open}}", fx="{{fx}}")
             div.ui-layout-drawer
                 content(select="ui-layout-drawer")
-            div.ui-layout-page
+            div.ui-layout-page#page
                 content(select="ui-layout-page")
 
     script
@@ -76,5 +128,10 @@ element(name="ui-layout", \attributes="open fx")
             open: false,
             fx: 'slide',
             ready: function(){
+                var self = this;
+
+                this.$.page.addEventListener('click', function(){
+                    self.open = !self.open;
+                });
             }
         });
