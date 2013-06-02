@@ -36,7 +36,8 @@ element(name="ui-layout", \attributes="open fx")
                 z-index: 2;
                 overflow: auto;
             }
-            [fx="slide"]{
+            [fx="slide"],
+            [fx="parallax"]{
                 overflow: hidden;
             }
 
@@ -171,7 +172,7 @@ element(name="ui-layout", \attributes="open fx")
         div.ui-layout(open="{{open}}", fx="{{fx}}")
             div.ui-layout-drawer
                 content(select="ui-layout-drawer")
-            div.ui-layout-page#page
+            div.ui-layout-page
                 content(select="ui-layout-page")
 
     script
@@ -183,8 +184,17 @@ element(name="ui-layout", \attributes="open fx")
 
                 this.fx = ['slide','pan','meny','parallax'].indexOf(this.fx) > -1 ? this.fx : 'slide';
 
-                this.$.page.addEventListener('click', function(){
-                    self.open = !self.open;
+                window.addEventListener('keydown', function(e){
+                    switch(e.keyCode){
+                        case 39:
+                            self.open = true;
+                            break;
+                        case 37:
+                            self.open = false;
+                            break;
+                        default:
+                            break;
+                    }
                 });
             }
         });
