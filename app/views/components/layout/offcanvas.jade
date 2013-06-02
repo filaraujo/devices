@@ -41,6 +41,7 @@ element(name="ui-layout", \attributes="open fx")
             }
 
             [fx="pan"],
+            [fx="parallax"] .ui-layout-page,
             [fx="slide"] .ui-layout-page{
                    -ms-transform: translate3d(0,0,0);
                     -moz-transform: translate3d(0,0,0);
@@ -53,6 +54,7 @@ element(name="ui-layout", \attributes="open fx")
             }
 
             [open="true"][fx="pan"],
+            [open="true"][fx="parallax"] .ui-layout-page,
             [open="true"][fx="slide"] .ui-layout-page {
                     -ms-transform: translate3d(300px,0,0);
                     -moz-transform: translate3d(300px,0,0);
@@ -79,6 +81,17 @@ element(name="ui-layout", \attributes="open fx")
                 width: 100%;
             }
 
+            [fx="parallax"] .ui-layout-drawer {
+                    -ms-transform: translate3d(-100px,0,0);
+                    -moz-transform: translate3d(-100px,0,0);
+                    -webkit-transform: translate3d(-100px,0,0);
+                transform: translate3d(-100px,0,0);
+                    -ms-transition: all 1s;
+                    -moz-transition: all 1s;
+                    -webkit-transition: all 1s;
+                transition: all 1s;
+            }
+
             [fx="meny"] .ui-layout-drawer {
                    -ms-transform: translateX(-100%);
                     -moz-transform: translateX(-100%);
@@ -93,11 +106,12 @@ element(name="ui-layout", \attributes="open fx")
                     -webkit-transition: all 1s;
                 transition: all 1s;
             }
-            [fx="meny"][open="true"] .ui-layout-drawer {
-                   -ms-transform: translateX(0);
-                    -moz-transform: translateX(0);
-                    -webkit-transform: translateX(0);
-                transform: translateX(0);
+            [fx="meny"][open="true"] .ui-layout-drawer,
+            [fx="parallax"][open="true"] .ui-layout-drawer {
+                   -ms-transform: translate3d(0,0,0);
+                    -moz-transform: translate3d(0,0,0);
+                    -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
             }
 
             [fx="meny"] .ui-layout-page {
@@ -112,10 +126,10 @@ element(name="ui-layout", \attributes="open fx")
                 height: 100%;
             }
             [fx="meny"][open="true"] .ui-layout-page {
-                    -ms-transform: translateX(300px) rotateY(15deg);
-                    -moz-transform: translateX(300px) rotateY(15deg);
-                    -webkit-transform: translateX(300px) rotateY(15deg);
-                transform: translateX(300px) rotateY(15deg);
+                    -ms-transform: translate3d(300px,0,0) rotateY(15deg);
+                    -moz-transform: translate3d(300px,0,0) rotateY(15deg);
+                    -webkit-transform: translate3d(300px,0,0) rotateY(15deg);
+                transform: translate3d(300px,0,0) rotateY(15deg);
                 overflow: hidden;
             }
 
@@ -166,6 +180,8 @@ element(name="ui-layout", \attributes="open fx")
             fx: 'slide',
             ready: function(){
                 var self = this;
+
+                this.fx = ['slide','pan','meny','parallax'].indexOf(this.fx) > -1 ? this.fx : 'slide';
 
                 this.$.page.addEventListener('click', function(){
                     self.open = !self.open;
