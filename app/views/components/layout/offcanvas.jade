@@ -11,162 +11,10 @@
 
 element(name="ui-layout", \attributes="open fx")
     template
-        style
+        include ../../../assets/stylus/components/layout/offcanvas.styl
+        style.
             @host {
                 * {}
-            }
-
-            .ui-layout {
-                background: #222;
-                min-height: 100%;
-            }
-            .ui-layout-drawer {
-                background: #ccf;
-                border: 1px solid #000;
-                left: 0;
-                bottom: 0;
-                position:fixed;
-                top: 0;
-                width: 300px;
-                overflow: auto;
-            }
-            .ui-layout-page {
-                background: #fcf;
-                border: 1px solid #000;
-                z-index: 2;
-                overflow: auto;
-            }
-            [fx="slide"],
-            [fx="parallax"]{
-                overflow: hidden;
-            }
-
-            [fx="pan"],
-            [fx="parallax"] .ui-layout-page,
-            [fx="slide"] .ui-layout-page{
-                   -ms-transform: translate3d(0,0,0);
-                    -moz-transform: translate3d(0,0,0);
-                    -webkit-transform: translate3d(0,0,0);
-                transform: translate3d(0,0,0);
-                    -ms-transition: all 1s;
-                    -moz-transition: all 1s;
-                    -webkit-transition: all 1s;
-                transition: all 1s;
-            }
-
-            [open="true"][fx="pan"],
-            [open="true"][fx="parallax"] .ui-layout-page,
-            [open="true"][fx="slide"] .ui-layout-page {
-                    -ms-transform: translate3d(300px,0,0);
-                    -moz-transform: translate3d(300px,0,0);
-                    -webkit-transform: translate3d(300px,0,0);
-                transform: translate3d(300px,0,0);
-            }
-
-            [fx="pan"] .ui-layout-drawer {
-                right: 100%;
-                left: inherit;
-            }
-
-            [fx="meny"] {
-                height: 100%;
-                overflow: hidden;
-                    -ms-perspective: 800px;
-                    -moz-perspective: 800px;
-                    -webkit-perspective: 800px;
-                perspective: 800px;
-                    -ms-perspective-origin: 0px 50%;
-                    -moz-perspective-origin: 0px 50%;
-                    -webkit-perspective-origin: 0% 50%;
-                perspective-origin: 0% 50%;
-                width: 100%;
-            }
-
-            [fx="parallax"] .ui-layout-drawer {
-                    -ms-transform: translate3d(-100px,0,0);
-                    -moz-transform: translate3d(-100px,0,0);
-                    -webkit-transform: translate3d(-100px,0,0);
-                transform: translate3d(-100px,0,0);
-                    -ms-transition: all 1s;
-                    -moz-transition: all 1s;
-                    -webkit-transition: all 1s;
-                transition: all 1s;
-            }
-
-            [fx="meny"] .ui-layout-drawer {
-                   -ms-transform: translateX(-100%);
-                    -moz-transform: translateX(-100%);
-                    -webkit-transform: translateX(-100%);
-                transform: translateX(-100%);
-                    -ms-transform-origin: 100% 50%;
-                    -moz-transform-origin: 100% 50%;
-                    -webkit-transform-origin: 100% 50%;
-                transform-origin: 100% 50%;
-                    -ms-transition: all 1s;
-                    -moz-transition: all 1s;
-                    -webkit-transition: all 1s;
-                transition: all 1s;
-            }
-            [fx="meny"][open="true"] .ui-layout-drawer,
-            [fx="parallax"][open="true"] .ui-layout-drawer {
-                   -ms-transform: translate3d(0,0,0);
-                    -moz-transform: translate3d(0,0,0);
-                    -webkit-transform: translate3d(0,0,0);
-                transform: translate3d(0,0,0);
-            }
-
-            [fx="meny"] .ui-layout-page {
-                    -ms-transform-origin: 0px 50%;
-                    -moz-transform-origin: 0px 50%;
-                    -webkit-transform-origin: 0px 50%;
-                transform-origin: 0px 50%;
-                    -ms-transition: all 1s, height 0s;
-                    -moz-transition: all 1s, height 0s;
-                    -webkit-transition: all 1s, height 0s;
-                transition: all 1s, height 0s;
-                height: 100%;
-            }
-            [fx="meny"][open="true"] .ui-layout-page {
-                    -ms-transform: translate3d(300px,0,0) rotateY(15deg);
-                    -moz-transform: translate3d(300px,0,0) rotateY(15deg);
-                    -webkit-transform: translate3d(300px,0,0) rotateY(15deg);
-                transform: translate3d(300px,0,0) rotateY(15deg);
-                overflow: hidden;
-            }
-
-            [fx="meny"] .ui-layout-page:after {
-                background-image: -webkit-linear-gradient(
-                    left,
-                    rgba(0, 0, 0, 0) 0%,
-                    rgba(0, 0, 0, .2) 20%,
-                    rgba(0, 0, 0, .6) 100%);
-                background-image: linear-gradient(
-                    left,
-                    rgba(0, 0, 0, 0) 0%,
-                    rgba(0, 0, 0, .2) 20%,
-                    rgba(0, 0, 0, .6) 100%);
-                bottom: 0;
-                content: '';
-                left: 0%;
-                opacity: 0;
-                position: absolute;
-                right: 0;
-                top: 0;
-                    -ms-transition: all 1s;
-                    -moz-transition: all 1s;
-                    -webkit-transition: all 1s;
-                transition: all 1s;
-                    -moz-transform: translate3d(100%, 0, 0);
-                    -ms-transform: translate3d(100%, 0, 0);
-                    -webkit-transform: translate3d(100%, 0, 0);
-                transform: translate3d(100%, 0, 0);
-            }
-            [fx="meny"][open=true] .ui-layout-page:after {
-                opacity: 1;
-                    -moz-transform: translate3d(50%,0,0);
-                    -ms-transform: translate3d(50%,0,0);
-                    -webkit-transform: translate3d(50%,0,0);
-                transform: translate3d(50%,0,0);
             }
 
         div.ui-layout(open="{{open}}", fx="{{fx}}")
@@ -175,7 +23,7 @@ element(name="ui-layout", \attributes="open fx")
             div.ui-layout-page
                 content(select="ui-layout-page")
 
-    script
+    script.
         Polymer.register(this, {
             open: false,
             fx: 'slide',

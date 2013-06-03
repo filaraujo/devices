@@ -1,7 +1,7 @@
 //- note the \, used for escaping attributes, jade hates it
 element(name="sg-tabs", \attributes="name nameColor")
     template
-        style
+        style.
             @host {
             }
             div {
@@ -14,7 +14,7 @@ element(name="sg-tabs", \attributes="name nameColor")
         div
             content(select="div")
 
-    script
+    script.
         Polymer.register(this, {
             ready: function(){
             }
