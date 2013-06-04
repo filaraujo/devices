@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"e",
+				"addEventListener"
+			],
+			[
+				"sg-l",
+				"sg-layout-drawer"
+			],
+			[
 				"ua",
 				"uaObj"
 			],
@@ -295,31 +303,25 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app/views/components/tabs.jade",
-			"settings":
-			{
-				"buffer_size": 332,
-				"line_ending": "Unix",
-				"name": "tabs.jade"
-			}
-		},
-		{
-			"file": "app/views/playground.jade",
-			"settings":
-			{
-				"buffer_size": 253,
-				"line_ending": "Unix",
-				"name": "playground.jade"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 67.0,
 		"selected_items":
 		[
+			[
+				"git chec",
+				"Git: Checkout Current File"
+			],
+			[
+				"local",
+				"Local History: Open"
+			],
+			[
+				"lore",
+				"LoremIpsum: (200) stick shake"
+			],
 			[
 				"pack in",
 				"Package Control: Install Package"
@@ -505,16 +507,8 @@
 				"Package Control: Install Package"
 			],
 			[
-				"git chec",
-				"Git: Checkout Current File"
-			],
-			[
 				"pack re",
 				"Package Control: Remove Package"
-			],
-			[
-				"local",
-				"Local History: Open"
 			],
 			[
 				"locl",
@@ -686,23 +680,51 @@
 	},
 	"file_history":
 	[
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/playground.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/layout/offcanvas.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylus/components/layout/offcanvas.styl",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/lib/routes.js",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/lib/config.js",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/package.json",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app.js",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-toolbar.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-overlay.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/javascripts/vendor/polymer-all/polymer/platform/HTMLImports/src/HTMLImports.js",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-panels.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-tabpanels.html",
+		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/layout/2013-05-31_22.54.45.offcanvas.jade",
+		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/layout/2013-05-31_23.13.01.offcanvas.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-menu-item.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-menu.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/layout/drawer.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/css/g-overlay.css",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/tabs.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-checkbox.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-ratings.html",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/layout.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/README.md",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-ribbon.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets/style.styl",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/getting_started/index.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-tabs.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-sidebar.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-radio.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-field.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-menu-button.html",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/profile.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/controllers/device.controller.js",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/list.jade",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/index.jade",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/node-forums/node_modules/jade/lib/jade.js",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/node-forums/node_modules/jade/jade.js",
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/lib/routes.js",
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/controllers/device.controller.js",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/models/device.schema.js",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/helpers/device.helper.js",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/_details.jade",
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/profile.jade",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/javascripts/vendor/modernizr.custom.js",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/features.jade",
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets/style.styl",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/_feature.jade",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device/summary.jade",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/javascripts/device.js",
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/package.json",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/device.jade",
 		"/Users/Filipe.Araujo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/devices.sublime-project",
@@ -785,35 +807,7 @@
 		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/browse/iframe.ftl",
 		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/sprint/ctv.properties",
 		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/sprint/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/cime/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/dnv/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/dev/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/cime/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/mr/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/load/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/mr/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/load/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/dnv/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/dev/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/fonts/xfinitysans-med-webfont.svg",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/icons.css",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/demo/fonts/index.ftl",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/pages/popups/commonsense.ftl",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/pages/entity.css",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/components/tracking/spotlight_tag.ftl",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/streampix/family_and_kids/family_and_kids_hd_and_cc.feature",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.browse.db.spec.js",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/test/javascript/envjasmine/specs/xtv.browse.db.filter.spec.js",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/iframe/xtv3.0/header.ftl",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/xtv3.0/components/shared/header.ftl",
-		"/Users/Filipe.Araujo/Comcast/xtv/pom.xml",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/styles/xtv3.0/base.css",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/xtv3.0/services/browse/browsedb.ftl",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/demo/entity_thumbnail.html",
-		"/Users/Filipe.Araujo/Comcast/xtv/target/ROOT/js/xtv.browse.db.filter.js",
-		"/Users/Filipe.Araujo/Comcast/xtv/target/ROOT/js/xtv3.0/tvlistings/fc.tvlistings.filters.js",
-		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/2013-05-01_13.16.55.xtv.browse.db.js",
-		"/Users/Filipe.Araujo/.sublime/history/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/2013-05-01_11.11.48.xtv.browse.db.js"
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/cime/ctv.properties"
 	],
 	"find":
 	{
@@ -821,9 +815,15 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylus/components/layout",
+			"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets/components",
+			"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements",
+			"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui",
+			"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements",
+			"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui",
 			"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices",
 			"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber",
 			"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features",
@@ -950,6 +950,26 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			";",
+			":\\s",
+			":",
+			";",
+			"drawer-width",
+			"meny-perspective",
+			".styl",
+			"pointer",
+			"touch",
+			"touch-action",
+			"position: fixed",
+			"fixed",
+			"distrib",
+			"extends",
+			"valueChanged",
+			"countChanged",
+			"insert",
+			"countChanged",
+			"items",
+			"content",
 			"eval",
 			"$",
 			"features",
@@ -1057,34 +1077,18 @@
 			"Global header Streampix bar links",
 			"store.url",
 			"store.base.url",
-			"url",
-			"store",
-			"store.url",
-			"slide-in",
-			"article",
-			"console.log",
-			"checkbox",
-			"fancastSlider",
-			"popups",
-			"popups/cms",
-			"popups/csm",
-			"hd",
-			"-hd",
-			"cc",
-			"closed cap",
-			"The HD filter should",
-			"filterAvailable",
-			"alert",
-			"alert('t')",
-			"currentFilterT",
-			"is-active"
+			"url"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			" ",
+			"",
+			"drawerWidth",
+			"menyPerspective",
 			">= ",
 			"movie_db_xtv3.widget",
 			"full_tvepisodes_db_xtv3.widget",
@@ -1104,379 +1108,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/views/components/tabs.jade",
-					"settings":
-					{
-						"buffer_size": 332,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								154,
-								154
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"auto_name": "tabs.jade",
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"asi": false,
-								"bitwise": true,
-								"boss": false,
-								"browser": true,
-								"curly": true,
-								"debug": false,
-								"devel": false,
-								"eqeqeq": true,
-								"eqnull": false,
-								"es5": false,
-								"esnext": false,
-								"evil": false,
-								"expr": false,
-								"forin": true,
-								"funcscope": false,
-								"globalstrict": false,
-								"immed": true,
-								"iterator": false,
-								"jquery": true,
-								"lastsemic": false,
-								"latedef": true,
-								"laxbreak": false,
-								"laxcomma": false,
-								"loopfunc": false,
-								"multistr": false,
-								"newcap": true,
-								"noarg": true,
-								"node": false,
-								"noempty": false,
-								"nonew": true,
-								"nonstandard": false,
-								"onecase": false,
-								"plusplus": false,
-								"predef":
-								[
-									"CIM",
-									"XTV",
-									"User",
-									"settings",
-									"entity",
-									"Modernizr",
-									"$",
-									"jQuery",
-									"require",
-									"process",
-									"module",
-									"__dirname",
-									"confirm",
-									"alert",
-									"jasmine",
-									"spyOn",
-									"it",
-									"console",
-									"describe",
-									"expect",
-									"beforeEach",
-									"waits",
-									"waitsFor",
-									"runs"
-								],
-								"proto": false,
-								"prototypejs": false,
-								"regexdash": false,
-								"regexp": true,
-								"scripturl": false,
-								"shadow": false,
-								"smarttabs": true,
-								"strict": false,
-								"sub": false,
-								"supernew": false,
-								"trailing": true,
-								"undef": true,
-								"unused": true,
-								"white": false,
-								"withstmt": false
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "fill",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": true,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/views/playground.jade",
-					"settings":
-					{
-						"buffer_size": 253,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								234,
-								234
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"auto_name": "playground.jade",
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"asi": false,
-								"bitwise": true,
-								"boss": false,
-								"browser": true,
-								"curly": true,
-								"debug": false,
-								"devel": false,
-								"eqeqeq": true,
-								"eqnull": false,
-								"es5": false,
-								"esnext": false,
-								"evil": false,
-								"expr": false,
-								"forin": true,
-								"funcscope": false,
-								"globalstrict": false,
-								"immed": true,
-								"iterator": false,
-								"jquery": true,
-								"lastsemic": false,
-								"latedef": true,
-								"laxbreak": false,
-								"laxcomma": false,
-								"loopfunc": false,
-								"multistr": false,
-								"newcap": true,
-								"noarg": true,
-								"node": false,
-								"noempty": false,
-								"nonew": true,
-								"nonstandard": false,
-								"onecase": false,
-								"plusplus": false,
-								"predef":
-								[
-									"CIM",
-									"XTV",
-									"User",
-									"settings",
-									"entity",
-									"Modernizr",
-									"$",
-									"jQuery",
-									"require",
-									"process",
-									"module",
-									"__dirname",
-									"confirm",
-									"alert",
-									"jasmine",
-									"spyOn",
-									"it",
-									"console",
-									"describe",
-									"expect",
-									"beforeEach",
-									"waits",
-									"waitsFor",
-									"runs"
-								],
-								"proto": false,
-								"prototypejs": false,
-								"regexdash": false,
-								"regexp": true,
-								"scripturl": false,
-								"shadow": false,
-								"smarttabs": true,
-								"strict": false,
-								"sub": false,
-								"supernew": false,
-								"trailing": true,
-								"undef": true,
-								"unused": true,
-								"white": false,
-								"withstmt": false
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "fill",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": true,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1530,6 +1163,38 @@
 		"selected_items":
 		[
 			[
+				"pack",
+				"devices/package.json"
+			],
+			[
+				"route",
+				"devices/lib/routes.js"
+			],
+			[
+				"config",
+				"devices/lib/config.js"
+			],
+			[
+				"app",
+				"devices/app.js"
+			],
+			[
+				"htmlim",
+				"devices/app/assets/javascripts/vendor/polymer-all/polymer/platform/HTMLImports/src/HTMLImports.js"
+			],
+			[
+				"play",
+				"devices/app/views/playground.jade"
+			],
+			[
+				"routes",
+				"devices/lib/routes.js"
+			],
+			[
+				".styl",
+				"devices/app/assets/stylesheets/style.styl"
+			],
+			[
 				"jade.js",
 				"node-forums/node_modules/jade/lib/jade.js"
 			],
@@ -1540,18 +1205,6 @@
 			[
 				"routes.js",
 				"devices/lib/routes.js"
-			],
-			[
-				"routes",
-				"devices/lib/routes.js"
-			],
-			[
-				"route",
-				"lib/routes.js"
-			],
-			[
-				"pack",
-				"package.json"
 			],
 			[
 				"xfinit.xml",
@@ -2020,26 +1673,6 @@
 			[
 				"wro.p",
 				"src/main/webapp/WEB-INF/wro.properties"
-			],
-			[
-				"demo.cs",
-				"src/main/webapp/styles/demo/responsive/base.css"
-			],
-			[
-				"base.cs",
-				"src/main/webapp/styles/xtv3.0/base.css"
-			],
-			[
-				"run",
-				"runserver.sh"
-			],
-			[
-				"base",
-				"src/main/webapp/styles/xtv3.0/base.css"
-			],
-			[
-				"wro.xml",
-				"src/main/webapp/WEB-INF/wro.xml"
 			]
 		],
 		"width": 0.0
@@ -2060,6 +1693,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 312.0,
+	"side_bar_width": 163.0,
 	"status_bar_visible": true
 }

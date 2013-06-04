@@ -1,0 +1,49 @@
+// variables
+modalBorderRadius = 4px
+modalOuterMargin = 20px
+modalInnerPadding = 20px
+
+
+// styles
+.ui-modal
+    background: #fff
+    border-radius modalBorderRadius
+    box-sizing border-box
+    display none;
+    -moz-flex-flow column nowrap
+    -ms-flex-flow column nowrap
+    -webkit-flex-flow column nowrap
+    flex-flow column nowrap
+    max-height 100%
+    min-height 300px
+    min-width 300px
+    overflow hidden
+
+    [open="true"]&
+        display -moz-flex;
+        display -ms-flex;
+        display -webkit-flex;
+        display flex;
+
+.ui-modal-header
+    -webkit-flex none
+    flex none
+    padding 10px 16px
+
+.ui-modal-body
+    border-top 1px solid #aaa
+    -webkit-flex 1 1 auto
+    flex 1 1 auto
+    overflow scroll
+    padding 10px 16px
+
+.ui-modal-footer
+    background #ddd
+    -webkit-flex none
+    flex none
+    padding 12px 16px 14px
+
+
+
+
+
