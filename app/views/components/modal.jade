@@ -5,32 +5,23 @@ element(name="ui-modal", \attributes="open")
 
             @host {
                 * {
-                    background: #000;
                     bottom: 0;
-                    -webkit-align-items: center;
-                    align-items: center;
-                    -webkit-justify-content: center;
-                    justify-content: center;
-                    display: -moz-flex;
-                    display: -ms-flex;
-                    display: -webkit-flex;
-                    display: flex;
                     left: 0;
-                    opacity: .8;
-                    padding: 20px;
                     position: fixed;
                     right: 0;
                     top: 0;
+                    z-index: 1000
                 }
             }
 
         .ui-modal(open="{{open}}")
-            .ui-modal-header
-                content(select="ui-modal-header")
-            .ui-modal-body
-                content(select="ui-modal-body")
-            .ui-modal-footer
-                content(select="ui-modal-footer")
+            .ui-modal-content
+                .ui-modal-header
+                    content(select="ui-modal-header")
+                .ui-modal-body
+                    content(select="ui-modal-body")
+                .ui-modal-footer
+                    content(select="ui-modal-footer")
 
     script.
         Polymer.register(this, {

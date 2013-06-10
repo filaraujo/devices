@@ -6,6 +6,24 @@ modalInnerPadding = 20px
 
 // styles
 .ui-modal
+    background: #000
+    bottom: 0;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    left: 0;
+    // opacity: .8;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+.ui-modal-content
     background: #fff
     border-radius modalBorderRadius
     box-sizing border-box
@@ -19,7 +37,7 @@ modalInnerPadding = 20px
     min-width 300px
     overflow hidden
 
-    [open="true"]&
+    [open="true"].ui-modal &
         display -moz-flex;
         display -ms-flex;
         display -webkit-flex;

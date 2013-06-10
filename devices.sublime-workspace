@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"mod",
+				"modalInnerPadding"
+			],
+			[
 				"e",
 				"addEventListener"
 			],
@@ -303,6 +307,23 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/assets/stylus/components/modal.styl",
+			"settings":
+			{
+				"buffer_size": 1239,
+				"line_ending": "Unix",
+				"name": "modal.styl"
+			}
+		},
+		{
+			"file": "app/views/playground.jade",
+			"settings":
+			{
+				"buffer_size": 71012,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -680,10 +701,14 @@
 	},
 	"file_history":
 	[
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/playground.jade",
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/layout/offcanvas.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets/style.styl",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/modal.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/webComponents/public/stylesheets/style.styl",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets/normalize.css",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylus/components/layout/offcanvas.styl",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/lib/routes.js",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/playground.jade",
+		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/components/layout/offcanvas.jade",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/lib/config.js",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/package.json",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app.js",
@@ -704,7 +729,6 @@
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/views/layout.jade",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/README.md",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-ribbon.html",
-		"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets/style.styl",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/getting_started/index.html",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-tabs.html",
 		"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements/g-sidebar.html",
@@ -804,10 +828,7 @@
 		"/Users/Filipe.Araujo/Comcast/xtv/src/test/cucumber/features/xtv/homepage/homepage.feature",
 		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/js/xtv.browse.js",
 		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/applicationContext.xml",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/browse/iframe.ftl",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/sprint/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/classes/conf/sprint/ctv.properties",
-		"/Users/Filipe.Araujo/Comcast/xtv/src/main/resources/conf/cime/ctv.properties"
+		"/Users/Filipe.Araujo/Comcast/xtv/src/main/webapp/WEB-INF/templates/browse/iframe.ftl"
 	],
 	"find":
 	{
@@ -815,9 +836,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
+			"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets, *.styl",
 			"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylus/components/layout",
 			"/Users/Filipe.Araujo/Dropbox/Development/Personal/devices/app/assets/stylesheets/components",
 			"/Users/Filipe.Araujo/Dropbox/Development/Personal/toolkit-ui/elements",
@@ -950,6 +972,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			":",
 			";",
 			":\\s",
 			":",
@@ -1076,8 +1099,7 @@
 			"rotten.tomatoes.enabled",
 			"Global header Streampix bar links",
 			"store.url",
-			"store.base.url",
-			"url"
+			"store.base.url"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1111,6 +1133,385 @@
 			"sheets":
 			[
 			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/assets/stylus/components/modal.styl",
+					"settings":
+					{
+						"buffer_size": 1239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								478,
+								478
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"auto_name": "modal.styl",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": false,
+								"bitwise": true,
+								"boss": false,
+								"browser": true,
+								"curly": true,
+								"debug": false,
+								"devel": false,
+								"eqeqeq": true,
+								"eqnull": false,
+								"es5": false,
+								"esnext": false,
+								"evil": false,
+								"expr": false,
+								"forin": true,
+								"funcscope": false,
+								"globalstrict": false,
+								"immed": true,
+								"iterator": false,
+								"jquery": true,
+								"lastsemic": false,
+								"latedef": true,
+								"laxbreak": false,
+								"laxcomma": false,
+								"loopfunc": false,
+								"multistr": false,
+								"newcap": true,
+								"noarg": true,
+								"node": false,
+								"noempty": false,
+								"nonew": true,
+								"nonstandard": false,
+								"onecase": false,
+								"plusplus": false,
+								"predef":
+								[
+									"CIM",
+									"XTV",
+									"User",
+									"settings",
+									"entity",
+									"Modernizr",
+									"$",
+									"jQuery",
+									"require",
+									"process",
+									"module",
+									"__dirname",
+									"confirm",
+									"alert",
+									"jasmine",
+									"spyOn",
+									"it",
+									"console",
+									"describe",
+									"expect",
+									"beforeEach",
+									"waits",
+									"waitsFor",
+									"runs"
+								],
+								"proto": false,
+								"prototypejs": false,
+								"regexdash": false,
+								"regexp": true,
+								"scripturl": false,
+								"shadow": false,
+								"smarttabs": true,
+								"strict": false,
+								"sub": false,
+								"supernew": false,
+								"trailing": true,
+								"undef": true,
+								"unused": true,
+								"white": false,
+								"withstmt": false
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "fill",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": true,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Stylus/Stylus.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 99.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/playground.jade",
+					"settings":
+					{
+						"buffer_size": 71012,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": false,
+								"bitwise": true,
+								"boss": false,
+								"browser": true,
+								"curly": true,
+								"debug": false,
+								"devel": false,
+								"eqeqeq": true,
+								"eqnull": false,
+								"es5": false,
+								"esnext": false,
+								"evil": false,
+								"expr": false,
+								"forin": true,
+								"funcscope": false,
+								"globalstrict": false,
+								"immed": true,
+								"iterator": false,
+								"jquery": true,
+								"lastsemic": false,
+								"latedef": true,
+								"laxbreak": false,
+								"laxcomma": false,
+								"loopfunc": false,
+								"multistr": false,
+								"newcap": true,
+								"noarg": true,
+								"node": false,
+								"noempty": false,
+								"nonew": true,
+								"nonstandard": false,
+								"onecase": false,
+								"plusplus": false,
+								"predef":
+								[
+									"CIM",
+									"XTV",
+									"User",
+									"settings",
+									"entity",
+									"Modernizr",
+									"$",
+									"jQuery",
+									"require",
+									"process",
+									"module",
+									"__dirname",
+									"confirm",
+									"alert",
+									"jasmine",
+									"spyOn",
+									"it",
+									"console",
+									"describe",
+									"expect",
+									"beforeEach",
+									"waits",
+									"waitsFor",
+									"runs"
+								],
+								"proto": false,
+								"prototypejs": false,
+								"regexdash": false,
+								"regexp": true,
+								"scripturl": false,
+								"shadow": false,
+								"smarttabs": true,
+								"strict": false,
+								"sub": false,
+								"supernew": false,
+								"trailing": true,
+								"undef": true,
+								"unused": true,
+								"white": false,
+								"withstmt": false
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "fill",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": true,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 4.0,
+						"translation.y": 81.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
 		}
 	],
 	"incremental_find":
@@ -1130,11 +1531,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1162,6 +1570,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"style.s",
+				"devices/app/assets/stylesheets/style.styl"
+			],
+			[
+				"routes.js",
+				"devices/lib/routes.js"
+			],
 			[
 				"pack",
 				"devices/package.json"
@@ -1201,10 +1617,6 @@
 			[
 				"device.con",
 				"devices/app/controllers/device.controller.js"
-			],
-			[
-				"routes.js",
-				"devices/lib/routes.js"
 			],
 			[
 				"xfinit.xml",
@@ -1669,10 +2081,6 @@
 			[
 				"core.css",
 				"target/ROOT/static/css/core.css"
-			],
-			[
-				"wro.p",
-				"src/main/webapp/WEB-INF/wro.properties"
 			]
 		],
 		"width": 0.0
