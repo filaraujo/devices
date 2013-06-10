@@ -6,7 +6,8 @@ mixin details(details, type)
                     span #{type}.#{id}
                     mixin details(details[id], type+'.'+id)
             else
-                mixin detail(id, value, type)
+                if(typeof value != "function")
+                    mixin detail(id, value, type)
 
 mixin detail(id, value, type)
     div.detail
