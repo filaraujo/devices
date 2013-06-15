@@ -91,6 +91,8 @@ var Device = new Schema({
             }
         }
     },
+    javascript: {
+    },
     system: {
         type: Object,
         major: String,

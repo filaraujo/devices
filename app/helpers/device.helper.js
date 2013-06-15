@@ -109,11 +109,18 @@ var htmlFeatures = function(props){
 };
 
 
+var javascriptFeatures = function(props){
+    return {
+    };
+};
+
+
 
 module.exports = function(){
     this.setFeatures = function(props){
         this.css = cssFeatures(props);
-        this.html = validate(htmlFeatures(props), 'form');
+        this.html = htmlFeatures(props);
+        this.javascript = javascriptFeatures(props);
     };
 
     this.setUserAgent = function(uaObj){

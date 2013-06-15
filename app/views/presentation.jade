@@ -1,0 +1,13 @@
+extends layout
+
+
+block append head-js
+    script(src="javascripts/vendor/polymer-all/polymer/polymer.js")
+
+block append html-import
+    link(rel="import", href="/components/presentation/slides")
+
+block content
+    ui-slides
+        ui-slide
+            | test
