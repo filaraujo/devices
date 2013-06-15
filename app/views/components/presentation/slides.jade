@@ -1,5 +1,91 @@
-element(name="ui-slide", \attributes="")
+element(name="ui-slides", \attributes="")
     template
-        div
+        include ../../../assets/stylus/components/presentation/slides.styl
 
-    script
+        .ui-slides
+            content#content
+
+    script.
+        Polymer.register(this, {
+            index: 0,
+
+            ready: function(){
+                this.slides = this.$.content.getDistributedNodes();
+                document.addEventListener('keydown', this.onKeyDown.bind(this), false);
+                this.update();
+            },
+
+            /**
+             * set index to next
+             */
+            next: function(){
+                if(this.index >= this.slides.length -1){
+                    console.log('at end')
+                    return;
+                }
+                this.index++;
+                this.update();
+            },
+
+            onKeyDown: function(e){
+                console.log(e.keyCode);
+
+                switch(e.keyCode){
+                    case 32: // space
+                    case 39: // right arrow
+                    case 34: // pagedown
+                        this.next();
+                        e.preventDefault();
+                        break;
+
+                    case 8:  // backspace
+                    case 33: // pageup
+                    case 37: // left arrow
+                      this.previous();
+                      e.preventDefault();
+                      break;
+                }
+
+            },
+
+            /**
+             * set index to previous
+             */
+            previous: function(){
+                if(this.index === 0){
+                    console.log('at beginning')
+                    return;
+                }
+                this.index--;
+                this.update();
+            },
+
+            /**
+             * update slidedeck
+             */
+            update: function(){
+                var scope = this;
+
+                this.slides.forEach(function(i, index){
+                    switch(index - scope.index){
+                        case -1:
+                            i.setstate = 'ui-slide-past';
+                            break;
+                        case 0:
+                            i.state = 'ui-slide-current';
+                            i.loaded = true;
+                            break;
+                        case 1:
+                            i.state = 'ui-slide-next';
+                            break;
+                        case 2:
+                            i.state = 'ui-slide-far-next';
+                            break;
+                        default:
+                            i.state = '';
+                            break;
+                    }
+                });
+            }
+
+        });

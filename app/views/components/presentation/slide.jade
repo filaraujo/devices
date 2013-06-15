@@ -1,2 +1,14 @@
-div
-    | test
+element(name="ui-slide")
+    template
+        include ../../../assets/stylus/components/presentation/slide.styl
+
+        .ui-slide(state="{{state}}", loaded="{{loaded}}")
+            content
+
+    script.
+        Polymer.register(this, {
+            state: '',
+            loaded: false,
+            ready: function(){
+            }
+        });
