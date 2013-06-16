@@ -13,8 +13,11 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
             .ui-slide-item-pending {
                 opacity: 0;
             }
-            .ui-slide-item-fade:not(.ui-slide-item-pending) {
-                opacity: .4;
+            .ui-slide-item-done {
+                opacity: 1;
+            }
+            .ui-slide-item-done.ui-slide-item-fade {
+                opacity: .3;
             }
 
 
@@ -28,7 +31,7 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
             build: true,
             center: false,
             loaded: false,
-            slideItems: [],
+            items: [],
             state: '',
             vcenter: false,
             /**
@@ -40,17 +43,20 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                 }
             },
 
+            /**
+             * build items
+             */
             buildItems: function(){
-                var items = this.querySelectorAll('ui-slide-items'),
+                var slideItems = this.querySelectorAll('ui-slide-items'),
                     scope = this;
 
-                items.forEach(function(i){
+                slideItems.forEach(function(i){
                     var selector = i.getAttribute('selector'),
                         fx = i.getAttribute('fx');
 
-                    scope.slideItems = selector ? i.querySelectorAll(selector) : i.childNodes;
+                    scope.items = selector ? i.querySelectorAll(selector) : i.childNodes;
 
-                    scope.slideItems.forEach(function(j){
+                    scope.items.forEach(function(j){
                         j.classList.add('ui-slide-item','ui-slide-item-pending');
 
                         if(fx){
@@ -58,7 +64,6 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                         }
                     });
                 });
-
             },
 
             /**
@@ -66,14 +71,19 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
              * @return [Boolean]
              */
             nextItem: function(){
-
-                if(!this.slideItems.length){
+                if(!this.items.length){
                     return false;
                 }
 
-                this.slideItems[0].classList.remove('ui-slide-item-pending');
-                // splice doesn't work for a reason
-                this.slideItems = Array.prototype.slice.call(this.slideItems, 1);
-                return true;
+                return Array.prototype.some.call(this.items, function(i){
+                    if(i.classList.contains('ui-slide-item-pending')){
+                        i.classList.remove('ui-slide-item-pending');
+                        return true;
+                    }
+                    if(!i.classList.contains('ui-slide-item-done')){
+                        console.log(i);
+                        i.classList.add('ui-slide-item-done');
+                    }
+                });
             }
         });
