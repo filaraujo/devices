@@ -1,15 +1,79 @@
-element(name="ui-slide", \attributes="background backdrop")
+element(name="ui-slide", \attributes="background backdrop build center vcenter")
     template
         include ../../../assets/stylus/components/presentation/slide.styl
 
-        .ui-slide(state="{{state}}", loaded="{{loaded}}", background="{{background}}")
+        style(polymer-scope="global").
+            .ui-slide-item {
+                -ms-transition: opacity 0.6s ease-in-out;
+                -moz-transition: opacity 0.6s ease-in-out;
+                -webkit-transition: opacity 0.6s ease-in-out;
+                transition: opacity 0.6s ease-in-out;
+
+            }
+            .ui-slide-item-pending {
+                opacity: 0;
+            }
+            .ui-slide-item-fade:not(.ui-slide-item-pending) {
+                opacity: .4;
+            }
+
+
+        .ui-slide(state="{{state}}", loaded="{{loaded}}", background="{{background}}",  build="{{build}}", center="{{center}}", vcenter="{{vcenter}}")
             content
 
     script.
         Polymer.register(this, {
             backdrop: true,
             background: true,
+            build: true,
+            center: false,
             loaded: false,
+            slideItems: [],
             state: '',
-            ready: function(){}
+            vcenter: false,
+            /**
+             * polymer init
+             */
+            ready: function(){
+                if(this.build){
+                    this.buildItems();
+                }
+            },
+
+            buildItems: function(){
+                var items = this.querySelectorAll('ui-slide-items'),
+                    scope = this;
+
+                items.forEach(function(i){
+                    var selector = i.getAttribute('selector'),
+                        fx = i.getAttribute('fx');
+
+                    scope.slideItems = selector ? i.querySelectorAll(selector) : i.childNodes;
+
+                    scope.slideItems.forEach(function(j){
+                        j.classList.add('ui-slide-item','ui-slide-item-pending');
+
+                        if(fx){
+                            j.classList.add('ui-slide-item-'+fx);
+                        }
+                    });
+                });
+
+            },
+
+            /**
+             * [ description]
+             * @return [Boolean]
+             */
+            nextItem: function(){
+
+                if(!this.slideItems.length){
+                    return false;
+                }
+
+                this.slideItems[0].classList.remove('ui-slide-item-pending');
+                // splice doesn't work for a reason
+                this.slideItems = Array.prototype.slice.call(this.slideItems, 1);
+                return true;
+            }
         });

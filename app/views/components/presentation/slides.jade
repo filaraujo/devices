@@ -39,6 +39,9 @@ element(name="ui-slides", \attributes="")
                     console.log('at end');
                     return;
                 }
+                if(this.slides[this.index].nextItem()){
+                    return;
+                }
                 this.index++;
                 this.update();
             },
