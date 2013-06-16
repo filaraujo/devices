@@ -1,14 +1,15 @@
-element(name="ui-slide")
+element(name="ui-slide", \attributes="background backdrop")
     template
         include ../../../assets/stylus/components/presentation/slide.styl
 
-        .ui-slide(state="{{state}}", loaded="{{loaded}}")
+        .ui-slide(state="{{state}}", loaded="{{loaded}}", background="{{background}}")
             content
 
     script.
         Polymer.register(this, {
-            state: '',
+            backdrop: true,
+            background: true,
             loaded: false,
-            ready: function(){
-            }
+            state: '',
+            ready: function(){}
         });

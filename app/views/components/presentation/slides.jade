@@ -2,13 +2,29 @@ element(name="ui-slides", \attributes="")
     template
         include ../../../assets/stylus/components/presentation/slides.styl
 
-        .ui-slides
+        .ui-slides(backdrop="{{backdrop}}")
             content#content
 
     script.
         Polymer.register(this, {
+            backdrop: true,
             index: 0,
 
+            /**
+             * slide states
+             * @type {Object}
+             */
+            states: {
+                '-2': 'far-past',
+                '-1': 'past',
+                '0': 'current',
+                '1': 'next',
+                '2': 'far-next'
+            },
+
+            /**
+             * polymer init
+             */
             ready: function(){
                 this.slides = this.$.content.getDistributedNodes();
                 document.addEventListener('keydown', this.onKeyDown.bind(this), false);
@@ -20,20 +36,26 @@ element(name="ui-slides", \attributes="")
              */
             next: function(){
                 if(this.index >= this.slides.length -1){
-                    console.log('at end')
+                    console.log('at end');
                     return;
                 }
                 this.index++;
                 this.update();
             },
 
+            /**
+             * on key down handler
+             */
             onKeyDown: function(e){
-                console.log(e.keyCode);
+                if(/^(input|textarea)$/i.test(e.target.nodeName) || e.target.isContentEditable){
+                    return false;
+                }
 
                 switch(e.keyCode){
                     case 32: // space
-                    case 39: // right arrow
                     case 34: // pagedown
+                    case 39: // right arrow
+                    case 40: // down arrow
                         this.next();
                         e.preventDefault();
                         break;
@@ -41,11 +63,11 @@ element(name="ui-slides", \attributes="")
                     case 8:  // backspace
                     case 33: // pageup
                     case 37: // left arrow
+                    case 38: // up arrow
                       this.previous();
                       e.preventDefault();
                       break;
                 }
-
             },
 
             /**
@@ -53,7 +75,7 @@ element(name="ui-slides", \attributes="")
              */
             previous: function(){
                 if(this.index === 0){
-                    console.log('at beginning')
+                    console.log('at beginning');
                     return;
                 }
                 this.index--;
@@ -67,23 +89,13 @@ element(name="ui-slides", \attributes="")
                 var scope = this;
 
                 this.slides.forEach(function(i, index){
-                    switch(index - scope.index){
-                        case -1:
-                            i.setstate = 'ui-slide-past';
-                            break;
-                        case 0:
-                            i.state = 'ui-slide-current';
-                            i.loaded = true;
-                            break;
-                        case 1:
-                            i.state = 'ui-slide-next';
-                            break;
-                        case 2:
-                            i.state = 'ui-slide-far-next';
-                            break;
-                        default:
-                            i.state = '';
-                            break;
+                    var state = scope.states[index - scope.index];
+
+                    i.state = state ? 'ui-slide-'+state : '';
+
+                    if(state === 'current'){
+                        i.loaded = true;
+                        scope.backdrop = i.backdrop;
                     }
                 });
             }
