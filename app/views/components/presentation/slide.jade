@@ -2,13 +2,17 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
     template
         include ../../../assets/stylus/components/presentation/slide.styl
 
+        style.
+            position: absolute;
+            top: 0;
+
+        // hack for ::distributed style, not yet supported
         style(polymer-scope="global").
             .ui-slide-item {
                 -ms-transition: opacity 0.6s ease-in-out;
                 -moz-transition: opacity 0.6s ease-in-out;
                 -webkit-transition: opacity 0.6s ease-in-out;
                 transition: opacity 0.6s ease-in-out;
-
             }
             .ui-slide-item-pending {
                 opacity: 0;
@@ -20,8 +24,7 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                 opacity: .3;
             }
 
-
-        .ui-slide(state="{{state}}", loaded="{{loaded}}", background="{{background}}",  build="{{build}}", center="{{center}}", vcenter="{{vcenter}}")
+        .ui-slide#slide(background="{{background}}",  build="{{build}}", center="{{center}}", loaded="{{loaded}}", state="{{state}}", vcenter="{{vcenter}}")
             content
 
     script.
@@ -32,8 +35,10 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
             center: false,
             loaded: false,
             items: [],
+            offset: false,
             state: '',
             vcenter: false,
+
             /**
              * polymer init
              */
@@ -47,22 +52,21 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
              * build items
              */
             buildItems: function(){
-                var slideItems = this.querySelectorAll('ui-slide-items'),
-                    scope = this;
+                var selector = this.getAttribute('items'),
+                    fx = this.getAttribute('fx');
 
-                slideItems.forEach(function(i){
-                    var selector = i.getAttribute('selector'),
-                        fx = i.getAttribute('fx');
+                if(!selector){
+                    return false;
+                }
 
-                    scope.items = selector ? i.querySelectorAll(selector) : i.childNodes;
+                this.items = this.querySelectorAll(selector);
 
-                    scope.items.forEach(function(j){
-                        j.classList.add('ui-slide-item','ui-slide-item-pending');
+                this.items.forEach(function(j){
+                    j.classList.add('ui-slide-item','ui-slide-item-pending');
 
-                        if(fx){
-                            j.classList.add('ui-slide-item-'+fx);
-                        }
-                    });
+                    if(fx){
+                        j.classList.add('ui-slide-item-'+fx);
+                    }
                 });
             },
 
@@ -81,9 +85,15 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                         return true;
                     }
                     if(!i.classList.contains('ui-slide-item-done')){
-                        console.log(i);
                         i.classList.add('ui-slide-item-done');
                     }
                 });
+            },
+
+            /**
+             * [ description]
+             */
+            setOffset: function(offset){
+                this.$.slide.setAttribute('style', '-webkit-transform: translate('+offset+', 0%)');
             }
         });

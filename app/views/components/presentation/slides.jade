@@ -2,12 +2,14 @@ element(name="ui-slides", \attributes="")
     template
         include ../../../assets/stylus/components/presentation/slides.styl
 
-        .ui-slides(backdrop="{{backdrop}}")
-            content#content
+        .ui-slides(backdrop="{{backdrop}}", overview="{{overview}}")
+            .ui-slides-viewport#viewport
+                content#content
 
     script.
         Polymer.register(this, {
             backdrop: true,
+            overview: false,
             index: 0,
 
             /**
@@ -38,7 +40,6 @@ element(name="ui-slides", \attributes="")
              */
             next: function(){
                 if(this.index >= this.slides.length -1){
-                    console.log('at end');
                     return;
                 }
                 if(this.slides[this.index].nextItem()){
@@ -70,9 +71,13 @@ element(name="ui-slides", \attributes="")
                     case 33: // pageup
                     case 37: // left arrow
                     case 38: // up arrow
-                      this.previous();
-                      e.preventDefault();
-                      break;
+                        this.previous();
+                        e.preventDefault();
+                        break;
+
+                    case 79:
+                        this.toggleOverview();
+                        break;
                 }
             },
 
@@ -106,11 +111,22 @@ element(name="ui-slides", \attributes="")
              */
             previous: function(){
                 if(this.index === 0){
-                    console.log('at beginning');
                     return;
                 }
                 this.index--;
                 window.history.pushState({hash: (this.index+1)}, "", "#"+(this.index+1));
+                this.update();
+            },
+
+            toggleOverview: function(){
+                var scope = this;
+                this.overview = !this.overview;
+
+                this.slides.forEach(function(i, index){
+                    var offset = scope.overview ? (index * 105) + '%' : '0%';
+                    i.setOffset(offset);
+                });
+
                 this.update();
             },
 
@@ -121,7 +137,9 @@ element(name="ui-slides", \attributes="")
                 var scope = this;
 
                 this.slides.forEach(function(i, index){
-                    var state = scope.states[index - scope.index];
+                    var delta = index - scope.index,
+                        state = scope.states[delta],
+                        position;
 
                     i.state = state ? 'ui-slide-'+state : '';
 
@@ -130,6 +148,12 @@ element(name="ui-slides", \attributes="")
                         scope.backdrop = i.backdrop;
                     }
                 });
-            }
 
+                if(scope.overview){
+                    position = (scope.index * -100) + '%';
+                    scope.$.viewport.setAttribute('style', '-webkit-transform: translateZ(-2500px) translate('+position+', 0%)');
+                } else {
+                    scope.$.viewport.removeAttribute('style');
+                }
+            }
         });
