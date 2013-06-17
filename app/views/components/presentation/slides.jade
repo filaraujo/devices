@@ -28,6 +28,8 @@ element(name="ui-slides", \attributes="")
             ready: function(){
                 this.slides = this.$.content.getDistributedNodes();
                 document.addEventListener('keydown', this.onKeyDown.bind(this), false);
+                window.addEventListener('popstate', this.onPopState.bind(this), false);
+                this.onPopState();
                 this.update();
             },
 
@@ -43,6 +45,7 @@ element(name="ui-slides", \attributes="")
                     return;
                 }
                 this.index++;
+                window.history.pushState({hash: (this.index+1)}, "", "#"+(this.index+1));
                 this.update();
             },
 
@@ -74,6 +77,31 @@ element(name="ui-slides", \attributes="")
             },
 
             /**
+             * on pop state handler
+             */
+            onPopState: function(e){
+                var hash = parseInt(document.location.hash.substr(1)),
+                    state = 'replaceState';
+
+                switch(true){
+                    case !hash:
+                    case hash <= 0:
+                        hash = 1;
+                        break;
+                    case hash > this.slides.length:
+                        hash = this.slides.length;
+                        break;
+                    default:
+                        state = 'pushState';
+                        break;
+                }
+
+                window.history[state]({hash: hash}, "", "#"+hash);
+                this.index = hash-1;
+                this.update();
+            },
+
+            /**
              * set index to previous
              */
             previous: function(){
@@ -82,6 +110,7 @@ element(name="ui-slides", \attributes="")
                     return;
                 }
                 this.index--;
+                window.history.pushState({hash: (this.index+1)}, "", "#"+(this.index+1));
                 this.update();
             },
 
