@@ -13,10 +13,10 @@ gray = #e6e6e6
     padding 1vmin
     position absolute
     right 20px
-    -ms-transition all .6s ease-in-out .4s, opacity .6s 0
-    -moz-transition all .6s ease-in-out .4s, opacity .6s 0
-    -webkit-transition all .6s ease-in-out .4s, opacity .6s 0
-    transition all .6s ease-in-out .4s, opacity .6s 0
+    -ms-transition opacity .6s 0
+    -moz-transition opacity .6s 0
+    -webkit-transition opacity .6s 0
+    transition opacity .6s 0
     -webkit-transform: translate3d(0,0,0)
     transform: translate3d(0,0,0)
     top 20px
@@ -50,7 +50,6 @@ gray = #e6e6e6
 
     &[state="ui-slide-current"]
         opacity 1
-        z-index 1
 
 @media screen and (orientation:portrait)
     .ui-slide

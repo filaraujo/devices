@@ -3,7 +3,8 @@ element(name="ui-slides", \attributes="")
         include ../../../assets/stylus/components/presentation/slides.styl
 
         .ui-slides(backdrop="{{backdrop}}", overview="{{overview}}")
-            content#content
+            .ui-slides-viewport
+                content#content
 
     script.
         Polymer.register(this, {

@@ -94,6 +94,6 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                     this.$.slide.removeAttribute('style');
                     return;
                 }
-                this.$.slide.setAttribute('style','-webkit-transform: translate3d('+offset+',0,-2500px); transform: translate3d('+offset+', 0,-2500px);');
+                this.$.slide.setAttribute('style','-webkit-transform: translateX('+offset+'); transform: translateX('+offset+', 0);');
             }
         });
