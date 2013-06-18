@@ -13,23 +13,27 @@ gray = #e6e6e6
     padding 1vmin
     position absolute
     right 20px
-    -ms-transition opacity 0.6s ease-in-out
-    -moz-transition opacity 0.6s ease-in-out
-    -webkit-transition opacity 0.6s ease-in-out
-    transition opacity 0.6s ease-in-out
+    -ms-transition all .6s ease-in-out .4s, opacity .6s 0
+    -moz-transition all .6s ease-in-out .4s, opacity .6s 0
+    -webkit-transition all .6s ease-in-out .4s, opacity .6s 0
+    transition all .6s ease-in-out .4s, opacity .6s 0
+    -webkit-transform: translate3d(0,0,0)
+    transform: translate3d(0,0,0)
     top 20px
 
     &:not([background="false"])
+        background -webkit-linear-gradient(white, white 85%, gray)
         background linear-gradient(white, white 85%, gray)
 
     &[style*="translate"]
+        background -webkit-linear-gradient(white, white 85%, gray)
         background linear-gradient(white, white 85%, gray)
         display: block !important;
         opacity: .5;
-        -ms-transition all 0.6s ease-in-out
-        -moz-transition all 0.6s ease-in-out
-        -webkit-transition all 0.6s ease-in-out
-        transition all 0.6s ease-in-out
+        -ms-transition all 0.6s ease-in-out, opacity .6s .4s
+        -moz-transition all 0.6s ease-in-out, opacity .6s .4s
+        -webkit-transition all 0.6s ease-in-out, opacity .6s .4s
+        transition all 0.6s ease-in-out, opacity .6s .4s
 
     &[center="true"]
         text-align center
@@ -47,7 +51,6 @@ gray = #e6e6e6
     &[state="ui-slide-current"]
         opacity 1
         z-index 1
-
 
 @media screen and (orientation:portrait)
     .ui-slide

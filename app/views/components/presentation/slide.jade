@@ -2,12 +2,8 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
     template
         include ../../../assets/stylus/components/presentation/slide.styl
 
-        style.
-            position: absolute;
-            top: 0;
-
-        // hack for ::distributed style, not yet supported
         style(polymer-scope="global").
+            /* hack for ::distributed style, not yet supported */
             .ui-slide-item {
                 -ms-transition: opacity 0.6s ease-in-out;
                 -moz-transition: opacity 0.6s ease-in-out;
@@ -24,7 +20,12 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                 opacity: .3;
             }
 
-        .ui-slide#slide(background="{{background}}",  build="{{build}}", center="{{center}}", loaded="{{loaded}}", state="{{state}}", vcenter="{{vcenter}}")
+        .ui-slide#slide(background="{{background}}",
+            build="{{build}}",
+            center="{{center}}",
+            loaded="{{loaded}}",
+            state="{{state}}",
+            vcenter="{{vcenter}}")
             content
 
     script.
@@ -35,7 +36,6 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
             center: false,
             loaded: false,
             items: [],
-            offset: false,
             state: '',
             vcenter: false,
 
@@ -71,8 +71,7 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
             },
 
             /**
-             * [ description]
-             * @return [Boolean]
+             * next item
              */
             nextItem: function(){
                 if(!this.items.length){
@@ -90,10 +89,11 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                 });
             },
 
-            /**
-             * [ description]
-             */
             setOffset: function(offset){
-                this.$.slide.setAttribute('style', '-webkit-transform: translate('+offset+', 0%)');
+                if(!offset){
+                    this.$.slide.removeAttribute('style');
+                    return;
+                }
+                this.$.slide.setAttribute('style','-webkit-transform: translate3d('+offset+',0,-2500px); transform: translate3d('+offset+', 0,-2500px);');
             }
         });

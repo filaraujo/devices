@@ -3,8 +3,7 @@ element(name="ui-slides", \attributes="")
         include ../../../assets/stylus/components/presentation/slides.styl
 
         .ui-slides(backdrop="{{backdrop}}", overview="{{overview}}")
-            .ui-slides-viewport#viewport
-                content#content
+            content#content
 
     script.
         Polymer.register(this, {
@@ -103,7 +102,11 @@ element(name="ui-slides", \attributes="")
 
                 window.history[state]({hash: hash}, "", "#"+hash);
                 this.index = hash-1;
-                this.update();
+
+                // prevent onload popstate triggering update
+                if(e){
+                    this.update();
+                }
             },
 
             /**
@@ -118,15 +121,11 @@ element(name="ui-slides", \attributes="")
                 this.update();
             },
 
+            /**
+             * toggle on overview mode
+             */
             toggleOverview: function(){
-                var scope = this;
                 this.overview = !this.overview;
-
-                this.slides.forEach(function(i, index){
-                    var offset = scope.overview ? (index * 105) + '%' : '0%';
-                    i.setOffset(offset);
-                });
-
                 this.update();
             },
 
@@ -138,22 +137,16 @@ element(name="ui-slides", \attributes="")
 
                 this.slides.forEach(function(i, index){
                     var delta = index - scope.index,
-                        state = scope.states[delta],
-                        position;
+                        state = scope.states[delta];
 
                     i.state = state ? 'ui-slide-'+state : '';
 
                     if(state === 'current'){
                         i.loaded = true;
-                        scope.backdrop = i.backdrop;
+                        scope.backdrop = scope.overview ? false : i.backdrop;
                     }
-                });
 
-                if(scope.overview){
-                    position = (scope.index * -100) + '%';
-                    scope.$.viewport.setAttribute('style', '-webkit-transform: translateZ(-2500px) translate('+position+', 0%)');
-                } else {
-                    scope.$.viewport.removeAttribute('style');
-                }
+                    i.setOffset(scope.overview ? (delta * 105) + '%' : false);
+                });
             }
         });
