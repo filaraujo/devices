@@ -50,6 +50,28 @@ gray = #e6e6e6
 
     &[state="ui-slide-current"]
         opacity 1
+        z-index 1
+
+
+/* @polyfill .ui-slide-item */
+content::-webkit-distributed(.ui-slide-item)
+    -ms-transition opacity 0.6s ease-in-out
+    -moz-transition opacity 0.6s ease-in-out
+    -webkit-transition opacity 0.6s ease-in-out
+    transition opacity 0.6s ease-in-out
+
+/* @polyfill .ui-slide-item-pending */
+content::-webkit-distributed(.ui-slide-item-pending)
+    opacity 0
+
+/* @polyfill .ui-slide-item-done */
+content::-webkit-distributed(.ui-slide-item-done)
+    opacity 1
+
+/* @polyfill .ui-slide-item-done.ui-slide-item-fade */
+content::-webkit-distributed(.ui-slide-item-done.ui-slide-item-fade)
+    opacity: .3
+
 
 @media screen and (orientation:portrait)
     .ui-slide

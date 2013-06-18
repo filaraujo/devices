@@ -2,15 +2,16 @@ element(name="ui-slides", \attributes="")
     template
         include ../../../assets/stylus/components/presentation/slides.styl
 
-        .ui-slides(backdrop="{{backdrop}}", overview="{{overview}}")
+        .ui-slides(backdrop="{{backdrop}}", overview="{{overview}}", presentor="{{presentor}}")
             .ui-slides-viewport
                 content#content
 
     script.
         Polymer.register(this, {
             backdrop: true,
-            overview: false,
             index: 0,
+            presentor: false,
+            overview: false,
 
             /**
              * slide states
@@ -29,16 +30,22 @@ element(name="ui-slides", \attributes="")
              */
             ready: function(){
                 this.slides = this.$.content.getDistributedNodes();
+                this.presentor = !!window.opener;
+
+                // event binding
                 document.addEventListener('keydown', this.onKeyDown.bind(this), false);
                 window.addEventListener('popstate', this.onPopState.bind(this), false);
+                window.addEventListener('message', this.onMessage.bind(this), false);
+
+                // init states
                 this.onPopState();
-                this.update();
+                this.updateSlides();
             },
 
             /**
              * set index to next
              */
-            next: function(){
+            nextSlide: function(){
                 if(this.index >= this.slides.length -1){
                     return;
                 }
@@ -47,7 +54,7 @@ element(name="ui-slides", \attributes="")
                 }
                 this.index++;
                 window.history.pushState({hash: (this.index+1)}, "", "#"+(this.index+1));
-                this.update();
+                this.updateSlides();
             },
 
             /**
@@ -58,12 +65,20 @@ element(name="ui-slides", \attributes="")
                     return false;
                 }
 
+                if(this.presentor){
+                    // prevent keys in presentor
+                    if([80, 79].indexOf(e.keyCode) >= 0){
+                        return false;
+                    }
+                    window.opener.postMessage({keyCode: e.keyCode}, '*');
+                }
+
                 switch(e.keyCode){
                     case 32: // space
                     case 34: // pagedown
                     case 39: // right arrow
                     case 40: // down arrow
-                        this.next();
+                        this.nextSlide();
                         e.preventDefault();
                         break;
 
@@ -71,13 +86,31 @@ element(name="ui-slides", \attributes="")
                     case 33: // pageup
                     case 37: // left arrow
                     case 38: // up arrow
-                        this.previous();
+                        this.previousSlide();
                         e.preventDefault();
                         break;
 
-                    case 79:
+                    case 79: // letter O
                         this.toggleOverview();
                         break;
+
+                    case 80: // letter P
+                        this.toggleController();
+                        break;
+                }
+            },
+
+            onMessage: function(e){
+                var data = e.data,
+                    evt;
+
+                    console.log(data.keyCode)
+
+                if(data.keyCode){
+                    evt = document.createEvent('Event');
+                    evt.initEvent('keydown', true, true);
+                    evt.keyCode = data.keyCode;
+                    document.dispatchEvent(evt);
                 }
             },
 
@@ -106,20 +139,20 @@ element(name="ui-slides", \attributes="")
 
                 // prevent onload popstate triggering update
                 if(e){
-                    this.update();
+                    this.updateSlides();
                 }
             },
 
             /**
              * set index to previous
              */
-            previous: function(){
+            previousSlide: function(){
                 if(this.index === 0){
                     return;
                 }
                 this.index--;
                 window.history.pushState({hash: (this.index+1)}, "", "#"+(this.index+1));
-                this.update();
+                this.updateSlides();
             },
 
             /**
@@ -127,13 +160,26 @@ element(name="ui-slides", \attributes="")
              */
             toggleOverview: function(){
                 this.overview = !this.overview;
-                this.update();
+                this.updateSlides();
+            },
+
+            /**
+             * toggle controller
+             */
+            toggleController: function(){
+                this.controlled = !this.controlled;
+
+                if(this.controlled){
+                    this.popup = window.open(location.href, 'controller', 'menubar=no,location=yes,resizable=yes,scrollbars=no,status=no');
+                    return;
+                }
+                this.popup.close();
             },
 
             /**
              * update slidedeck
              */
-            update: function(){
+            updateSlides: function(){
                 var scope = this;
 
                 this.slides.forEach(function(i, index){
@@ -145,9 +191,13 @@ element(name="ui-slides", \attributes="")
                     if(state === 'current'){
                         i.loaded = true;
                         scope.backdrop = scope.overview ? false : i.backdrop;
+
+                        if(scope.presentor){
+                            i.background = true;
+                        }
                     }
 
-                    i.setOffset(scope.overview ? (delta * 105) + '%' : false);
+                    i.offset = scope.overview ? (delta * 105) + '%' : false;
                 });
             }
         });

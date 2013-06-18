@@ -3,22 +3,6 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
         include ../../../assets/stylus/components/presentation/slide.styl
 
         style(polymer-scope="global").
-            /* hack for ::distributed style, not yet supported */
-            .ui-slide-item {
-                -ms-transition: opacity 0.6s ease-in-out;
-                -moz-transition: opacity 0.6s ease-in-out;
-                -webkit-transition: opacity 0.6s ease-in-out;
-                transition: opacity 0.6s ease-in-out;
-            }
-            .ui-slide-item-pending {
-                opacity: 0;
-            }
-            .ui-slide-item-done {
-                opacity: 1;
-            }
-            .ui-slide-item-done.ui-slide-item-fade {
-                opacity: .3;
-            }
 
         .ui-slide#slide(background="{{background}}",
             build="{{build}}",
@@ -36,6 +20,7 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
             center: false,
             loaded: false,
             items: [],
+            offset: 0,
             state: '',
             vcenter: false,
 
@@ -89,11 +74,12 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                 });
             },
 
-            setOffset: function(offset){
-                if(!offset){
+            offsetChanged: function(){
+                if(!this.offset){
                     this.$.slide.removeAttribute('style');
                     return;
                 }
-                this.$.slide.setAttribute('style','-webkit-transform: translateX('+offset+'); transform: translateX('+offset+', 0);');
+
+                this.$.slide.setAttribute('style','-webkit-transform: translateX('+this.offset+'); transform: translateX('+this.offset+');');
             }
         });
