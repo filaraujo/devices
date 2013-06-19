@@ -12,7 +12,6 @@ element(name="ui-slides", \attributes="")
             index: 0,
             presentor: false,
             overview: false,
-            timer: null,
 
             /**
              * slide states
@@ -63,13 +62,18 @@ element(name="ui-slides", \attributes="")
                     return false;
                 }
 
+                // prevent keys in presentor
                 if(this.presentor){
-                    // prevent keys in presentor
-                    if([80, 79].indexOf(e.keyCode) >= 0){
+                    if([80].indexOf(e.keyCode) >= 0){
                         return false;
                     }
                     window.opener.postMessage({keyCode: e.keyCode}, '*');
                 }
+
+                // prevent overview from being keep opened while presenting
+                //- if(this.controlled && this.overview){
+                //-     this.toggleOverview();
+                //- }
 
                 switch(e.keyCode){
                     case 32: // space
@@ -226,7 +230,8 @@ element(name="ui-slides", \attributes="")
 
                 if(this.overview){
                     overviewOffset = (this.index - this.previousIndex) * -105;
-                    this.$.viewport.setAttribute('style','-webkit-transform: translate3d('+overviewOffset+'%,0,-2000px); transform: translate3d('+overviewOffset+'%,0,-2000px);');
+                    scope.$.viewport.setAttribute('style','-webkit-transform: translate3d('+overviewOffset+'%,0,-2000px); transform: translate3d('+overviewOffset+'%,0,-2000px);');
+
                 }
             }
         });
