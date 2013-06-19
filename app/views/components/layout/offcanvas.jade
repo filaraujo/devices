@@ -12,10 +12,6 @@
 element(name="ui-layout", \attributes="open fx")
     template
         include ../../../assets/stylus/components/layout/offcanvas.styl
-        style.
-            @host {
-                * {}
-            }
 
         div.ui-layout(open="{{open}}", fx="{{fx}}")
             div.ui-layout-drawer
@@ -23,26 +19,4 @@ element(name="ui-layout", \attributes="open fx")
             div.ui-layout-page
                 content(select="ui-layout-page")
 
-    script.
-        Polymer.register(this, {
-            open: false,
-            fx: 'slide',
-            ready: function(){
-                var self = this;
-
-                this.fx = ['slide','pan','meny','parallax'].indexOf(this.fx) > -1 ? this.fx : 'slide';
-
-                window.addEventListener('keydown', function(e){
-                    switch(e.keyCode){
-                        case 39:
-                            self.open = true;
-                            break;
-                        case 37:
-                            self.open = false;
-                            break;
-                        default:
-                            break;
-                    }
-                });
-            }
-        });
+    include ../../../assets/javascripts/components/layout/offcanvas.js
