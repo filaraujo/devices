@@ -3,7 +3,7 @@ element(name="ui-slides", \attributes="")
         include ../../../assets/stylus/components/presentation/slides.styl
 
         .ui-slides(backdrop="{{backdrop}}", overview="{{overview}}", presentor="{{presentor}}")
-            .ui-slides-viewport
+            .ui-slides-viewport#viewport
                 content#content
 
     script.
@@ -12,6 +12,7 @@ element(name="ui-slides", \attributes="")
             index: 0,
             presentor: false,
             overview: false,
+            timer: null,
 
             /**
              * slide states
@@ -155,11 +156,31 @@ element(name="ui-slides", \attributes="")
                 this.updateSlides();
             },
 
+
+            offsetSlides: function(){
+                var scope = this;
+
+                this.slides.forEach(function(i, index){
+                    i.offset = scope.overview ? (index - scope.index) * 105 : 0;
+                });
+
+                this.previousIndex = this.index;
+                if(this.overview){
+                    scope.$.viewport.setAttribute('style','-webkit-transform: translate3d(0%,0,-2500px); transform: translate3d(0%,0,-2500px); -webkit-transition: none; transition: none;');
+                }
+            },
+
             /**
              * toggle on overview mode
              */
             toggleOverview: function(){
                 this.overview = !this.overview;
+
+                if(!this.overview){
+                    this.$.viewport.removeAttribute('style');
+                }
+
+                this.offsetSlides();
                 this.updateSlides();
             },
 
@@ -180,24 +201,31 @@ element(name="ui-slides", \attributes="")
              * update slidedeck
              */
             updateSlides: function(){
-                var scope = this;
+                var scope = this,
+                    overviewOffset;
+
+                clearTimeout(this.timer);
 
                 this.slides.forEach(function(i, index){
-                    var delta = index - scope.index,
-                        state = scope.states[delta];
+                    var state = scope.states[index - scope.index];
 
                     i.state = state ? 'ui-slide-'+state : '';
+                    i.overview = scope.overview;
 
                     if(state === 'current'){
                         i.loaded = true;
-                        scope.backdrop = scope.overview ? false : i.backdrop;
-
-                        if(scope.presentor){
-                            i.background = true;
-                        }
+                        scope.backdrop = i.backdrop;
                     }
-
-                    i.offset = scope.overview ? (delta * 105) + '%' : false;
                 });
+
+                if(this.overview){
+                    overviewOffset = (this.index - this.previousIndex) * -105;
+                    scope.$.viewport.setAttribute('style','-webkit-transform: translate3d('+overviewOffset+'%,0,-2500px); transform: translate3d('+overviewOffset+'%,0,-2500px);');
+                    this.timer = setTimeout(function(){
+                        scope.offsetSlides();
+                    }, 700);
+                }
+
+
             }
         });

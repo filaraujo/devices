@@ -2,13 +2,13 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
     template
         include ../../../assets/stylus/components/presentation/slide.styl
 
-        style(polymer-scope="global").
-
         .ui-slide#slide(background="{{background}}",
             build="{{build}}",
             center="{{center}}",
             loaded="{{loaded}}",
+            overview="{{overview}}",
             state="{{state}}",
+            style="left:{{offset}}%",
             vcenter="{{vcenter}}")
             content
 
@@ -21,6 +21,7 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
             loaded: false,
             items: [],
             offset: 0,
+            overview: false,
             state: '',
             vcenter: false,
 
@@ -59,7 +60,7 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
              * next item
              */
             nextItem: function(){
-                if(!this.items.length){
+                if(!this.items.length || this.overview){
                     return false;
                 }
 
@@ -72,14 +73,5 @@ element(name="ui-slide", \attributes="background backdrop build center vcenter")
                         i.classList.add('ui-slide-item-done');
                     }
                 });
-            },
-
-            offsetChanged: function(){
-                if(!this.offset){
-                    this.$.slide.removeAttribute('style');
-                    return;
-                }
-
-                this.$.slide.setAttribute('style','-webkit-transform: translateX('+this.offset+'); transform: translateX('+this.offset+');');
             }
         });
