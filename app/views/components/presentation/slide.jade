@@ -1,10 +1,12 @@
-element(name="ui-slide", \attributes="background backdrop build center vcenter")
+element(name="ui-slide", \attributes="background backdrop build center type vcenter")
     template
         include ../../../assets/stylus/components/presentation/slide.styl
 
         .ui-slide#slide(background="{{background}}",
+            backdrop="{{backdrop}}",
             build="{{build}}",
             center="{{center}}",
+            index="{{index}}",
             loaded="{{loaded}}",
             overview="{{overview}}",
             presentor="{{presentor}}",

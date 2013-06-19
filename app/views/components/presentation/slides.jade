@@ -33,6 +33,10 @@ element(name="ui-slides", \attributes="")
                 this.slides = this.$.content.getDistributedNodes();
                 this.presentor = !!window.opener;
 
+                this.slides.forEach(function(i, index, slides){
+                    i.index = (index+1) + '/'+ slides.length;
+                });
+
                 // event binding
                 document.addEventListener('keydown', this.onKeyDown.bind(this), false);
                 window.addEventListener('popstate', this.onPopState.bind(this), false);
@@ -80,11 +84,6 @@ element(name="ui-slides", \attributes="")
                     }
                     window.opener.postMessage({keyCode: e.keyCode}, '*');
                 }
-
-                // prevent overview from being keep opened while presenting
-                //- if(this.controlled && this.overview){
-                //-     this.toggleOverview();
-                //- }
 
                 switch(e.keyCode){
                     case 32: // space
@@ -137,12 +136,12 @@ element(name="ui-slides", \attributes="")
 
                 // set timeout to remove transform
                 if(!this.overview){
-                    setTimeout(function(){
-                        scope.slides.forEach(function(i, index){
+                    this.asyncMethod(function(){
+                        this.slides.forEach(function(i, index){
                             i.offset = 0;
                         });
-                        scope.$.viewport.removeAttribute('style');
-                    }, 100);
+                        this.$.viewport.removeAttribute('style');
+                    });
                 }
             },
 
@@ -260,7 +259,6 @@ element(name="ui-slides", \attributes="")
                 if(this.overview){
                     overviewOffset = (this.index - this.previousIndex) * -105;
                     scope.$.viewport.setAttribute('style','-webkit-transform: translate3d('+overviewOffset+'%,0,-2000px); transform: translate3d('+overviewOffset+'%,0,-2000px);');
-
                 }
             }
         });

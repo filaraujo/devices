@@ -1,20 +1,32 @@
 gray = #e6e6e6
 
 .ui-slide
-    height 100%
     border-radius 4px
     -moz-box-sizing: border-box
     box-sizing: border-box
-    counter-increment slide
-    padding 2vmin
+    display -webkit-flex
+    display flex
+    -webkit-flex-direction column
+    -webkit-flex-wrap nowrap
+    flex-wrap nowrap
+    flex-direction column
+    height 100%
+    padding 4vmin
     position absolute
-    overflow scroll
     -ms-transition opacity .6s 0
     -moz-transition opacity .6s 0
     -webkit-transition opacity .6s 0
     transition opacity .6s 0
     top 0
     width 100%
+
+    &:not([backdrop="false"]):after
+        bottom 1.5vmin
+        color #aaa
+        content attr(index)
+        font-size 1.33vmin
+        position absolute
+        right 1.8vmin
 
     &:not([state="ui-slide-current"])
         opacity: 0
@@ -36,15 +48,24 @@ gray = #e6e6e6
         align-items center
         -webkit-justify-content center
         justify-content center
-        display -moz-flex
-        display -ms-flex
-        display -webkit-flex
-        display flex
 
     &[state="ui-slide-current"]
         opacity 1
         z-index 1
 
+/* @polyfill hgroup */
+content::-webkit-distributed(hgroup)
+    -webkit-flex none
+    flex none
+
+/* @polyfill article */
+content::-webkit-distributed(article)
+    border: 1px solid #000
+    -webkit-flex 1 1 auto
+    flex 1 1 auto
+    height 100%
+    font-size 1.75vmin
+    overflow scroll
 
 /* @polyfill .ui-slide-item */
 content::-webkit-distributed(.ui-slide-item)
