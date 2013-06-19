@@ -47,10 +47,7 @@ element(name="ui-slides", \attributes="")
              * set index to next
              */
             nextSlide: function(){
-                if(this.index >= this.slides.length -1){
-                    return;
-                }
-                if(this.slides[this.index].nextItem()){
+                if(this.index >= this.slides.length -1 || this.slides[this.index].nextItem()){
                     return;
                 }
                 this.index++;
@@ -98,14 +95,19 @@ element(name="ui-slides", \attributes="")
                     case 80: // letter P
                         this.toggleController();
                         break;
+
+                    case 13: // enter
+                    case 27: // escape
+                        if(this.overview){
+                            this.toggleOverview();
+                        }
+                        break;
                 }
             },
 
             onMessage: function(e){
                 var data = e.data,
                     evt;
-
-                    console.log(data.keyCode)
 
                 if(data.keyCode){
                     evt = document.createEvent('Event');
@@ -156,6 +158,9 @@ element(name="ui-slides", \attributes="")
                 this.updateSlides();
             },
 
+            /**
+             * offset slides
+             */
             offsetSlides: function(){
                 var scope = this;
 
@@ -206,13 +211,12 @@ element(name="ui-slides", \attributes="")
                 var scope = this,
                     overviewOffset;
 
-                clearTimeout(this.timer);
-
                 this.slides.forEach(function(i, index){
                     var state = scope.states[index - scope.index];
 
                     i.state = state ? 'ui-slide-'+state : '';
                     i.overview = scope.overview;
+                    i.presentor = scope.presentor;
 
                     if(state === 'current'){
                         i.loaded = true;

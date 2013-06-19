@@ -27,6 +27,7 @@
 
 .ui-slides-viewport
     bottom 20px
+    box-shadow 0 0 6px rgba(0,0,0,.5)
     height 60vmin
     left 20px
     margin auto
@@ -37,14 +38,17 @@
     right 20px
     -webkit-transform: translate3d(0,0,0)
     transform: translate3d(0,0,0)
-    -ms-transition -ms-transform .6s 0
-    -moz-transition -moz-transform .6s 0
-    -webkit-transition -webkit-transform .6s 0
-    transition transform .6s 0
+    -ms-transition -ms-transform .6s 0 ease
+    -moz-transition -moz-transform .6s 0 ease
+    -webkit-transition -webkit-transform .6s 0 ease
+    transition transform .6s 0 ease
     top 20px
 
     .ui-slides[overview="true"] &
-        overflow: visible
+        overflow visible
+
+    .ui-slides[backdrop="false"] &
+        box-shadow none
 
 @media screen and (orientation:portrait)
     .ui-slides-viewport
