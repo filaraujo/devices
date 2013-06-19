@@ -9,6 +9,7 @@ element(name="ui-slides", \attributes="")
     script.
         Polymer.register(this, {
             backdrop: true,
+            fullscreen: false,
             index: 0,
             presentor: false,
             overview: false,
@@ -38,8 +39,18 @@ element(name="ui-slides", \attributes="")
                 window.addEventListener('message', this.onMessage.bind(this), false);
 
                 // init states
+                this.addBaseTarget();
                 this.onPopState();
                 this.updateSlides();
+            },
+
+            /**
+             * add base target to force links to open in new tab
+             */
+            addBaseTarget: function(){
+                var base = document.createElement('base');
+                base.target = '_blank';
+                document.head.appendChild(base);
             },
 
             /**
@@ -92,6 +103,11 @@ element(name="ui-slides", \attributes="")
                         e.preventDefault();
                         break;
 
+                    case 13: // enter
+                    case 27: // escape
+                        if(!this.overview){
+                            return; // cancel if overview is off
+                        }
                     case 79: // letter O
                         this.toggleOverview();
                         break;
@@ -100,12 +116,33 @@ element(name="ui-slides", \attributes="")
                         this.toggleController();
                         break;
 
-                    case 13: // enter
-                    case 27: // escape
-                        if(this.overview){
-                            this.toggleOverview();
-                        }
+                    case 70: // letter F
+                        this.toggleFullScreen();
                         break;
+                }
+            },
+
+            /**
+             * offset slides
+             */
+            offsetSlides: function(){
+                var scope = this;
+
+                this.slides.forEach(function(i, index){
+                    i.offset = (index - scope.index) * 105;
+                });
+
+                this.previousIndex = this.index;
+                this.$.viewport.setAttribute('style','-webkit-transform: translate3d(0%,0,-2000px); transform: translate3d(0%,0,-2000px); -webkit-transition: none; transition: none;');
+
+                // set timeout to remove transform
+                if(!this.overview){
+                    setTimeout(function(){
+                        scope.slides.forEach(function(i, index){
+                            i.offset = 0;
+                        });
+                        scope.$.viewport.removeAttribute('style');
+                    }, 100);
                 }
             },
 
@@ -163,36 +200,19 @@ element(name="ui-slides", \attributes="")
             },
 
             /**
-             * offset slides
+             * toggleFullScreen
              */
-            offsetSlides: function(){
-                var scope = this;
+            toggleFullScreen: function(){
+                this.fullscreen = !this.fullscreen;
 
-                this.slides.forEach(function(i, index){
-                    i.offset = (index - scope.index) * 105;
-                });
-
-                this.previousIndex = this.index;
-                this.$.viewport.setAttribute('style','-webkit-transform: translate3d(0%,0,-2000px); transform: translate3d(0%,0,-2000px); -webkit-transition: none; transition: none;');
-
-                // set timeout to remove transform
-                if(!this.overview){
-                    setTimeout(function(){
-                        scope.slides.forEach(function(i, index){
-                            i.offset = 0;
-                        });
-                        scope.$.viewport.removeAttribute('style');
-                    }, 100);
+                if(this.fullscreen){
+                    document.body.requestFullScreen = document.body.mozRequestFullScreen || document.body.webkitRequestFullScreen;
+                    document.body.requestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+                    return;
                 }
-            },
 
-            /**
-             * toggle on overview mode
-             */
-            toggleOverview: function(){
-                this.overview = !this.overview;
-                this.offsetSlides();
-                this.updateSlides();
+                document.cancelFullScreen = document.webkitCancelFullScreen || document.mozCancelFullScreen;
+                document.cancelFullScreen();
             },
 
             /**
@@ -206,6 +226,15 @@ element(name="ui-slides", \attributes="")
                     return;
                 }
                 this.popup.close();
+            },
+
+            /**
+             * toggle on overview mode
+             */
+            toggleOverview: function(){
+                this.overview = !this.overview;
+                this.offsetSlides();
+                this.updateSlides();
             },
 
             /**
