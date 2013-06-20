@@ -25,7 +25,7 @@ Polymer.register(this, {
      */
     buildItems: function(){
         var selector = this.getAttribute('items'),
-            fx = this.getAttribute('fx');
+            fx = this.getAttribute('items-fx');
 
         if(!selector){
             return false;

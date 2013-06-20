@@ -3,6 +3,7 @@ gray = #e6e6e6
 .ui-slide
     border-radius 4px
     -moz-box-sizing: border-box
+    box-shadow 0 0 6px rgba(0,0,0,.5)
     box-sizing: border-box
     display -webkit-flex
     display flex
@@ -20,7 +21,8 @@ gray = #e6e6e6
     top 0
     width 100%
 
-    &:not([backdrop="false"]):after
+    &:not([backdrop="false"]):after,
+    &[presentor="true"]:after
         bottom 1.5vmin
         color #aaa
         content attr(index)
@@ -54,6 +56,35 @@ gray = #e6e6e6
         opacity 1
         z-index 1
 
+    &[presentor="true"]
+        padding 2vmin
+        -ms-transition none
+        -moz-transition none
+        -webkit-transition none
+        transition none
+
+        &[state="ui-slide-current"]
+            right auto
+            -webkit-transform scale(.7)
+            transform scale(.7)
+            -webkit-transform-origin 0% 0%
+            transform-origin 0% 0%
+
+        &[state="ui-slide-next"]
+            left auto !important
+            opacity 1
+            right 0
+            -webkit-transform scale(.29)
+            transform scale(.29)
+            -webkit-transform-origin 100% 0%
+            transform-origin 100% 0%
+            z-index 2
+
+        &[state="ui-slide-next"]:hover
+            -webkit-transform scale(.6)
+            transform scale(.6)
+
+
 /* @polyfill hgroup */
 content::-webkit-distributed(hgroup)
     -webkit-flex none
@@ -78,6 +109,11 @@ content::-webkit-distributed(.ui-slide-item)
 /* @polyfill .ui-slide-item-pending */
 content::-webkit-distributed(.ui-slide-item-pending)
     opacity 0
+
+/* @polyfill .ui-slide[presentor="true"] .ui-slide-item-pending */
+[presentor="true"] content::-webkit-distributed( .ui-slide-item-pending)
+    background yellow
+    opacity .4
 
 /* @polyfill .ui-slide-item-done */
 content::-webkit-distributed(.ui-slide-item-done)
