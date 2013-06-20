@@ -61,6 +61,3 @@ Polymer.register(this, {
         });
     }
 });
-
-
-

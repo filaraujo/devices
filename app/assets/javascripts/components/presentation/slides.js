@@ -1,6 +1,5 @@
 Polymer.register(this, {
     backdrop: true,
-    fullscreen: false,
     index: 0,
     presentor: false,
     overview: false,
@@ -21,17 +20,22 @@ Polymer.register(this, {
      * polymer init
      */
     ready: function(){
+        var scope = this;
+
         this.slides = this.$.content.getDistributedNodes();
-        this.presentor = !!window.opener;
 
         this.slides.forEach(function(i, index, slides){
             i.index = (index+1) + '/'+ slides.length;
         });
 
+
+        modules.forEach(function(module){
+            module.bind(scope)();
+        });
+
         // event binding
         document.addEventListener('keydown', this.onKeyDown.bind(this), false);
         window.addEventListener('popstate', this.onPopState.bind(this), false);
-        window.addEventListener('message', this.onMessage.bind(this), false);
 
         // init states
         this.addBaseTarget();
@@ -73,7 +77,7 @@ Polymer.register(this, {
             if([80].indexOf(e.keyCode) >= 0){
                 return false;
             }
-            window.opener.postMessage({keyCode: e.keyCode}, '*');
+            this.fire('sendkeys', e);
         }
 
         switch(e.keyCode){
@@ -105,11 +109,11 @@ Polymer.register(this, {
                 break;
 
             case 80: // letter P
-                this.toggleController();
+            this.fire('togglecontroller', {});
                 break;
 
             case 70: // letter F
-                this.toggleFullScreen();
+                this.fire('togglefullscreen', {});
                 break;
         }
     },
@@ -135,18 +139,6 @@ Polymer.register(this, {
                 });
                 this.$.viewport.removeAttribute('style');
             });
-        }
-    },
-
-    onMessage: function(e){
-        var data = e.data,
-            evt;
-
-        if(data.keyCode){
-            evt = document.createEvent('Event');
-            evt.initEvent('keydown', true, true);
-            evt.keyCode = data.keyCode;
-            document.dispatchEvent(evt);
         }
     },
 
@@ -189,35 +181,6 @@ Polymer.register(this, {
         this.index--;
         window.history.pushState({hash: (this.index+1)}, "", "#"+(this.index+1));
         this.updateSlides();
-    },
-
-    /**
-     * toggleFullScreen
-     */
-    toggleFullScreen: function(){
-        this.fullscreen = !this.fullscreen;
-
-        if(this.fullscreen){
-            document.body.requestFullScreen = document.body.mozRequestFullScreen || document.body.webkitRequestFullScreen;
-            document.body.requestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-            return;
-        }
-
-        document.cancelFullScreen = document.webkitCancelFullScreen || document.mozCancelFullScreen;
-        document.cancelFullScreen();
-    },
-
-    /**
-     * toggle controller
-     */
-    toggleController: function(){
-        this.controlled = !this.controlled;
-
-        if(this.controlled){
-            this.popup = window.open(location.href, 'controller', 'menubar=no,location=yes,resizable=yes,scrollbars=no,status=no');
-            return;
-        }
-        this.popup.close();
     },
 
     /**
