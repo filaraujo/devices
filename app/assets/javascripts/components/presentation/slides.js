@@ -28,7 +28,6 @@ Polymer.register(this, {
             i.index = (index+1) + '/'+ slides.length;
         });
 
-
         modules.forEach(function(module){
             module.bind(scope)();
         });
@@ -108,8 +107,12 @@ Polymer.register(this, {
                 this.toggleOverview();
                 break;
 
+            case 78: // letter N
+                this.fire('togglenotes', {});
+                break;
+
             case 80: // letter P
-            this.fire('togglecontroller', {});
+                this.fire('togglecontroller', {});
                 break;
 
             case 70: // letter F
@@ -205,6 +208,7 @@ Polymer.register(this, {
             i.state = state ? 'ui-slide-'+state : '';
             i.overview = scope.overview;
             i.presentor = scope.presentor;
+            i.notes = scope.notes;
 
             if(state === 'current'){
                 i.loaded = true;

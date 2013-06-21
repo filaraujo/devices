@@ -1,10 +1,10 @@
 Polymer.register(this, {
     backdrop: true,
     background: true,
-    build: true,
     center: false,
     loaded: false,
     items: [],
+    notes: false,
     offset: 0,
     overview: false,
     state: '',
@@ -15,9 +15,11 @@ Polymer.register(this, {
      * polymer init
      */
     ready: function(){
-        if(this.build){
+        if(this.items){
             this.buildItems();
         }
+
+        this.notes = !!this.$.notes.getDistributedNodes().length;
     },
 
     /**

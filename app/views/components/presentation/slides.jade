@@ -8,12 +8,10 @@ element(name="ui-slides", \attributes="")
 
     | !{'<script type="text/javascript">'}
     | var modules = [];
-    - if(true)
-        :injectJS
-            components/presentation/slides.fullscreen.js
-    - if(true)
-        :injectJS
-            components/presentation/slides.controller.js
+    :injectJS
+        components/presentation/slides.fullscreen.js
+    :injectJS
+        components/presentation/slides.controller.js
     :injectJS
         components/presentation/slides.js
     | !{'</script>'}

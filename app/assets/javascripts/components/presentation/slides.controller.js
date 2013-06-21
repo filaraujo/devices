@@ -37,12 +37,22 @@ modules.push(
                     return;
                 }
                 this.popup.close();
+            },
+
+            /**
+             * toggle notes
+             */
+            toggleNotes = function(){
+                this.notes = !this.notes;
+                this.updateSlides();
             };
 
         this.controlled = false;
+        this.notes = false;
         this.presentor = !!window.opener;
 
         // bind events
+        this.addEventListener('togglenotes', toggleNotes.bind(this), false);
         this.addEventListener('togglecontroller', toggleController.bind(this), false);
         this.addEventListener('sendkeys', sendKeys.bind(this), false);
         window.addEventListener('message', onMessage, false);
