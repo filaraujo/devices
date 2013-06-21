@@ -19,7 +19,7 @@ Polymer.register(this, {
             this.buildItems();
         }
 
-        this.notes = !!this.$.notes.getDistributedNodes().length;
+        this.hasNotes = !!this.$.notes.getDistributedNodes().length;
     },
 
     /**

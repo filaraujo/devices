@@ -208,7 +208,6 @@ Polymer.register(this, {
             i.state = state ? 'ui-slide-'+state : '';
             i.overview = scope.overview;
             i.presentor = scope.presentor;
-            i.notes = scope.notes;
 
             if(state === 'current'){
                 i.loaded = true;

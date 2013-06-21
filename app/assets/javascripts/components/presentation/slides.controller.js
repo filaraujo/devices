@@ -43,12 +43,17 @@ modules.push(
              * toggle notes
              */
             toggleNotes = function(){
-                this.notes = !this.notes;
-                this.updateSlides();
+                var slide = this.slides[this.index];
+
+                if(!slide.notes && slide.hasNotes){
+                    slide.notes = !slide.notes;
+                    return;
+                }
+
+                slide.notes = false;
             };
 
         this.controlled = false;
-        this.notes = false;
         this.presentor = !!window.opener;
 
         // bind events

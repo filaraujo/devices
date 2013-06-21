@@ -101,32 +101,34 @@ gray = #e6e6e6
     padding 4vmin
     position absolute
     right 0
+    -webkit-transform: translate3d(0,0,0)
+    transform: translate3d(0,0,0)
+    -webkit-transition all .6s
+    transition all .6s
     top 0
 
-    &:before
+    &:after
         background #000
-        bottom 0
+        bottom -10px
         content ''
-        left 0
-        opacity .3
+        left -10px
+        opacity .5
         position absolute
-        right 0
-        top 0
+        right -10px
+        top -10px
 
     .ui-slide[notes="false"] &
-        display none
-
-    h3
-        color ccc
-        margin-top 0
+        visibility hidden
+        -webkit-transform: translate3d(0,100%,0)
+        transform: translate3d(0,100%,0)
 
     section
         background #fff
         border-radius 4px
         box-shadow 0 0 6px rgba(0,0,0,.5)
         padding 2vmin
-        overflow auto
         width 80%
+        z-index 1
 
 
 /* @polyfill hgroup */
@@ -140,7 +142,7 @@ content::-webkit-distributed(article)
     flex 1 1 auto
     height 100%
     font-size 1.75vmin
-    overflow scroll
+    overflow auto
 
 /* @polyfill .ui-slide-item */
 content::-webkit-distributed(.ui-slide-item)

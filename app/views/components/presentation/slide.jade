@@ -15,10 +15,9 @@ element(name="ui-slide", \attributes="background backdrop center notes type vcen
             type="{{type}}",
             vcenter="{{vcenter}}")
             aside.ui-slide-notes
-                h3 Notes
                 section
                     content#notes(select="ui-slide-notes")
-            content(select="*")
+            content
 
 
     include ../../../assets/javascripts/components/presentation/slide.js
