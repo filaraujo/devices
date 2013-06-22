@@ -1,3 +1,9 @@
+//metrics
+require('nodefly').profile(
+    '65966029-3c7c-4259-b59f-1c4c666680da',
+    ['devices','Heroku']
+);
+
 var express = module.exports.express = require('express'),
     app = module.exports.app = express();
 
