@@ -13,6 +13,6 @@
     "mongoose": "*",
     "stylus": "*",
     "ua-parser": "*",
-    "nodefly": "stable"
+    "newrelic": "*"
   }
 }
