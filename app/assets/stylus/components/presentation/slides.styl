@@ -35,12 +35,13 @@
     &[presentor="true"]
         background-image radial-gradient(50% 50%, #b1dfff 0%, rgb(67, 135, 253) 600px)
 
+
 .ui-slides-viewport
     bottom 20px
     height 60vmin
     left 20px
     margin auto
-    min-width 320px
+    min-width 300px
     min-height 240px
     overflow hidden
     position absolute
@@ -56,6 +57,10 @@
     .ui-slides[overview="true"] &
         overflow visible
 
+@media screen and (min-width:0) and (max-width:380px) and (orientation:portrait)
+    .ui-slides-viewport
+        left -4px
+        right -4px
 
 @media screen and (orientation:portrait)
     .ui-slides-viewport
