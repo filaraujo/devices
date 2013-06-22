@@ -55,7 +55,7 @@ Polymer.register(this, {
      * set index to next
      */
     nextSlide: function(){
-        if(this.index >= this.slides.length -1 || this.slides[this.index].nextItem()){
+        if(this.slides[this.index].nextItem() || this.index >= this.slides.length -1){
             return;
         }
         this.index++;

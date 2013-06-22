@@ -36,7 +36,7 @@ Polymer.register(this, {
         this.items = this.querySelectorAll(selector);
 
         this.items.forEach(function(j){
-            j.classList.add('ui-slide-item','ui-slide-item-pending');
+            j.classList.add('ui-slide-item-pending');
 
             if(fx){
                 j.classList.add('ui-slide-item-'+fx);
@@ -53,8 +53,11 @@ Polymer.register(this, {
         }
 
         return Array.prototype.some.call(this.items, function(i){
+            i.classList.remove('ui-slide-item-current');
+
             if(i.classList.contains('ui-slide-item-pending')){
                 i.classList.remove('ui-slide-item-pending');
+                i.classList.add('ui-slide-item-current');
                 return true;
             }
             if(!i.classList.contains('ui-slide-item-done')){
