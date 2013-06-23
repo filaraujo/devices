@@ -1,10 +1,18 @@
 Polymer.register(this, {
-    type: undefined,
+    language: undefined,
     ready: function(){
-        var code = this.$.content.getDistributedNodes();
-        code.forEach(function(c){
-            hljs.highlightBlock(c.parentNode);
-        });
+        var code;
+
+        this.language = this.getAttribute('class') || undefined;
+
+        if(this.language){
+            code = hljs.highlight(this.language, this.textContent);
+        }  else {
+            code = hljs.highlightAuto(this.textContent);
+            this.language = code.language;
+        }
+
+        this.$.code.innerHTML = code.value;
     }
 
 });
