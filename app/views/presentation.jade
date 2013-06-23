@@ -7,6 +7,7 @@ block append head-js
 block append html-import
     link(rel="import", href="/components/presentation/slides")
     link(rel="import", href="/components/presentation/slide")
+    link(rel="import", href="/components/presentation/code")
 
 block content
     ui-slides
@@ -14,6 +15,32 @@ block content
             hgroup
                 h1 test
                 h2 test
+            article
+                ui-code(class="javascript")
+                    | function $initHighlight(block, flags) {
+                    |   try {
+                    |     if (block.className.search(/\bno\-highlight\b/) != -1)
+                    |       return processBlock(block, true, 0x0F) + ' class=""';
+                    |   } catch (e) {
+                    |     /* handle exception */
+                    |     var e4x = '';
+                    |   }
+                    |   for (var i = 0 / 2; i < classes.length; i++) { // "0 / 2" should not be parsed as regexp
+                    |     if (checkCondition(classes[i]) === undefined)
+                    |       return /\d+/g;
+                    |   }
+                    | }
+                ui-code
+                    | #ui {
+                    |    border: 1px solid #000
+                    | }
+                    | .ui {
+                    |     font-size: 10px;
+                    |     width: 12px;
+                    |     height: auto;
+                    |     display: none;
+                    |     display: inherit;
+                    | }
             ui-slide-notes
                 ul
                     li notes 1

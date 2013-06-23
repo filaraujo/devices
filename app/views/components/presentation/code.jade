@@ -1,0 +1,13 @@
+element(name="ui-code", \attributes="class", extends="pre")
+    template
+        include ../../../assets/stylus/components/presentation/code.styl
+
+        pre(type="{{class}}")
+            content#content
+
+    | !{'<script type="text/javascript">'}
+    :injectJS
+        components/presentation/code.js
+    :injectJS
+        vendor/highlight/highlight-7.3.min.js
+    | !{'</script>'}
