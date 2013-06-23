@@ -3,7 +3,7 @@ Polymer.register(this, {
     ready: function(){
         var code;
 
-        this.language = this.getAttribute('class') || undefined;
+        this.language = this.getAttribute('language') || undefined;
 
         if(this.language){
             code = hljs.highlight(this.language, this.textContent);
