@@ -45,12 +45,12 @@ modules.push(
             toggleNotes = function(){
                 var slide = this.slides[this.index];
 
-                if(!slide.notes && slide.hasNotes){
-                    slide.notes = !slide.notes;
+                if(!slide.notesEnabled && !!slide.notes){
+                    slide.notesEnabled = !slide.notesEnabled;
                     return;
                 }
 
-                slide.notes = false;
+                slide.notesEnabled = false;
             };
 
         this.controlled = false;

@@ -1,4 +1,4 @@
-element(name="ui-slide", \attributes="background backdrop center notes type vcenter")
+element(name="ui-slide", \attributes="background backdrop center items notes type vcenter")
     template
         include ../../../assets/stylus/components/presentation/slide.styl
 
@@ -7,7 +7,7 @@ element(name="ui-slide", \attributes="background backdrop center notes type vcen
             center="{{center}}",
             index="{{index}}",
             loaded="{{loaded}}",
-            notes="{{notes}}",
+            notes="{{notesEnabled}}",
             overview="{{overview}}",
             presentor="{{presentor}}",
             state="{{state}}",
@@ -15,8 +15,9 @@ element(name="ui-slide", \attributes="background backdrop center notes type vcen
             type="{{type}}",
             vcenter="{{vcenter}}")
             aside.ui-slide-notes
-                section
-                    content#notes(select="ui-slide-notes")
+                ul
+                    template(id="notes", repeat="{{notes}}")
+                        li {{note}}
             content
 
 

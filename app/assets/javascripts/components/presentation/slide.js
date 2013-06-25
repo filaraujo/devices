@@ -3,8 +3,9 @@ Polymer.register(this, {
     background: true,
     center: false,
     loaded: false,
-    items: [],
+    items: false,
     notes: false,
+    notesEnabled: false,
     offset: 0,
     overview: false,
     state: '',
@@ -19,14 +20,16 @@ Polymer.register(this, {
             this.buildItems();
         }
 
-        this.hasNotes = !!this.$.notes.getDistributedNodes().length;
+        if(this.notes){
+            this.buildNotes();
+        }
     },
 
     /**
      * build items
      */
     buildItems: function(){
-        var selector = this.getAttribute('items'),
+        var selector = this.items,
             fx = this.getAttribute('items-fx');
 
         if(!selector){
@@ -41,6 +44,24 @@ Polymer.register(this, {
             if(fx){
                 j.classList.add('ui-slide-item-'+fx);
             }
+        });
+    },
+
+    buildNotes: function(){
+        var selector = this.notes,
+            notes;
+
+        if(!selector){
+            return false;
+        }
+
+        notes = this.querySelectorAll(selector);
+
+        this.notes = Array.prototype.map.call(notes, function(note){
+            note.classList.add('ui-slide-note');
+            return {
+                note: note.innerHTML
+            };
         });
     },
 
