@@ -13,5 +13,5 @@ results
 
 node_modules
 npm-debug.log
-devices.sublime-project
-devices.sublime-workspace
+*.sublime-project
+*.sublime-workspace
