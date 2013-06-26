@@ -128,7 +128,7 @@ Polymer.register(this, {
         var scope = this;
 
         this.slides.forEach(function(i, index){
-            i.offset = (index - scope.index) * 105;
+            i.$.slide.style.left = ((index - scope.index) * 105 ) + '%';
         });
 
         this.previousIndex = this.index;
@@ -138,10 +138,10 @@ Polymer.register(this, {
         if(!this.overview){
             this.asyncMethod(function(){
                 this.slides.forEach(function(i){
-                    i.offset = 0;
+                    i.$.slide.removeAttribute('style');
                 });
                 this.$.viewport.removeAttribute('style');
-            });
+            }, 0);
         }
     },
 
@@ -214,6 +214,7 @@ Polymer.register(this, {
                 scope.backdrop = i.backdrop;
             }
         });
+
 
         if(this.overview){
             overviewOffset = (this.index - this.previousIndex) * -105;

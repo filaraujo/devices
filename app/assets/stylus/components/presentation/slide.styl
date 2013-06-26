@@ -1,5 +1,17 @@
 gray = #e6e6e6
 
+@css {
+    @host {
+        * {
+            bottom: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+    }
+}
+
 // .ui-slide
 .ui-slide
     border-radius 4px
@@ -14,17 +26,30 @@ gray = #e6e6e6
     flex-wrap nowrap
     height 100%
     padding 6vmin
-    position absolute
-    -webkit-transform: translate3d(0,0,0)
-    transform: translate3d(0,0,0)
+    overflow hidden
     -ms-transition opacity .6s 0
     -moz-transition opacity .6s 0
     -webkit-transition opacity .6s 0
     transition opacity .6s 0
-    top 0
     width 100%
+    z-index 2
 
-    &:not([backdrop="false"]):after,
+    &[overview="true"]
+        -moz-filter grayscale(0)
+        -ms-filter grayscale(0)
+        -webkit-filter grayscale(0)
+        filter grayscale(0) // this fixes a bug cause by performance hack
+        position absolute
+        opacity 1
+
+        &:not([state="ui-slide-current"])
+            opacity .4
+            -moz-filter grayscale(1)
+            -ms-filter grayscale(1)
+            -webkit-filter grayscale(1)
+            filter grayscale(1) // this adds performance
+
+    &[backdrop="true"]:after,
     &[presentor="true"]:after
         bottom 1.5vmin
         color #aaa
@@ -34,17 +59,17 @@ gray = #e6e6e6
         right 1.8vmin
 
     &:not([state="ui-slide-current"])
-        opacity: 0
+        opacity 0
 
-    &:not([background="false"]),
+    &[state="ui-slide-current"]
+        opacity 1
+
+    &[background="true"],
     &[overview="true"],
     &[presentor="true"]
         // background -webkit-linear-gradient(white, white 85%, gray)
         // background linear-gradient(white, white 85%, gray)
         background #fff
-
-    &[overview="true"]
-        opacity .5
 
     &[center="true"]
         -webkit-align-items center
@@ -54,10 +79,6 @@ gray = #e6e6e6
     &[vcenter="true"]
         -webkit-justify-content center
         justify-content center
-
-    &[state="ui-slide-current"]
-        opacity 1
-        z-index 1
 
     &[presentor="true"]
         padding 2vmin
