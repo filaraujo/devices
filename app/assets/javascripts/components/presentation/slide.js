@@ -9,7 +9,6 @@ Polymer.register(this, {
     offset: 0,
     overview: false,
     state: '',
-    type: false,
     vcenter: false,
 
     /**
