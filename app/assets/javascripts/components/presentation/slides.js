@@ -98,7 +98,7 @@ Polymer.register(this, {
 
             case 13: // enter
             case 27: // escape
-                if(!this.overview){
+                if(this.overview){
                     this.toggleOverview();
                 }
                 break;

@@ -28,20 +28,30 @@ Polymer.register(this, {
      * build items
      */
     buildItems: function(){
-        var selector = this.items,
+        var selectors = this.items.split(','),
+            scope = this,
             fx = this.getAttribute('items-fx');
 
-        if(!selector){
+        if(!selectors.length){
             return false;
         }
 
-        this.items = this.querySelectorAll(selector);
+        //build in order of selectors
+        this.items = [];
 
-        this.items.forEach(function(j){
+        selectors.forEach(function(selector){
+            scope.items.push.apply(scope.items, scope.querySelectorAll(selector));
+        });
+
+        this.items.forEach(function(j, index){
             j.classList.add('ui-slide-item-pending');
 
             if(fx){
                 j.classList.add('ui-slide-item-'+fx);
+            }
+
+            if(index === 0){
+                j.classList.add('ui-slide-item-next');
             }
         });
     },
@@ -72,8 +82,13 @@ Polymer.register(this, {
             return false;
         }
 
-        return Array.prototype.some.call(this.items, function(i){
+        return Array.prototype.some.call(this.items, function(i, index, items){
             i.classList.remove('ui-slide-item-current');
+            i.classList.remove('ui-slide-item-next');
+
+            if(items.length > index + 1){
+                items[index+1].classList.add('ui-slide-item-next');
+            }
 
             if(i.classList.contains('ui-slide-item-pending')){
                 i.classList.remove('ui-slide-item-pending');

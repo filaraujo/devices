@@ -48,6 +48,9 @@ gray = #e6e6e6
             -webkit-filter grayscale(1)
             filter grayscale(1) // this adds performance
 
+    &[backdrop="false"]
+        box-shadow none
+
     &[backdrop="true"]:after,
     &[presentor="true"]:after
         bottom 1.5vmin
@@ -210,7 +213,12 @@ content::-webkit-distributed(.ui-slide-item-pending)
 /* @polyfill .ui-slide[presentor="true"] .ui-slide-item-pending */
 [presentor="true"] content::-webkit-distributed( .ui-slide-item-pending)
     background yellow
-    opacity .4
+    opacity .3
+
+/* @polyfill .ui-slide[presentor="true"] .ui-slide-item-next */
+[presentor="true"] content::-webkit-distributed( .ui-slide-item-next)
+    background yellow
+    opacity .6
 
 /* @polyfill .ui-slide-item-done */
 content::-webkit-distributed(.ui-slide-item-done)

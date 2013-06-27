@@ -1,4 +1,5 @@
 Polymer.register(this, {
+    title: '',
     language: undefined,
     ready: function(){
         var code;

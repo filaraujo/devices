@@ -1,9 +1,9 @@
-element(name="ui-code", \attributes="class", extends="pre")
+element(name="ui-code", \attributes="class title", extends="pre")
     template
         include ../../../assets/stylus/components/presentation/code.styl
 
         pre
-            code#code(class="{{language}}")
+            code#code(class="{{language}}",title="{{title}}")
 
     | !{'<script type="text/javascript">'}
     :injectJS
