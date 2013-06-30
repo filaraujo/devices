@@ -26,6 +26,7 @@ gray = #e6e6e6
     flex-wrap nowrap
     height 100%
     padding 6vmin
+    opacity 0
     overflow hidden
     -ms-transition opacity .6s 0
     -moz-transition opacity .6s 0
@@ -34,19 +35,19 @@ gray = #e6e6e6
     width 100%
 
     &[overview="true"]
-        -moz-filter grayscale(0)
-        -ms-filter grayscale(0)
-        -webkit-filter grayscale(0)
-        filter grayscale(0) // this fixes a bug cause by performance hack
+        -moz-filter grayscale(1)
+        -ms-filter grayscale(1)
+        -webkit-filter grayscale(1)
+        filter grayscale(1) // this adds performance
         position absolute
-        opacity 1
+        opacity .4
 
-        &:not([state="ui-slide-current"])
-            opacity .4
-            -moz-filter grayscale(1)
-            -ms-filter grayscale(1)
-            -webkit-filter grayscale(1)
-            filter grayscale(1) // this adds performance
+        &[state="ui-slide-current"]
+            -moz-filter grayscale(0)
+            -ms-filter grayscale(0)
+            -webkit-filter grayscale(0)
+            filter grayscale(0) // this fixes a bug cause by performance hack
+            opacity 1
 
     &[backdrop="false"]
         box-shadow none
@@ -59,9 +60,6 @@ gray = #e6e6e6
         font-size 1.33vmin
         position absolute
         right 1.8vmin
-
-    &:not([state="ui-slide-current"])
-        opacity 0
 
     &[state="ui-slide-current"]
         opacity 1
