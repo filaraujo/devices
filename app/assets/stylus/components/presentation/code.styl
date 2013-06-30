@@ -3,13 +3,16 @@
 pre code
     position relative
 
+pre code[title=""]
+    &:before
+        display none
+
 pre code[title]
   &:before
     background #323a45
     color #fff
     content attr(title)
-    font-size 1rem
-    padding 3px
+    padding 5px 8px
     position absolute
     top 0
     right 0

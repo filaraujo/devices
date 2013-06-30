@@ -38,7 +38,6 @@
 
 .ui-slides-viewport
     bottom 20px
-    height 60vmin
     left 20px
     margin auto
     min-width 300px
@@ -55,18 +54,59 @@
     .ui-slides[overview="true"] &
         overflow visible
 
+// LAYOUT
 @media screen and (min-width:0) and (max-width:380px) and (orientation:portrait)
     .ui-slides-viewport
         left -4px
         right -4px
 
-@media screen and (orientation:portrait)
+// landscape
+@media screen and (orientation:landscape) and (min-aspect-ratio:3/2)
     .ui-slides-viewport
-        height 60vmin
+        max-width 140vh
+        width 90vw
+        max-height 86vh
+        min-height 86vh
+
+// extreme landscape
+@media screen and (min-aspect-ratio:4/1) and (orientation:landscape)
+    .ui-slides-viewport
+        max-height 60vw
 
 @media screen and (orientation:landscape)
     .ui-slides-viewport
-        height 60vw
-        max-height 86%
-        max-width 140vh
         width 90vw
+
+// portrait, square, extreme portrait
+@media screen and (orientation:portrait),
+screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:3/2),
+screen and (max-aspect-ratio:2/3) and (orientation:portrait)
+    .ui-slides-viewport
+        max-height 60vw
+
+@media screen and (max-height:240px)
+    .ui-slides-viewport
+        height 100%
+
+@media screen and (max-width:300px)
+    .ui-slides-viewport
+        min-height 200px
+        max-height 200px
+
+
+// TYPOGRAPHY
+@media all
+    content::-webkit-distributed(ui-slide)
+        font-size 2vh
+
+@media all and (min-aspect-ratio:2/1)
+    content::-webkit-distributed(ui-slide)
+        font-size 1.875vh
+
+@media all and (max-aspect-ratio:7/4)
+    content::-webkit-distributed(ui-slide)
+        font-size 1.125vw
+
+@media all and (max-aspect-ratio:8/5)
+    content::-webkit-distributed(ui-slide)
+        font-size 1.2125vw
