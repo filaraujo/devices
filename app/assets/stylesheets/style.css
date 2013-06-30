@@ -183,32 +183,6 @@ h5,
 h6 {
   margin: 0;
 }
-body:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  z-index: 100;
-}
-article {
-  background: #ccc;
-  border: 1px solid #000;
-}
-ul {
-  margin: 0;
-  padding: 0;
-}
-ul li {
-  background: #ff0;
-}
-ul li:nth-child(2n+1) {
-  background: #ffa500;
-}
-ul li:nth-child(3n+1) {
-  background: #008000;
-}
 section {
   border: 1px solid #ccc;
   border-width: 0 1px 1px;
