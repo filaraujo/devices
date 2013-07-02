@@ -75,7 +75,7 @@ Polymer.register(this, {
     },
 
     loadSlide: function(){
-        var els = this.querySelectorAll('img[data-src]');
+        var els = this.querySelectorAll('[data-src]');
 
         els.forEach(function(el){
             el.src = el.getAttribute('data-src');
