@@ -74,6 +74,17 @@ Polymer.register(this, {
         });
     },
 
+    loadSlide: function(){
+        var els = this.querySelectorAll('img[data-src]');
+
+        els.forEach(function(el){
+            el.src = el.getAttribute('data-src');
+            el.removeAttribute('data-src');
+        });
+
+        this.loaded = true;
+    },
+
     /**
      * next item
      */
@@ -99,5 +110,14 @@ Polymer.register(this, {
                 i.classList.add('ui-slide-item-done');
             }
         });
+    },
+
+    /**
+     * state change handler
+     */
+    stateChanged: function(){
+        if(/ui-slide-next|ui-slide-current|ui-slide-far-next/.test(this.state) && !this.loaded){
+            this.loadSlide();
+        }
     }
 });

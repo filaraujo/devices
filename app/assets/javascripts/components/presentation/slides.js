@@ -210,7 +210,6 @@ Polymer.register(this, {
             i.presentor = scope.presentor;
 
             if(state === 'current'){
-                i.loaded = true;
                 scope.backdrop = i.backdrop;
             }
         });
