@@ -116,7 +116,7 @@ Polymer.register(this, {
      * state change handler
      */
     stateChanged: function(){
-        if(/ui-slide-next|ui-slide-current|ui-slide-far-next/.test(this.state) && !this.loaded){
+        if(/ui-slide-next|ui-slide-current|ui-slide-past/.test(this.state) && !this.loaded){
             this.loadSlide();
         }
     }
