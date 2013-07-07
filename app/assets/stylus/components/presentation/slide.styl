@@ -192,8 +192,14 @@ content::-webkit-distributed(article)
     -webkit-flex 1 1 auto
     flex 1 1 auto
     height 100%
-    // font-size 1.75vmin
     overflow auto
+
+/* @polyfill [vcenter="true"] article */
+.ui-slide[vcenter="true"] content::-webkit-distributed(article)
+    -webkit-flex none
+    flex none
+    height auto
+
 
 /* @polyfill [class^="ui-slide-item"] */
 content::-webkit-distributed([class*="ui-slide-item"])
