@@ -71,7 +71,6 @@ Polymer.register(this, {
             return false;
         }
 
-        // prevent keys in presentor
         if(this.presentor){
             this.fire('sendkeys', e);
         }

@@ -9,7 +9,6 @@ modules.push(
                 var data = e.data,
                     evt;
 
-
                 if(data.keyCode){
                     evt = document.createEvent('Event');
                     evt.initEvent('keydown', true, true);
@@ -73,5 +72,6 @@ modules.push(
         this.addEventListener('togglecontroller', toggleController.bind(this), false);
         this.addEventListener('sendkeys', sendKeys.bind(this), false);
         window.addEventListener('message', onMessage, false);
+
     }
 );
