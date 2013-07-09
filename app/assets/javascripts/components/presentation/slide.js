@@ -69,7 +69,7 @@ Polymer.register(this, {
         this.notes = Array.prototype.map.call(notes, function(note){
             note.classList.add('ui-slide-note');
             return {
-                note: note.innerHTML
+                note: note.textContent
             };
         });
     },

@@ -13,6 +13,7 @@ modules.push(
                     evt = document.createEvent('Event');
                     evt.initEvent('keydown', true, true);
                     evt.keyCode = data.keyCode;
+                    evt.metaKey = data.metaKey;
                     document.dispatchEvent(evt);
                 }
             },
@@ -23,7 +24,7 @@ modules.push(
              */
             sendKeys = function(e){
                 e = e.detail;
-                window.opener.postMessage({keyCode: e.keyCode}, '*');
+                window.opener.postMessage({keyCode: e.keyCode, metaKey: e.metaKey}, '*');
             },
 
             /**

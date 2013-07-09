@@ -118,6 +118,12 @@ Polymer.register(this, {
             case 70: // letter F
                 this.fire('togglefullscreen', {});
                 break;
+
+            case 82:
+                if(e.metaKey){
+                    window.location.reload();
+                }
+                break;
         }
     },
 
