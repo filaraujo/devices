@@ -9,6 +9,7 @@ modules.push(
                 var data = e.data,
                     evt;
 
+
                 if(data.keyCode){
                     evt = document.createEvent('Event');
                     evt.initEvent('keydown', true, true);
@@ -23,21 +24,31 @@ modules.push(
              * restrict P
              */
             sendKeys = function(e){
+                if(!this.popup){
+                    return;
+                }
+
                 e = e.detail;
-                window.opener.postMessage({keyCode: e.keyCode, metaKey: e.metaKey}, '*');
+                this.popup.postMessage({keyCode: e.keyCode, metaKey: e.metaKey}, '*');
             },
 
             /**
              * toggle controller
              */
             toggleController = function(){
-                this.controlled = !this.controlled;
-
                 if(this.controlled){
+                    return;
+                }
+
+                this.presentor = !this.presentor;
+                this.updateSlides();
+
+                if(this.presentor){
                     this.popup = window.open(location.href, 'controller', 'menubar=no,location=yes,resizable=yes,scrollbars=no,status=no');
                     return;
                 }
                 this.popup.close();
+                delete this.popup;
             },
 
             /**
@@ -54,8 +65,8 @@ modules.push(
                 slide.notesEnabled = false;
             };
 
-        this.controlled = false;
-        this.presentor = !!window.opener;
+        this.presentor = false;
+        this.controlled = !!window.opener;
 
         // bind events
         this.addEventListener('togglenotes', toggleNotes.bind(this), false);

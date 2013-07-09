@@ -73,9 +73,6 @@ Polymer.register(this, {
 
         // prevent keys in presentor
         if(this.presentor){
-            if([80,79].indexOf(e.keyCode) >= 0){
-                return false;
-            }
             this.fire('sendkeys', e);
         }
 
