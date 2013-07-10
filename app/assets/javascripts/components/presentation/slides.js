@@ -25,7 +25,9 @@ Polymer.register(this, {
     ready: function(){
         var scope = this;
 
-        this.slides = this.$.content.getDistributedNodes();
+        this.slides = Array.prototype.filter.call(this.$.content.getDistributedNodes(), function(i){
+            return i.nodeName === 'UI-SLIDE';
+        });
 
         this.slides.forEach(function(i, index, slides){
             i.index = (index+1) + '/'+ slides.length;
