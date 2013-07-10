@@ -92,6 +92,8 @@ var Device = new Schema({
         }
     },
     javascript: {
+        fullscreen: Boolean,
+        postmessage: Boolean
     },
     system: {
         type: Object,

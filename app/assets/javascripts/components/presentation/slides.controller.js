@@ -1,3 +1,9 @@
+/**
+ * allows the slides to be put into presentation mode
+ *
+ * @requires
+ *     window.postmessage
+ */
 modules.push(
     function(){
         var

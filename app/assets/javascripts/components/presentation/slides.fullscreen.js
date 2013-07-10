@@ -1,3 +1,10 @@
+/**
+ * allows the slides to be put into fullscreen mode
+ *
+ * @requires
+ *     window.exitFullscreen
+ *     document.body.requestFullScreen
+ */
 modules.push(
     function(){
         /**
@@ -12,14 +19,14 @@ modules.push(
             }
 
             document.cancelFullScreen();
-        };
+        }
 
 
         this.fullscreen = false;
         this.addEventListener('togglefullscreen', toggleFullScreen);
 
         // normalize api
-        document.cancelFullScreen = document.cancelFullScreen || document.webkitCancelFullScreen || document.mozCancelFullScreen,
+        document.cancelFullScreen = document.exitFullscreen || document.cancelFullScreen || document.webkitCancelFullScreen || document.mozCancelFullScreen || document.webkitExitFullscreen,
         document.body.requestFullScreen = document.body.requestFullScreen || document.body.mozRequestFullScreen || document.body.webkitRequestFullScreen;
     }
 );

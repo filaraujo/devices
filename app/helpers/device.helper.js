@@ -111,6 +111,8 @@ var htmlFeatures = function(props){
 
 var javascriptFeatures = function(props){
     return {
+        fullscreen: props.fullscreen,
+        postmessage: props.postmessage
     };
 };
 
