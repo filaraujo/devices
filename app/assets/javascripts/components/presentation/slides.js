@@ -1,13 +1,4 @@
 /**
- * faux polymer to prevent script errors
- */
-if(!window.Polymer){
-    var Polymer = {
-        register: function(){}
-    };
-}
-
-/**
  * register polymer element
  */
 Polymer.register(this, {
