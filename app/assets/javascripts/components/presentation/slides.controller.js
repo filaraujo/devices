@@ -52,8 +52,8 @@ modules.push(
                     this.popup = window.open(location.href, 'controller', 'menubar=no,location=yes,resizable=yes,scrollbars=no,status=no');
                     return;
                 }
-                this.popup.close();
-                delete this.popup;
+                // this.popup.close();
+                // delete this.popup;
             },
 
             /**
