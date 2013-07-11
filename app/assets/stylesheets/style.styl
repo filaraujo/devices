@@ -19,34 +19,52 @@ h5,
 h6
     margin: 0
 
+body
+    font-size 18px
+
+h2
+    margin-top 1em
+    padding-left .5em
+
+h3
+    margin-left 1em
+
+
+
 section
     border  1px solid #ccc
     border-width  0 1px 1px
 
 .detail
     border-top  1px solid #ccc
-    line-height  3rem
-    padding  0 1rem
+    line-height  2em
+    padding  0 2em
     text-align  right
 
     span
         float  left
 
+    &[supported="true"] b
+        background green
+        color #fff
+        padding .4em 1em
+        font-weight normal
+        text-transform uppercase
+
 .detail-group
     line-height  3rem
 
     span
-        padding  0 1rem
+        padding  0 2em
 
     .detail
         background  #ededed
         clear  both
         border-bottom  0
         border-top  1px solid #ddd
-        line-height  2rem
-        margin-left  2rem
+        margin-left  2em
 
     .detail-group
         background  #f8f8f8
         clear  both
-        margin-left  2rem
+        margin-left  2em

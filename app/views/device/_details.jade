@@ -11,6 +11,6 @@ mixin details(details, type)
                         mixin detail(id, value, type)
 
 mixin detail(id, value, type)
-    div.detail
+    div.detail(supported="#{value}")
         span #{type}.#{id}
-        | #{value}
+        b #{value}
