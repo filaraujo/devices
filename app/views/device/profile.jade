@@ -38,6 +38,11 @@ block content
 
 
     if device.exists
+
+        h2 javascript features
+        section.html
+            mixin details(device.javascript,'javascript')
+
         h2 css features
         section.features-css
             mixin details(device.css,'css')
@@ -47,7 +52,3 @@ block content
         h3 inputs
         section.html
             mixin details(device.html.input,'html.input')
-
-        h2 javascript features
-        section.html
-            mixin details(device.javascript,'javascript')
