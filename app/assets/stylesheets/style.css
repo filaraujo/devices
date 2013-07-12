@@ -184,7 +184,7 @@ h6 {
   margin: 0;
 }
 body {
-  font-size: 18px;
+  font-size: 16px;
 }
 h2 {
   margin-top: 1em;
@@ -200,18 +200,24 @@ section {
 .detail {
   border-top: 1px solid #ccc;
   line-height: 2em;
-  padding: 0 2em;
+  padding: 0 0 0 2em;
   text-align: right;
 }
 .detail span {
   float: left;
 }
-.detail[supported="true"] b {
-  background: #008000;
-  color: #fff;
+.detail[supported] b {
   padding: 0.4em 1em;
   font-weight: normal;
   text-transform: uppercase;
+}
+.detail[supported="true"] b {
+  color: #fff;
+  background: #008000;
+}
+.detail[supported="false"] b {
+  color: #fff;
+  background: #f00;
 }
 .detail-group {
   line-height: 3rem;
@@ -225,6 +231,7 @@ section {
   border-bottom: 0;
   border-top: 1px solid #ddd;
   margin-left: 2em;
+  padding: 0;
 }
 .detail-group .detail-group {
   background: #f8f8f8;

@@ -1,7 +1,7 @@
 mixin details(details, type)
     if(details)
         each value, id in details
-            if value
+            if value !== undefined
                 if typeof value === "object"
                     div.detail-group
                         span #{type}.#{id}
