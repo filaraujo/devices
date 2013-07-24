@@ -1,4 +1,4 @@
-Polymer.register(this, {
+Polymer('ui-layout', {
     open: false,
     fx: 'slide',
     ready: function(){
@@ -20,3 +20,4 @@ Polymer.register(this, {
         });
     }
 });
+
