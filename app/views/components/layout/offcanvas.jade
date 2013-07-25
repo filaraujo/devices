@@ -8,11 +8,11 @@
             | // drawer-content
         ui-layout-page
             | // page-content
-polymer-element(name="ui-layout", \attributes="open fx")
+polymer-element(name="ui-layout", \attributes="open type")
     template
         include ../../../assets/stylus/components/layout/offcanvas.styl
 
-        div.ui-layout(open="{{open}}", fx="{{fx}}")
+        div.ui-layout(state="{{state}}", type="{{type}}")
             div.ui-layout-drawer
                 content(select="ui-layout-drawer")
             div.ui-layout-page

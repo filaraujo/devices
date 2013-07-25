@@ -1,23 +1,32 @@
 Polymer('ui-layout', {
-    open: false,
-    fx: 'slide',
+    state: 'closed',
+    val: 'slide',
     ready: function(){
-        var self = this;
+        var scope = this;
 
-        this.fx = ['slide','pan','meny','parallax'].indexOf(this.fx) > -1 ? this.fx : 'slide';
+        this.type = ['slide','pan','meny','parallax'].indexOf(this.type) > -1 ? this.type : 'slide';
+
+        this.addEventListener('open', this.open);
+        this.addEventListener('close', this.close);
 
         window.addEventListener('keydown', function(e){
             switch(e.keyCode){
                 case 39:
-                    self.open = true;
+                    scope.fire('open', {});
                     break;
                 case 37:
-                    self.open = false;
+                    scope.fire('close', {});
                     break;
                 default:
                     break;
             }
         });
+    },
+    close: function(){
+        this.state = 'close';
+    },
+    open: function(){
+        this.state = 'open';
     }
 });
 
