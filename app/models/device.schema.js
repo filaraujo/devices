@@ -1,10 +1,17 @@
 var clog = require('clog'),
     mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    cssPlugin = require('../../app/models/plugin/css.schema'),
+    javascriptPlugin = require('../../app/models/plugin/javascript.schema'),
+    htmlPlugin = require('../../app/models/plugin/html.schema');
 
-// define browser schema
+
+// define device schema
 var Device = new Schema({
-    created: Date,
+    created: {
+        type: Date,
+        default: Date.now
+    },
     id: {
         type: String,
         index: true,
@@ -12,91 +19,16 @@ var Device = new Schema({
         required: true
     },
     agent: {
-        type: Object,
+        type: Object, // mongoose type
         family: String,
         major: String,
         minor: String,
         patch: String,
         id: String
     },
-    css: {
-        animations: Boolean,
-        background: {
-            repeatround: Boolean,
-            repeatspace: Boolean,
-            size: Boolean,
-            sizeCover: Boolean
-        },
-        border: {
-            image: Boolean,
-            radius: Boolean
-        },
-        box: {
-            sizing: Boolean,
-            shadow: Boolean
-        },
-        checked: Boolean,
-        filters: Boolean,
-        layouts: {
-            displayrunin: Boolean,
-            flexbox: Boolean,
-            columns: Boolean,
-            positionSticky: Boolean
-
-        },
-        text: {},
-        transforms: {
-            '2d': Boolean,
-            '3d': Boolean
-        },
-        transitions: Boolean,
-        units: {
-            rem: Boolean,
-            vh: Boolean,
-            vmin: Boolean,
-            vmax: Boolean,
-            vw: Boolean
-        }
-    },
     device: Object,
-    html: {
-        input: {
-            properties: {
-                autocomplete: Boolean,
-                autofocus: Boolean,
-                list: Boolean,
-                max: Boolean,
-                min: Boolean,
-                multiple: Boolean,
-                pattern: Boolean,
-                placeholder: Boolean,
-                required: Boolean,
-                step: Boolean
-            },
-            types: {
-                color: Boolean,
-                date: Boolean,
-                datetime: Boolean,
-                datetimelocal: Boolean,
-                email: Boolean,
-                file: Boolean,
-                month: Boolean,
-                number: Boolean,
-                range: Boolean,
-                search: Boolean,
-                tel: Boolean,
-                time: Boolean,
-                url: Boolean,
-                week: Boolean
-            }
-        }
-    },
-    javascript: {
-        fullscreen: Boolean,
-        postmessage: Boolean
-    },
     system: {
-        type: Object,
+        type: Object, // mongoose type
         major: String,
         minor: String,
         patch: String,
@@ -105,12 +37,15 @@ var Device = new Schema({
     }
 });
 
-// define default for created
-Device.path('created').default(Date.now);
+// add plugins
+Device.plugin(cssPlugin, {});
+Device.plugin(htmlPlugin, {});
+Device.plugin(javascriptPlugin, {});
+
 
 Device.post('save', function() {
     clog.debug('action:\tDevice saved to database');
 });
 
-// export Browser
+// export Device
 module.exports = mongoose.model('Device', Device);

@@ -9,7 +9,10 @@
             return $.ajax({
                 url: '/device',
                 type: 'POST',
-                data: tests
+                data: {
+                    tests: tests,
+                    useragent: window.navigator.userAgent
+                }
             });
         };
 

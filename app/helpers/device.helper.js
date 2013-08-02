@@ -118,30 +118,25 @@ var javascriptFeatures = function(props){
 
 
 
-module.exports = function(){
-    this.setFeatures = function(props){
-        this.css = cssFeatures(props);
-        this.html = htmlFeatures(props);
-        this.javascript = javascriptFeatures(props);
-    };
+module.exports = function(uaObj, props){
+    // features
+    this.css = cssFeatures(props);
+    this.html = htmlFeatures(props);
+    this.javascript = javascriptFeatures(props);
 
-    this.setUserAgent = function(uaObj){
-        this.id = uaObj.string;
-        this.agent = uaObj.ua;
-        this.agent.id = uaObj.ua.toString();
-        this.agent.family = uaObj.family;
-    };
+    // useragent
+    this.id = uaObj.string;
+    this.agent = uaObj.ua;
+    this.agent.id = uaObj.ua.toString();
+    this.agent.family = uaObj.family;
 
-    this.setOperatingSystem = function(uaObj){
-        this.system = uaObj.os;
-        this.system.id = uaObj.os.toString();
-    };
+    // operating system
+    this.system = uaObj.os;
+    this.system.id = uaObj.os.toString();
 
-    this.setDevice = function(uaObj, props){
-        this.device = props ? _.assign(uaObj.device, deviceFeatures(props)) : uaObj.device;
-    };
+    // device
+    this.device = props ? _.assign(uaObj.device, deviceFeatures(props)) : uaObj.device;
 
-    this.validateDevice = function(){
-        validate(this,'device');
-    };
+    // validation
+    validate(this,'device');
 };

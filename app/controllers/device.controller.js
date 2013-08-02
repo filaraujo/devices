@@ -5,71 +5,86 @@ var clog = require('clog'),
     uaParser = require('ua-parser');
 
 
-device.getDeviceByAgent = function (req, res, next) {
-    var ua = req.headers['user-agent'],
-        uaObj = uaParser.parse(ua),
-        device;
+/**
+ * DELETE
+ */
+device.delete = {
 
-    Device.find({ id: ua }, function(err, docs){
+    all: function(req, res, next){
+        Device.remove({}, function(err){
+            if(err){
+                res.json({ }, 500);
+            }
+            res.json({ }, 204);
+        });
+    },
 
-        if( err ){
-            return next( new Error( 'Unable to detect device from database') );
-        }
+    byHash: function(req, res, next){
+        Device.remove({ _id: req.params.device }, function(err){
+            if(err){
+                res.json({ }, 500);
+            }
+            res.json({ }, 204);
+        });
+    }
 
-        if(docs.length > 0){
-            device = docs[0].toObject();
-        } else {
-            device = new DeviceHelper();
-            device.setUserAgent(uaObj);
-            device.setOperatingSystem(uaObj);
-            device.setDevice(uaObj);
-            device.validateDevice();
-        }
-
-        device.exists = !!docs.length;
-
-        res.device = device;
-        next();
-    });
 };
 
-device.getDeviceByHash = function(req, res, next){
-    var id = req.params.device,
-        device;
+/**
+ * GET
+ */
+device.get = {
 
-    Device.find({ _id: id }, function(err, docs){
-        if( err || !docs.length){
-            return next( new Error( 'Device does not exist') );
-        }
+    all: function(req, res, next){
+        Device.find({},'', function(err, docs){
+            res.devices = docs;
+            next();
+        });
+    },
 
-        device = docs[0].toObject();
-        device.exists = !!docs.length;
-        res.device = device;
-        next();
-    });
-};
+    byAgent: function(req, res, next){
+        var ua = req.headers['user-agent'];
 
-device.getAllDevices = function(req, res, next){
-    Device.find({},'', function(err, docs){
-        res.devices = docs;
-        next();
-    });
-};
+        Device.findOne({ id: ua }, function(err, docs){
+            if( err ){
+                return next( new Error( 'Unable to detect device from database') );
+            }
+            if(docs){
+                docs = docs.toObject();
+            }
+            res.device = docs;
+            next();
+        });
+    },
 
-device.postDevice = function(req, res){
-    var uaObj = uaParser.parse(req.headers['user-agent']),
-        props = req.body;
+    byHash: function(req, res, next){
+        var id = req.params.device;
 
-    var device = new DeviceHelper();
-    device.setFeatures(props);
-    device.setUserAgent(uaObj);
-    device.setOperatingSystem(uaObj);
-    device.setDevice(uaObj,props);
-    device.validateDevice();
+        Device.findOne({ _id: id }, function(err, docs){
+            if( err || !docs){
+                return next( new Error( 'Device does not exist') );
+            }
 
-    console.log(uaObj);
+            res.device = docs.toObject();
+            next();
+        });
+    }
 
-    new Device( device ).save(function(err){
+}
+
+/**
+ * POST
+ */
+device.post = function(req, res, next){
+    var ua = req.headers['user-agent'];
+
+    if(ua !== req.body.useragent){
+        res.json({ message: 'device user agent does not match post data user agent'}, 500)
+    }
+
+    var device = new DeviceHelper(uaParser.parse(ua), req.body.tests);
+
+    new Device(device).save(function(err){
         if(err){
             clog.error(err);
             res.json({ error: err.err }, 409);
@@ -80,7 +95,9 @@ device.postDevice = function(req, res){
 
 
 
-// views
+/**
+ * VIEW
+ */
 device.view = {};
 
 device.view.profile = function(req, res){

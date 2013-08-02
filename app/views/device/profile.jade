@@ -2,10 +2,9 @@ extends ../layout
 include _details
 
 block append head-js
-    script(src="/javascripts/vendor/jquery-2.0.0.min.js")
-    if !device.exists
-        script(src="javascripts/vendor/modernizr.custom.js")
-        script(src="javascripts/device.js")
+    script(src="/javascripts/vendor/jquery-2.0.3.min.js")
+    script(src="javascripts/vendor/modernizr.custom.js")
+    script(src="javascripts/device.js")
 
 block content
 
@@ -16,7 +15,7 @@ block content
         if device._id
             div.detail
                 span Mongo id
-                | #{device._id}
+                a(href="/device/#{device._id}") #{device._id}
 
         div.detail-group
             span Browser
@@ -37,7 +36,7 @@ block content
                 | #{device.created}
 
 
-    if device.exists
+    if device._id
 
         h2 javascript features
         section.html
@@ -46,7 +45,6 @@ block content
         h2 css features
         section.features-css
             mixin details(device.css,'css')
-
 
         h2 html features
         h3 inputs
