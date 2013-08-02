@@ -1,13 +1,13 @@
 /**
  * register polymer element
  */
-Polymer.register(this, {
+Polymer('ui-slide', {
     backdrop: true,
     background: true,
     center: false,
     loaded: false,
-    items: false,
-    notes: false,
+    items: [],
+    notes: [],
     notesEnabled: false,
     offset: 0,
     overview: false,
@@ -18,11 +18,11 @@ Polymer.register(this, {
      * polymer init
      */
     ready: function(){
-        if(this.items){
+        if(this.items.length){
             this.buildItems();
         }
 
-        if(this.notes){
+        if(this.notes.length){
             this.buildNotes();
         }
     },

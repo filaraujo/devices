@@ -1,4 +1,4 @@
-Polymer.register(this, {
+Polymer('ui-code', {
     title: '',
     language: undefined,
     ready: function(){

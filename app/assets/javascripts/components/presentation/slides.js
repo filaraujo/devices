@@ -1,7 +1,7 @@
 /**
  * register polymer element
  */
-Polymer.register(this, {
+Polymer('ui-slides', {
     backdrop: true,
     index: 0,
     presentor: false,
