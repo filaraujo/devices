@@ -51,6 +51,7 @@ device.get = {
             }
             if(docs){
                 docs = docs.toObject();
+                clog.info('Device found by agent: ' + ua);
             }
             res.device = docs;
             next();
