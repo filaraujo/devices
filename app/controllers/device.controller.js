@@ -10,7 +10,7 @@ var clog = require('clog'),
  */
 device.delete = {
 
-    all: function(req, res, next){
+    all: function(req, res){
         Device.remove({}, function(err){
             if(err){
                 res.json({ }, 500);
@@ -19,7 +19,7 @@ device.delete = {
         });
     },
 
-    byHash: function(req, res, next){
+    byHash: function(req, res){
         Device.remove({ _id: req.params.device }, function(err){
             if(err){
                 res.json({ }, 500);
@@ -71,16 +71,16 @@ device.get = {
         });
     }
 
-}
+};
 
 /**
  * POST
  */
-device.post = function(req, res, next){
+device.post = function(req, res){
     var ua = req.headers['user-agent'];
 
     if(ua !== req.body.useragent){
-        res.json({ message: 'device user agent does not match post data user agent'}, 500)
+        res.json({ message: 'device user agent does not match post data user agent'}, 500);
     }
 
     var device = new DeviceHelper(uaParser.parse(ua), req.body.tests);
@@ -101,15 +101,15 @@ device.post = function(req, res, next){
  */
 device.view = {};
 
-device.view.profile = function(req, res){
-    return res.render('device/profile', {
-        device: res.device || {}
-    });
-};
-
 device.view.list = function(req, res){
     return res.render('device/list', {
         devices: res.devices || {}
+    });
+};
+
+device.view.profile = function(req, res){
+    return res.render('device/profile', {
+        device: res.device || {}
     });
 };
 
