@@ -1,5 +1,6 @@
 var _ = require('lodash'),
-    clog = require('clog');
+    clog = require('clog'),
+    uaParser = require('ua-parser');
 
 var validate = function(obj, ancestor){
     _.forOwn(obj,function(val,key){
@@ -12,6 +13,9 @@ var validate = function(obj, ancestor){
 
         if(_.isObject(val)){
             validate(val, orig);
+            if(_.isEmpty(val)){
+                delete obj[key];
+            }
         }
     });
     return obj;
@@ -19,6 +23,7 @@ var validate = function(obj, ancestor){
 
 
 var cssFeatures = function(props){
+
     return {
         animations: props.cssanimations,
         background: {
@@ -62,18 +67,25 @@ var cssFeatures = function(props){
 };
 
 var deviceFeatures = function(props){
+
+    props.screen = props.screen || {};
+
     return {
         color: {
             depth: props.screen.colorDepth
         },
         screen: {
-            height: Number(props.screen.windowHeight),
-            width: Number(props.screen.windowWidth)
+            height: Number(props.screen.windowHeight || 0),
+            width: Number(props.screen.windowWidth || 0)
         }
     };
 };
 
 var htmlFeatures = function(props){
+
+    props.input = props.input || {};
+    props.inputtypes = props.inputtypes || {};
+
     return {
         input: {
             properties: {
@@ -118,7 +130,11 @@ var javascriptFeatures = function(props){
 
 
 
-module.exports = function(uaObj, props){
+module.exports = function DeviceHelper(ua, props){
+    var uaObj = uaParser.parse(ua);
+
+    this.constructor = DeviceHelper;
+
     // features
     this.css = cssFeatures(props);
     this.html = htmlFeatures(props);

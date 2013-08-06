@@ -12,11 +12,15 @@ var Device = new Schema({
         type: Date,
         default: Date.now
     },
-    id: {
-        type: String,
-        index: true,
+    updatedCount: {
+        type: Number,
+        default: 1
+    },
+    reference: {
+        type: Schema.Types.ObjectId,
+        ref: 'Device',
         unique: true,
-        required: true
+        require: true,
     }
 });
 

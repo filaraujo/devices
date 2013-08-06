@@ -1,8 +1,7 @@
 var clog = require('clog'),
     device = {},
     Device = require('../../app/models/device.schema'),
-    DeviceHelper = require('../../app/helpers/device.helper'),
-    uaParser = require('ua-parser');
+    DeviceHelper = require('../../app/helpers/device.helper');
 
 
 /**
@@ -76,21 +75,25 @@ device.get = {
 /**
  * POST
  */
-device.post = function(req, res){
+device.post = function(req, res, next){
     var ua = req.headers['user-agent'];
 
     if(ua !== req.body.useragent){
         res.json({ message: 'device user agent does not match post data user agent'}, 500);
     }
 
-    var device = new DeviceHelper(uaParser.parse(ua), req.body.tests);
+    var device = new DeviceHelper(ua, req.body.tests);
 
     new Device(device).save(function(err){
         if(err){
             clog.error(err);
             res.json({ error: err.err }, 409);
+            return;
+
         }
+        clog.info('Device saved: ' + ua);
         res.json({ }, 200);
+        next();
     });
 };
 
