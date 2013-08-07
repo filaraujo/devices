@@ -4,7 +4,7 @@ Polymer('ui-layout', {
     ready: function(){
         var scope = this;
 
-        this.type = ['slide','pan','meny','parallax'].indexOf(this.type) > -1 ? this.type : 'slide';
+        this.type = ['slide','pan','meny','parallax','over'].indexOf(this.type) > -1 ? this.type : 'slide';
 
         this.addEventListener('open', this.open);
         this.addEventListener('close', this.close);
