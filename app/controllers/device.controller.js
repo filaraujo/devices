@@ -84,6 +84,8 @@ device.post = function(req, res, next){
 
     var device = new DeviceHelper(ua, req.body.tests);
 
+    console.log(req.body.tests);
+
     new Device(device).save(function(err){
         if(err){
             clog.error(err);

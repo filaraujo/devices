@@ -95,7 +95,7 @@ module.exports = {
             "size": true
         }
     },
-    "_id": ObjectId("52014a60e964aa0000000001"),
+    "_id": "52014a60e964aa0000000001",
     "created": Date(1375816288839),
     "__v": 0
 }

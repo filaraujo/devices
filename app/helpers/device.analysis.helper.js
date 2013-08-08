@@ -10,24 +10,24 @@ DeviceHelperAnalysis = function(ua, features) {
         throw new Error('Invalid Device Reference or Device Parameters');
     }
 
-    // if(ua._id){
-    //     _.assign(this, ua);
-    // }
+    if(ua._id){
+        // if device obj then extend this scope with passed in device object
+        _.assign(this, ua);
+    }
 
-    // if(!ua._id){
-    //     if(!features){
-    //         throw new Error('Device Object');
-    //     }
-    //     DeviceHelper.bind(this)(ua, features);
-    // }
-
-    // if(this._id){
-    //     this.reference = this._id;
-    // }
+    if(!ua._id){
+        // if user agent and features passed, build new DeviceHelper with this scope
+        DeviceHelper.bind(this)(ua, features);
+    }
 
     return this;
 };
 
+/**
+ * convert device object into a supported/unsupported matrix
+ * @param  {Object} obj analysis object
+ * @return {Object}     analysis instrument object
+ */
 DeviceHelperAnalysis.prototype.instrument = function instrument(obj) {
     var scope = obj || this,
         out = {};
@@ -49,7 +49,11 @@ DeviceHelperAnalysis.prototype.instrument = function instrument(obj) {
     return out;
 };
 
-
+/**
+ * convert device object into an object of increments properties
+ * @param  {Object} obj device object
+ * @return {Object}     analysis increment object
+ */
 DeviceHelperAnalysis.prototype.increment = function increment(obj, out, ancestor) {
     var scope = obj || this;
 

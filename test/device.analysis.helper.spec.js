@@ -1,21 +1,19 @@
 var chai = require('chai'),
-    expect = chai.expect;
+    expect = chai.expect,
+    deviceMock = require('../test/mocks/device.mock.js'),
+    deviceFeatureMock = require('../test/mocks/device.features.mock.js'),
+    deviceUAMock = require('../test/mocks/device.ua.mock.js');
 
 
 var DeviceAnalysisHelper = require('../app/helpers/device.analysis.helper');
 
 describe('Device Analysis Helper', function() {
-    var ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.41 Safari/537.36',
-        device = {
-            _id: '131313123'
-        };
-
     describe('put route', function() {
 
         var dFunc = function(ua, props) {
             return function() {
-                new DeviceAnalysisHelper(ua, props);
-            }
+                return new DeviceAnalysisHelper(ua, props);
+            };
         };
 
         it('should export a constructor', function() {
@@ -34,7 +32,7 @@ describe('Device Analysis Helper', function() {
             });
 
             it('if user agent is passed without features object', function() {
-                expect(dFunc(ua)).to.throw();
+                expect(dFunc(deviceUAMock)).to.throw();
             });
 
             it('if device reference is passed without an id hash', function() {
@@ -42,16 +40,70 @@ describe('Device Analysis Helper', function() {
             });
         });
 
-        describe('should return a analysis object', function() {
+        // analysis object
+        describe('should return an analysis object', function() {
             it('if a valid user agent and features object is passed', function() {
-                expect(dFunc(ua, {})).to.not.throw();
-                expect(new DeviceAnalysisHelper(device)).to.be.an('object');
+                var device = new DeviceAnalysisHelper(deviceUAMock, deviceFeatureMock);
+
+                expect(dFunc(deviceUAMock, deviceFeatureMock)).to.not.throw();
+                expect(device).to.be.an('object');
+                expect(device).to.contain.keys(['agent','device','css','html','javascript','system']);
+                expect(device).to.instanceof(DeviceAnalysisHelper);
+                expect(device).to.respondTo('increment');
+                expect(device).to.respondTo('instrument');
             });
+
             it('if a valid device reference is passed', function() {
-                expect(dFunc(device)).to.not.throw();
-                expect(new DeviceAnalysisHelper(device)).to.be.an('object');
+                var device = new DeviceAnalysisHelper(deviceMock);
+
+                expect(dFunc(deviceMock)).to.not.throw();
+                expect(device).to.be.an('object');
+                expect(device).to.contain.keys(['agent','device','css','html','javascript','system']);
+                expect(device).to.instanceof(DeviceAnalysisHelper);
+                expect(device).to.respondTo('increment');
+                expect(device).to.respondTo('instrument');
             });
         });
+
+        //instrument
+        describe('should instrument an analysis object', function() {
+            it('if the instrument method is called', function(){
+                var analysis = new DeviceAnalysisHelper(deviceMock).instrument();
+
+                 [
+                    analysis.css.border.image,
+                    analysis.css.border.radius,
+                    analysis.css.background.repeatround,
+                    analysis.css.background.repeatspace,
+                    analysis.css.background.size
+                ].forEach(function(i){
+                    expect(i.supported).to.exist;
+                    expect(i.unsupported).to.exist;
+                    expect(i.unsupported).to.be.a('number');
+                    expect(i.unsupported).to.be.within(0,1);
+                });
+            });
+        });
+
+
+        //instrument
+        describe('should create an analysis increment object', function() {
+            it('if the increment method is called', function(){
+                var analysis = new DeviceAnalysisHelper(deviceMock).increment();
+
+                [
+                    'css.border.image.supported',
+                    'css.border.radius.supported',
+                    'css.background.repeatround.unsupported',
+                    'css.background.repeatspace.unsupported',
+                    'css.background.size.supported'
+                ].forEach(function(i){
+                    expect(analysis[i]).to.equal(1);
+
+                });
+            });
+        });
+
 
     });
 });
