@@ -16,7 +16,16 @@ var validate = function(obj, ancestor){
             if(_.isEmpty(val)){
                 delete obj[key];
             }
+            return;
         }
+
+        if(_.isString(val)){
+            if(/true|false/.test(val)){
+                obj[key] =  val === 'true';
+            }
+        }
+
+
     });
     return obj;
 };

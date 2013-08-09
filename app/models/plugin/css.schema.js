@@ -15,7 +15,7 @@ module.exports = function(schema, options){
                 repeatround: booleanObject,
                 repeatspace: booleanObject,
                 size: booleanObject,
-                sizeCover: booleanObject
+                sizecover: booleanObject
             },
             border: {
                 image: booleanObject,
@@ -29,9 +29,10 @@ module.exports = function(schema, options){
             filters: booleanObject,
             layouts: {
                 displayrunin: booleanObject,
+                displaytable: booleanObject,
                 flexbox: booleanObject,
                 columns: booleanObject,
-                positionSticky: booleanObject
+                positionsticky: booleanObject
 
             },
             text: {},

@@ -1,5 +1,5 @@
 module.exports = {
-    "id": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.41 Safari/537.36",
+    "id": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.49 Safari/537.36",
     "agent": {
         "family": "Chrome",
         "major": "29",
@@ -77,9 +77,11 @@ module.exports = {
             "3d": true
         },
         "layouts": {
+            "displaytable": true,
             "displayrunin": true,
             "flexbox": true,
-            "columns": true
+            "columns": true,
+            "positionsticky": false
         },
         "box": {
             "sizing": true,
@@ -92,10 +94,11 @@ module.exports = {
         "background": {
             "repeatround": false,
             "repeatspace": false,
-            "size": true
+            "size": true,
+            "sizecover": true
         }
     },
     "_id": "52014a60e964aa0000000001",
-    "created": Date(1375816288839),
+    "created": Date(1376078346520),
     "__v": 0
-}
+};

@@ -58,25 +58,19 @@ describe('Device Analysis Helper', function() {
             });
         });
 
-        it('that contains an device object', function(){
+        it('that contains an valid device object', function(){
             var device = new DeviceHelper(deviceUAMock, deviceFeatureMock);
 
-            expect(device).to.contain.keys(['device']);
+            ['agent','css','device','html','javascript','system','id'].forEach(function(feature, value){
+                expect(device).to.contain.key(feature);
 
-            _.forOwn(device.device, function(val,prop){
-                expect(val).to.eql(deviceMock.device[prop]);
-            });
+                if(!_.isObject(device[feature])){
+                    return expect(device[feature]).to.eql(deviceMock[feature]);
+                }
+                _.forOwn(device[feature], function(val,prop){
+                    expect(val).to.eql(deviceMock[feature][prop]);
+                });
 
-        });
-
-        it('that contains an css object', function(){
-            var device = new DeviceHelper(deviceUAMock, deviceFeatureMock);
-
-            expect(device).to.contain.keys(['css']);
-
-            _.forOwn(device.css, function(val,prop){
-                console.log(val, typeof prop, typeof deviceMock.css[prop])
-                expect(val).to.eql(deviceMock.css[prop]);
             });
 
         });

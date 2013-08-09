@@ -101,7 +101,7 @@ module.exports = {
     userselect: 'true',
     cssvhunit: 'true',
     cssvmaxunit: 'true',
-    cssvminunit: 'false',
+    cssvminunit: 'true',
     cssvwunit: 'true',
     wrapflow: 'false',
     customprotocolhandler: 'true',
