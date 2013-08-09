@@ -20,7 +20,7 @@ module.exports = {
             "depth": "24"
         },
         "screen": {
-            "height": 929,
+            "height": 900,
             "width": 1280
         }
     },

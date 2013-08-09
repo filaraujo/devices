@@ -131,6 +131,10 @@ var javascriptFeatures = function(props){
 
 
 module.exports = function DeviceHelper(ua, props){
+    if(!ua || !props){
+        throw new Error('Invalid User agent or Device Properties');
+    }
+
     var uaObj = uaParser.parse(ua);
 
     this.constructor = DeviceHelper;

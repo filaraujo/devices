@@ -189,8 +189,8 @@ module.exports = {
     sharedworkers: 'true',
     webworkers: 'true',
     screen: {
-        windowHeight: '929',
-        windowWidth: '862',
+        windowHeight: '900',
+        windowWidth: '1280',
         colorDepth: '24'
     }
 };

@@ -17,7 +17,7 @@ var Device = new Schema({
         default: 1
     },
     reference: {
-        type: 'Schema.Types.ObjectId',
+        type: Schema.Types.ObjectId,
         ref: 'Device',
         unique: true,
         require: true,
