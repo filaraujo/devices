@@ -6,7 +6,7 @@ var _ = require('lodash'),
     deviceUAMock = require('../test/mocks/device.ua.mock.js'),
     DeviceHelper = require('../app/helpers/device.helper');
 
-describe('Device Analysis Helper', function() {
+describe('Device Helper', function() {
 
     var dFunc = function(ua, props) {
         return function() {
