@@ -1,4 +1,4 @@
-var clog = require('clog'),
+var logger = require('winston').loggers.get('system'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     cssPlugin = require('../../app/models/plugin/css.schema'),
@@ -44,7 +44,7 @@ Device.plugin(javascriptPlugin, {});
 
 
 Device.post('save', function() {
-    clog.debug('action:\tDevice saved to database');
+    logger.debug('action:\tDevice saved to database');
 });
 
 // export Device

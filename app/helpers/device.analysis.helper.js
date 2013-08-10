@@ -1,5 +1,4 @@
 var _ = require('lodash'),
-    clog = require('clog'),
     DeviceHelper = require('../../app/helpers/device.helper'),
     DeviceHelperAnalysis;
 

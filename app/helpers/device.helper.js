@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    clog = require('clog'),
+    logger = require('winston').loggers.get('system'),
     uaParser = require('ua-parser');
 
 var validate = function(obj, ancestor){
@@ -8,7 +8,7 @@ var validate = function(obj, ancestor){
 
         if(val === undefined || val === null){
             delete obj[key];
-            clog.warn('missing property value @ ' + orig);
+            logger.info('missing property value @ ' + orig);
         }
 
         if(_.isObject(val)){

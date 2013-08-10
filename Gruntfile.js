@@ -19,10 +19,14 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            scripts: {
-                files: ['app/helpers/**/*.js', 'app/models/**/*.js','test/**/*.js'],
-                tasks: ['simplemocha']
+            files: {
+                files: ['app/controllers/**/*.js', 'app/helpers/**/*.js', 'app/models/**/*.js','test/**/*.js'],
+                task: ['server']
             },
+            test: {
+                files: ['app/controllers/**/*.js', 'app/helpers/**/*.js', 'app/models/**/*.js','test/**/*.js'],
+                tasks: ['simplemocha']
+            }
         },
     });
 
@@ -32,9 +36,4 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['nodemon']);
     grunt.registerTask('test', ['simplemocha', 'watch']);
-
-
-    grunt.registerTask('server', 'Start web server', function() {
-        require('./app.js').app.listen(1234).on('close', this.async());
-    });
 };

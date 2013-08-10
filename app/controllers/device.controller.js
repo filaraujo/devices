@@ -1,4 +1,5 @@
-var clog = require('clog'),
+var loggerDB = require('winston').loggers.get('database'),
+    logger = require('winston').loggers.get('system'),
     device = {},
     Device = require('../../app/models/device.schema'),
     DeviceHelper = require('../../app/helpers/device.helper');
@@ -12,6 +13,7 @@ device.delete = {
     all: function(req, res){
         Device.remove({}, function(err){
             if(err){
+                loggerDB.error(err);
                 res.json({ }, 500);
             }
             res.json({ }, 204);
@@ -21,6 +23,7 @@ device.delete = {
     byHash: function(req, res){
         Device.remove({ _id: req.params.device }, function(err){
             if(err){
+                loggerDB.error(err);
                 res.json({ }, 500);
             }
             res.json({ }, 204);
@@ -46,11 +49,12 @@ device.get = {
 
         Device.findOne({ id: ua }, function(err, docs){
             if( err ){
+                loggerDB.error(err);
                 return next( new Error( 'Unable to detect device from database') );
             }
             if(docs){
                 docs = docs.toObject();
-                clog.info('Device found by agent: ' + ua);
+                logger.info('Device found by agent: ' + ua);
             }
             res.device = docs;
             next();
@@ -62,6 +66,7 @@ device.get = {
 
         Device.findOne({ _id: id }, function(err, docs){
             if( err || !docs){
+                loggerDB.error(err);
                 return next( new Error( 'Device does not exist') );
             }
 
@@ -84,16 +89,14 @@ device.post = function(req, res, next){
 
     var device = new DeviceHelper(ua, req.body.tests);
 
-    console.log(req.body.tests);
-
     new Device(device).save(function(err){
         if(err){
-            clog.error(err);
+            loggerDB.error(err);
             res.json({ error: err.err }, 409);
             return;
 
         }
-        clog.info('Device saved: ' + ua);
+        logger.info('Device saved: ' + ua);
         res.json({ }, 200);
         next();
     });
