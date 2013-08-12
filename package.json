@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
+    "postinstall": "./node_modules/bower/bin/bower install",
     "blanket": {
       "pattern": [
         "app/controllers",
@@ -13,8 +14,7 @@
     }
   },
   "dependencies": {
-    "clog": "*",
-    "deep-diff": "*",
+    "bower": "~1.1.2",
     "express": "3.2.4",
     "lodash": "*",
     "jade": "*",
