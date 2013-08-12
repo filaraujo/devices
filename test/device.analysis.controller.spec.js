@@ -1,18 +1,51 @@
 var chai = require('chai'),
-    expect = chai.expect;
+    sinon = require('sinon'),
+    expect = chai.expect,
+    deviceMock = require('../test/mocks/device.mock.js');
 
-var deviceAnalysisController = require('../app/controllers/device.analysis.controller');
+var deviceAnalysisController = require('../app/controllers/device.analysis.controller'),
+    DeviceAnalysisHelper = require('../app/helpers/device.analysis.helper');
 
 
 describe('Device Analysis Controller', function(){
-    describe('put route', function(){
-        it('should export a put object', function(){
-            expect(deviceAnalysisController.put).to.exist;
-            expect(deviceAnalysisController.put).to.be.an('function');
+    var post = deviceAnalysisController.post;
+
+    describe('post route', function(){
+        it('should export a post object', function(){
+            expect(post).to.exist;
+            expect(post).to.be.an('function');
         });
 
-        describe('should', function(){
+        it('should expect two parameters', function() {
+            expect(post.length).to.equal(2);
+        });
 
+        it('should create a new device analysis object', function(){
+            var stub = sinon.stub(DeviceAnalysisHelper);
+
+            console.log(stub)
+
+            post({},{
+                device: deviceMock
+            });
+
+
+            expect(stub.called).to.be.true;
+
+
+        });
+    });
+
+    describe('put route', function(){
+        var put = deviceAnalysisController.put;
+
+        it('should export a put object', function(){
+            expect(put).to.exist;
+            expect(put).to.be.an('function');
+        });
+
+        it('should expect two parameters', function() {
+            expect(put.length).to.equal(2);
         });
     });
 });

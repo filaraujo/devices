@@ -9,8 +9,7 @@ module.exports = function(grunt) {
         },
         mochacov: {
             options: {
-                output: 'test.html',
-                reporter: 'html-cov'
+                reporter: 'spec'
             },
             src: ['test/config.js', 'test/**/*.js']
         },
