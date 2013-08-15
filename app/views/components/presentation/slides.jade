@@ -9,10 +9,10 @@ polymer-element(name="ui-slides", \attributes="")
     | !{'<script type="text/javascript">'}
     | var modules = [];
     | !{''}
-    if (device.javascript.fullscreen)
+    if (device.javascript && device.javascript.fullscreen)
         :injectJS
             components/presentation/slides.fullscreen.js
-    if (device.javascript.postmessage)
+    if (device.javascript && device.javascript.postmessage)
         :injectJS
             components/presentation/slides.controller.js
     :injectJS
