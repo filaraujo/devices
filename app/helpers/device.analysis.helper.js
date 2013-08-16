@@ -16,7 +16,7 @@ DeviceHelperAnalysis = function(ua, features) {
 
     if(!ua._id){
         // if user agent and features passed, build new DeviceHelper with this scope
-        DeviceHelper.bind(this)(ua, features);
+        DeviceHelper.apply(this, arguments);
     }
 
     return this;

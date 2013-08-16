@@ -12,11 +12,10 @@ var validate = function(obj, ancestor){
         }
 
         if(_.isObject(val)){
-            validate(val, orig);
             if(_.isEmpty(val)){
-                delete obj[key];
+                return delete obj[key];
             }
-            return;
+            return validate(val, orig);
         }
 
         if(_.isString(val)){

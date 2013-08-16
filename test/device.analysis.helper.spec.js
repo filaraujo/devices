@@ -1,8 +1,9 @@
 var chai = require('chai'),
     expect = chai.expect,
+    sinon = require('sinon'),
     deviceMock = require('../test/mocks/device.mock.js'),
     deviceFeatureMock = require('../test/mocks/device.features.mock.js'),
-    deviceUAMock = require('../test/mocks/device.ua.mock.js')
+    deviceUAMock = require('../test/mocks/device.ua.mock.js'),
     DeviceAnalysisHelper = require('../app/helpers/device.analysis.helper');
 
 describe('Device Analysis Helper', function() {
