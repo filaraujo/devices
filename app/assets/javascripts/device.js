@@ -5,10 +5,12 @@
 
         tests = {},
 
+        cookieExists = document.cookie.indexOf('device=') > -1,
+
         saveDevice = function(tests){
             return $.ajax({
                 url: '/device',
-                type: 'POST',
+                type: cookieExists ? 'PUT': 'POST',
                 data: {
                     tests: tests,
                     useragent: window.navigator.userAgent

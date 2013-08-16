@@ -21,23 +21,23 @@ exports.post = function(req, res) {
 
 
 exports.put = function(req, res) {
-    var analysis,
-        ua = req.headers['user-agent'];
+    // var analysis,
+    //     ua = req.headers['user-agent'];
 
-    analysis = new DeviceAnalysisHelper(ua, req.body.tests).increment();
+    // analysis = new DeviceAnalysisHelper(ua, req.body.tests).increment();
 
-    DeviceAnalysis.update({
-        id: analysis.id
-    }, {
-        $inc: analysis
-    }, function(err) {
-        if (err) {
-            loggerDB.error(err);
-            res.json({
-                error: err.err
-            }, 409);
-        }
+    // DeviceAnalysis.update({
+    //     id: analysis.id
+    // }, {
+    //     $inc: analysis
+    // }, function(err) {
+    //     if (err) {
+    //         loggerDB.error(err);
+    //         res.json({
+    //             error: err.err
+    //         }, 409);
+    //     }
 
-        res.json({}, 200);
-    });
+    //     res.json({}, 200);
+    // });
 };

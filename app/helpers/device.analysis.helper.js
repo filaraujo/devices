@@ -12,6 +12,7 @@ DeviceHelperAnalysis = function(ua, features) {
     if(ua._id){
         // if device obj then extend this scope with passed in device object
         _.assign(this, ua);
+        this.reference = this._id;
     }
 
     if(!ua._id){
@@ -32,7 +33,7 @@ DeviceHelperAnalysis.prototype.instrument = function instrument(obj) {
         out = {};
 
     _.forOwn(scope, function(val, key) {
-        if (_.isObject(val)) {
+        if (_.isObject(val) && !(/_id|reference/).test(key)) {
             out[key] = instrument(val);
             return;
         }

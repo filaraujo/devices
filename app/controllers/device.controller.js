@@ -47,16 +47,16 @@ device.get = {
     byAgent: function(req, res, next){
         var ua = req.headers['user-agent'];
 
-        Device.findOne({ id: ua }, function(err, docs){
+        Device.findOne({ id: ua }, function(err, doc){
             if( err ){
                 loggerDB.error(err);
                 return next( new Error( 'Unable to detect device from database') );
             }
-            if(docs){
-                docs = docs.toObject();
+            if(doc){
+                res.device = doc.toObject();
                 logger.info('Device found by agent: ' + ua);
+                res.cookie('device', doc._id, {  maxAge: 900000, signed: true });
             }
-            res.device = docs;
             next();
         });
     },
@@ -89,7 +89,7 @@ device.post = function(req, res, next){
 
     var device = new DeviceHelper(ua, req.body.tests);
 
-    new Device(device).save(function(err){
+    Device.create(device, function(err, device){
         if(err){
             loggerDB.error(err);
             res.json({ error: err.err }, 409);
@@ -97,6 +97,8 @@ device.post = function(req, res, next){
 
         }
         logger.info('Device saved: ' + ua);
+        res.device = device.toObject();
+        res.cookie('device', device._id, {  maxAge: 900000, signed: true });
         res.json({ }, 200);
         next();
     });

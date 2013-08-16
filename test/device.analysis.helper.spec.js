@@ -56,7 +56,7 @@ describe('Device Analysis Helper', function() {
 
             expect(dFunc(deviceMock)).to.not.throw();
             expect(device).to.be.an('object');
-            expect(device).to.contain.keys(['agent','device','css','html','javascript','system']);
+            expect(device).to.contain.keys(['agent','device','css','html','javascript','reference','system']);
             expect(device).to.instanceof(DeviceAnalysisHelper);
             expect(device).to.respondTo('increment');
             expect(device).to.respondTo('instrument');
