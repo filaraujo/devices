@@ -2,16 +2,29 @@ extends ../layout
 
 block append head-js
 
+block append head-css
+    link(href="/stylesheets/device.css", rel="stylesheet")
+
 block content
 
-    h2 Stored Devices
-    if devices.length
-        each device in devices
-            mixin device(device)
-    else
-        div no devices
+    header
+        h2 Stored Devices
+
+    section.browsers
+        if browsers.length
+            each browser in browsers
+                mixin browser(browser)
+        else
+            div no devices
 
 
-mixin device(device)
-    div
-        a(href="/device/#{device._id}") #{device.agent.id}
+mixin browser(browser)
+    .browser(class="browser-#{browser.family.toLowerCase()}")
+        div
+            span(class="icon-#{browser.family.toLowerCase()}")
+            span.id #{browser.family}
+
+        each item in browser.items
+            a(href="/device/#{item._id}")
+                | #{item.version}
+

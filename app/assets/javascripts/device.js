@@ -16,6 +16,8 @@
             });
         };
 
+        console.log(window.navigator.userAgent)
+
 
     features = [
         // css

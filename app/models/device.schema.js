@@ -24,7 +24,8 @@ var Device = new Schema({
         major: String,
         minor: String,
         patch: String,
-        id: String
+        version: String,
+        name: String
     },
     device: Object,
     system: {
@@ -33,7 +34,8 @@ var Device = new Schema({
         minor: String,
         patch: String,
         patchMinor: String,
-        id: String
+        version: String,
+        name: String
     }
 });
 

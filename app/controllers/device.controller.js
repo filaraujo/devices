@@ -1,5 +1,5 @@
 var loggerDB = require('winston').loggers.get('database'),
-    // logger = require('winston').loggers.get('system'),
+    logger = require('winston').loggers.get('system'),
     device = {},
     Device = require('../../app/models/device.schema'),
     DeviceHelper = require('../../app/helpers/device.helper');
@@ -44,6 +44,33 @@ device.get = {
         });
     },
 
+    browserGrouping: function(req, res, next){
+        Device.aggregate(
+            {
+                $group: {
+                    _id: '$agent.family',
+                    items: {
+                        $addToSet : {
+                            _id: '$_id',
+                            version: '$agent.version'
+                        }
+                    }
+                }
+            },
+            {
+                $project: {
+                    _id: 0,
+                    family: '$_id',
+                    items: 1
+                }
+            },
+            function(err, docs){
+                // res.json(docs, 200);
+                res.browsers = docs;
+                next();
+            });
+    },
+
     byAgent: function(req, res, next){
         var ua = req.headers['user-agent'];
 
@@ -84,7 +111,8 @@ device.post = function(req, res, next){
     var ua = req.headers['user-agent'];
 
     if(ua !== req.body.useragent){
-        return res.json({ message: 'device user agent does not match post data user agent'}, 500);
+        logger.error('Device user agent mismatch: '+ ua + ' - ' + req.body.useragent);
+        // return res.json({ message: 'device user agent does not match post data user agent'}, 500);
     }
 
     var device = new DeviceHelper(ua, req.body.features);
@@ -112,6 +140,7 @@ device.view = {};
 
 device.view.list = function(req, res){
     return res.render('device/list', {
+        browsers: res.browsers || {},
         devices: res.devices || {}
     });
 };

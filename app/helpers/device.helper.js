@@ -65,6 +65,8 @@ module.exports = function DeviceHelper(ua, features){
 
     var uaObj = uaParser.parse(ua);
 
+    console.log(uaObj)
+
     this.constructor = DeviceHelper;
     this.id = uaObj.string;
 
@@ -76,11 +78,13 @@ module.exports = function DeviceHelper(ua, features){
 
     // useragent
     this.agent = uaObj.ua;
-    this.agent.id = uaObj.ua.toString();
+    this.agent.name = uaObj.ua.toString();
     this.agent.family = uaObj.family;
+    this.agent.version = uaObj.ua.toVersionString();
     // system
     this.system = uaObj.os;
-    this.system.id = uaObj.os.toString();
+    this.system.name = uaObj.os.toString();
+    this.system.version = uaObj.os.toVersionString();
 
     validate(this,'device');
 };
