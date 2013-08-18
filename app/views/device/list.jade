@@ -20,11 +20,18 @@ block content
 
 mixin browser(browser)
     .browser(class="browser-#{browser.family.toLowerCase()}")
-        div
+        div.browser-heading
             span(class="icon-#{browser.family.toLowerCase()}")
             span.id #{browser.family}
 
-        each item in browser.items
-            a(href="/device/#{item._id}")
-                | #{item.version}
+        each v in browser.versions
+            - if(v.items.length > 1)
+                each item in v.items
+                    a.group(href="/device/#{item.id}")
+                        | #{v.version}
+                        span #{item.system}
+            - else
+                each item in v.items
+                    a(href="/device/#{item.id}")
+                        | #{v.version}
 

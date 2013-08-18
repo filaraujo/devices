@@ -46,24 +46,35 @@ device.get = {
 
     browserGrouping: function(req, res, next){
         Device.aggregate(
-            {
-                $group: {
-                    _id: '$agent.family',
-                    items: {
-                        $addToSet : {
-                            _id: '$_id',
-                            version: '$agent.version'
-                        }
+            { $group: {
+                _id: {
+                    name: '$agent.family',
+                    version: '$agent.version'
+                },
+                versions: {
+                    $addToSet : {
+                        id: '$_id',
+                        system: '$system.name'
                     }
                 }
-            },
-            {
-                $project: {
-                    _id: 0,
-                    family: '$_id',
-                    items: 1
+            } },
+            { $group: {
+                _id: '$_id.name',
+                versions: {
+                    $addToSet : {
+                        version: '$_id.version',
+                        items: '$versions'
+                    }
                 }
-            },
+            } },
+            { $project: {
+                _id: 0,
+                family: '$_id',
+                versions: 1
+            } },
+            { $sort: {
+                family: 1
+            } },
             function(err, docs){
                 // res.json(docs, 200);
                 res.browsers = docs;
