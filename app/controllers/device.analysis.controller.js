@@ -3,6 +3,19 @@ var loggerDB = require('winston').loggers.get('database'),
     DeviceAnalysisHelper = require('../../app/helpers/device.analysis.helper');
 
 // curl -v -H "Content-Type: application/json" -X PUT -d '{"tests":{"fullscreen": false, "postmessage": true, "bgrepeatround": false, "bgrepeatspace": true}}' http://localhost:3000/device/51fb0a8b7c6bcb0000000002/analysis -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.41 Safari/537.36"
+//
+//
+exports.delete = {
+    all: function(req, res){
+        DeviceAnalysis.remove({}, function(err){
+            if(err){
+                loggerDB.error(err);
+                res.json({ }, 500);
+            }
+            res.json({ }, 204);
+        });
+    }
+};
 
 exports.post = function(req, res) {
     var analysis = new DeviceAnalysisHelper(res.device).instrument();
@@ -23,12 +36,20 @@ exports.post = function(req, res) {
 exports.put = {
 
     features: function(req, res) {
+        var device = new DeviceAnalysisHelper(res.device),
+            analysis =  device.increment(req.query);
 
-        // console.log( ' i was looking into how the image can transfer a test to db, need to make tests easier');
+        DeviceAnalysis.update(
+            { reference: device.reference },
+            { $inc: analysis },
+            function(err) {
+                if (err) {
+                    loggerDB.error(err);
+                    res.json({ error: err.err }, 409);
+                }
 
-        // var analysis = new DeviceAnalysisHelper(ua, req.body.tests).increment();
-
-
+                res.json({}, 200);
+            });
     },
 
     byFeatures: function(req, res) {

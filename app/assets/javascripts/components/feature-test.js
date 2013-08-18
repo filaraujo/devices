@@ -1,3 +1,3 @@
 (function(){
-    (new Image()).src = '/analysis/?javascript.fullscreen=1&javascript.postmessage=0';
+    (new Image()).src = '/analysis/?javascript.fullscreen=true&javascript.postmessage=false';
 }());

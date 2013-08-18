@@ -54,27 +54,46 @@ DeviceHelperAnalysis.prototype.instrument = function instrument(obj) {
  * @param  {Object} obj device object
  * @return {Object}     analysis increment object
  */
-DeviceHelperAnalysis.prototype.increment = function increment(obj, out, ancestor) {
-    var scope = obj || this;
+// DeviceHelperAnalysis.prototype.increment = function increment(obj, out, ancestor) {
+//     var scope = obj || this;
 
-    out = out || {};
+//     out = out || {};
 
-    _.forOwn(scope, function(val, key) {
-        var orig = ancestor ? ancestor + '.' + key : key;
+//     _.forOwn(scope, function(val, key) {
+//         var orig = ancestor ? ancestor + '.' + key : key;
 
-        if (_.isObject(val)) {
-            increment(val, out, orig);
-            return;
+//         if (_.isObject(val)) {
+//             increment(val, out, orig);
+//             return;
+//         }
+
+//         if (_.isBoolean(val)) {
+//             orig = orig + '.' + (val ? 'supported' : 'unsupported');
+//             out[orig] = 1;
+//             return;
+//         }
+
+//     });
+//     return out;
+// };
+//
+DeviceHelperAnalysis.prototype.increment = function(features) {
+    var increment = {};
+
+    _.forOwn(features,function(val, key){
+        if(_.isString(val)){
+            if(/true|false/.test(val)){
+                val =  val === 'true';
+            }
         }
 
         if (_.isBoolean(val)) {
-            orig = orig + '.' + (val ? 'supported' : 'unsupported');
-            out[orig] = 1;
-            return;
+            key = key + '.' + (val ? 'supported' : 'unsupported');
+            increment[key] = 1;
         }
-
     });
-    return out;
+
+    return increment;
 };
 
 
