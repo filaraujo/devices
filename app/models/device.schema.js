@@ -1,4 +1,4 @@
-var logger = require('winston').loggers.get('system'),
+var loggerDB = require('winston').loggers.get('database'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     cssPlugin = require('../../app/models/plugin/css.schema'),
@@ -44,7 +44,7 @@ Device.plugin(javascriptPlugin, {});
 
 
 Device.post('save', function() {
-    logger.debug('action:\tDevice saved to database');
+    loggerDB.info('Device saved to database: ' + this.id);
 });
 
 // export Device

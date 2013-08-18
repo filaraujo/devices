@@ -37,11 +37,7 @@ describe('Device Analysis Controller', function(){
 
         it('should export a put object', function(){
             expect(put).to.exist;
-            expect(put).to.be.an('function');
-        });
-
-        it('should expect two parameters', function() {
-            expect(put.length).to.equal(2);
+            expect(put).to.be.an('object');
         });
     });
 });

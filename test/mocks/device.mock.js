@@ -17,11 +17,11 @@ module.exports = {
     "device": {
         "family": "Other",
         "color": {
-            "depth": "24"
+            "depth": '24'
         },
         "screen": {
-            "height": 900,
-            "width": 1280
+            "height": '900',
+            "width": '1280'
         }
     },
     "javascript": {

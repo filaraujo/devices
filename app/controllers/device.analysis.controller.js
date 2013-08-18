@@ -20,24 +20,38 @@ exports.post = function(req, res) {
 };
 
 
-exports.put = function(req, res) {
-    // var analysis,
-    //     ua = req.headers['user-agent'];
+exports.put = {
 
-    // analysis = new DeviceAnalysisHelper(ua, req.body.tests).increment();
+    features: function(req, res) {
 
-    // DeviceAnalysis.update({
-    //     id: analysis.id
-    // }, {
-    //     $inc: analysis
-    // }, function(err) {
-    //     if (err) {
-    //         loggerDB.error(err);
-    //         res.json({
-    //             error: err.err
-    //         }, 409);
-    //     }
+        // console.log( ' i was looking into how the image can transfer a test to db, need to make tests easier');
 
-    //     res.json({}, 200);
-    // });
+        // var analysis = new DeviceAnalysisHelper(ua, req.body.tests).increment();
+
+
+    },
+
+    byFeatures: function(req, res) {
+        // var analysis,
+        //     ua = req.headers['user-agent'];
+
+        // analysis = new DeviceAnalysisHelper(ua, req.body.tests).increment();
+        //
+
+
+        // DeviceAnalysis.update({
+        //     id: analysis.id
+        // }, {
+        //     $inc: analysis
+        // }, function(err) {
+        //     if (err) {
+        //         loggerDB.error(err);
+        //         res.json({
+        //             error: err.err
+        //         }, 409);
+        //     }
+
+        //     res.json({}, 200);
+        // });
+    }
 };

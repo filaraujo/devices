@@ -1,5 +1,5 @@
 var loggerDB = require('winston').loggers.get('database'),
-    logger = require('winston').loggers.get('system'),
+    // logger = require('winston').loggers.get('system'),
     device = {},
     Device = require('../../app/models/device.schema'),
     DeviceHelper = require('../../app/helpers/device.helper');
@@ -54,7 +54,7 @@ device.get = {
             }
             if(doc){
                 res.device = doc.toObject();
-                logger.info('Device found by agent: ' + ua);
+                loggerDB.info('Device found by agent: ' + ua);
                 res.cookie('device', doc._id, {  maxAge: 900000, signed: true });
             }
             next();
@@ -84,10 +84,10 @@ device.post = function(req, res, next){
     var ua = req.headers['user-agent'];
 
     if(ua !== req.body.useragent){
-        res.json({ message: 'device user agent does not match post data user agent'}, 500);
+        return res.json({ message: 'device user agent does not match post data user agent'}, 500);
     }
 
-    var device = new DeviceHelper(ua, req.body.tests);
+    var device = new DeviceHelper(ua, req.body.features);
 
     Device.create(device, function(err, device){
         if(err){
@@ -96,7 +96,6 @@ device.post = function(req, res, next){
             return;
 
         }
-        logger.info('Device saved: ' + ua);
         res.device = device.toObject();
         res.cookie('device', device._id, {  maxAge: 900000, signed: true });
         res.json({ }, 200);

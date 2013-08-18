@@ -1,4 +1,4 @@
-var logger = require('winston').loggers.get('system'),
+var loggerDB = require('winston').loggers.get('database'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     cssPlugin = require('../../app/models/plugin/css.schema'),
@@ -8,6 +8,18 @@ var logger = require('winston').loggers.get('system'),
 
 // define device schema
 var Device = new Schema({
+    id: {
+        type: String,
+        index: true,
+        unique: true,
+        required: true
+    },
+    reference: {
+        type: Schema.Types.ObjectId,
+        ref: 'Device',
+        unique: true,
+        require: true,
+    },
     updated: {
         type: Date,
         default: Date.now
@@ -15,12 +27,6 @@ var Device = new Schema({
     updatedCount: {
         type: Number,
         default: 1
-    },
-    reference: {
-        type: Schema.Types.ObjectId,
-        ref: 'Device',
-        unique: true,
-        require: true,
     }
 });
 
@@ -36,7 +42,7 @@ Device.plugin(javascriptPlugin, pluginOpts);
 
 
 Device.post('save', function() {
-    logger.debug('action:\tDevice Analysis saved to database');
+    loggerDB.info('Analysis saved to database: ' + this.id);
 });
 
 // export DeviceAnalysis
