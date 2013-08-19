@@ -19,7 +19,7 @@ block content
 
 
 mixin browser(browser)
-    .browser(class="browser-#{browser.family.toLowerCase()}")
+    .browser(class="browser-#{browser.family.toLowerCase().replace(' ','-')}")
         div.browser-heading
             span(class="icon-#{browser.family.toLowerCase()}")
             span.id #{browser.family}

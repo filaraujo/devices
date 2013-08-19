@@ -86,8 +86,8 @@ describe('Device Analysis Helper', function() {
 
     //instrument
     describe('should create an analysis increment object', function() {
-        it('if the increment method is called', function(){
-            var analysis = new DeviceAnalysisHelper(deviceMock).increment();
+        it('if the increment method is called with an array of feature objects', function(){
+            var analysis = new DeviceAnalysisHelper(deviceMock).increment(deviceFeatureMock);
 
             [
                 'css.border.image.supported',
@@ -95,6 +95,24 @@ describe('Device Analysis Helper', function() {
                 'css.background.repeatround.unsupported',
                 'css.background.repeatspace.unsupported',
                 'css.background.size.supported'
+            ].forEach(function(i){
+                expect(analysis[i]).to.equal(1);
+
+            });
+        });
+    });
+
+    //instrument
+    describe('should create an analysis increment object', function() {
+        it('if the increment method is called with an feature object', function(){
+            var analysis = new DeviceAnalysisHelper(deviceMock).increment({
+                'css.border.image': true,
+                'css.border.radius': 'false'
+            });
+
+            [
+                'css.border.image.supported',
+                'css.border.radius.unsupported'
             ].forEach(function(i){
                 expect(analysis[i]).to.equal(1);
 

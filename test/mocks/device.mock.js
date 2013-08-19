@@ -5,14 +5,16 @@ module.exports = {
         "major": "29",
         "minor": "0",
         "patch": "1547",
-        "id": "Chrome 29.0.1547"
+        "name": "Chrome 29.0.1547",
+        "version": "29.0.1547"
     },
     "system": {
         "family": "Mac OS X",
         "major": "10",
         "minor": "8",
         "patch": "4",
-        "id": "Mac OS X 10.8.4"
+        "name": "Mac OS X 10.8.4",
+        "version": "10.8.4"
     },
     "device": {
         "family": "Other",

@@ -16,7 +16,7 @@
             });
         };
 
-        console.log(window.navigator.userAgent)
+        console.log(window.navigator.userAgent);
 
 
     features = [

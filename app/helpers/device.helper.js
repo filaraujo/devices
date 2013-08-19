@@ -65,8 +65,6 @@ module.exports = function DeviceHelper(ua, features){
 
     var uaObj = uaParser.parse(ua);
 
-    console.log(uaObj)
-
     this.constructor = DeviceHelper;
     this.id = uaObj.string;
 

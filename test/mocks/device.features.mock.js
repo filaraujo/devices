@@ -52,4 +52,4 @@ module.exports = [
     { 'html.input.types.week': 'true' },
     { 'javascript.fullscreen': 'true' },
     { 'javascript.postmessage': 'true' }
-]
+];
