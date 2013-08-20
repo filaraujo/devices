@@ -1,37 +1,162 @@
 extends ../layout
 
-block append head-js
 
 block append head-css
     link(href="/stylesheets/device.css", rel="stylesheet")
+    link(href="http://fonts.googleapis.com/css?family=Lato:100,300,400", rel="stylesheet")
+
+
+block append foot-js
+    script.
+        (function(){
+            var drawer = document.querySelector('.page-drawer'),
+
+                pageContent = document.querySelector('.page-content'),
+
+                close = function(){
+                    var menus = [this.parentNode];
+
+                    Array.prototype.push.apply(menus, this.parentNode.querySelectorAll('[data-group], .is-open'));
+
+                    menus.forEach(function(menu){
+                        menu.removeAttribute('data-group-overlay','');
+                        menu.classList.remove('is-open');
+                    });
+
+                    pageContent.setAttribute('data-menu-state',level(this));
+                },
+
+                level = function(el){
+                    var level = 1;
+                        p = el.parentNode;
+
+                    while (p !== document) {
+                        if(p.getAttribute('data-group-overlay') !== null){
+                            level++;
+                        }
+                        p = p.parentNode;
+                    }
+
+                    return level;
+                },
+
+
+                open = function(){
+                    this.classList.add('is-open');
+                    this.parentNode.setAttribute('data-group-overlay','');
+                    pageContent.setAttribute('data-menu-state',level(this));
+                },
+
+                reset = function(e){
+                    var p = e.target.parentNode;
+
+                    if(pageContent.getAttribute('data-menu-state') === null){
+                        return false;
+                    }
+
+                    while(p !== document){
+                        if(p === drawer){
+                            return false;
+                        }
+                        p = p.parentNode;
+                    }
+                    pageContent.removeAttribute('data-menu-state');
+                    pageContent.removeEventListener('reset');
+                },
+
+                update = function(e){
+                    drawer.innerHTML = e.detail.markup;
+                    pageContent.setAttribute('data-menu-state', 1);
+                };
+
+
+            drawer.addEventListener('click', function(e){
+                var parent = e.target.parentNode;
+
+                if(e.target.nodeName === 'A' && parent.getAttribute('data-group-overlay') !== null){
+                    e.preventDefault();
+                    e.stopPropagation();
+                    close.call(e.target);
+                    return;
+                }
+
+                if(!!e.target.getAttribute('data-link')){
+                    open.call(e.target);
+                }
+            });
+
+            drawer.addEventListener('update', update);
+            pageContent.addEventListener('click', reset);
+
+        }());
+
+    script.
+        var devices = document.querySelector('.devices'),
+            drawer = document.querySelector('.page-drawer');
+
+        devices.addEventListener('click', function(e){
+            e.stopPropagation()
+            if(!e.target || e.target.nodeName !== 'A' || e.target.getAttribute('data-link') === null){
+                return;
+            }
+
+            var evt = new CustomEvent('update', { detail: { markup: e.target.parentNode.outerHTML } });
+            drawer.dispatchEvent(evt);
+        });
+
 
 block content
+    .page-content
 
-    header
-        h2 Stored Devices
+        header
+            h2 Devices
+                if grouping
+                    span #{grouping}
 
-    section.browsers
-        if browsers.length
-            each browser in browsers
-                mixin browser(browser)
-        else
-            div no devices
+        nav.page-drawer
 
 
-mixin browser(browser)
-    .browser(class="browser-#{browser.family.toLowerCase().replace(' ','-')}")
-        div.browser-heading
-            span(class="icon-#{browser.family.toLowerCase()}")
-            span.id #{browser.family}
+        section.devices
+            if devices.length
+                each device in devices
+                    mixin device(device)
+            else
+                div no devices
 
-        each v in browser.versions
-            - if(v.items.length > 1)
-                each item in v.items
-                    a.group(href="/device/#{item.id}")
-                        | #{v.version}
-                        span #{item.system}
-            - else
-                each item in v.items
-                    a(href="/device/#{item.id}")
-                        | #{v.version}
+
+mixin device(device)
+    .device(class="device-#{device.family.toLowerCase().replace(/\s/g,'-')}")
+        div.device-heading
+            span(class="icon-#{device.family.toLowerCase().replace(/\s/g,'-')}")
+            span.id #{device.family}
+
+        //- each group in device.versions
+        //-     if group.version && group.items.length > 1
+        //-         div.device-group
+        //-             span #{group.version}
+
+        //-             each item in group.items
+        //-                 a.group(href="/device/") #{item.name}
+
+        //-     else
+        //-         each item in group.items
+        //-             a.group(href="/device/") #{item.name}
+
+        div(data-group)
+            h3 #{device.family}
+            each group in device.versions
+                if group.items.length === 1
+                    each item in group.items
+                        a(href="/device/#{item.id}") #{group.version}
+                else
+                    a(data-link, href="#") #{group.version}
+                        span.icon-arrow-left
+                    div(data-group)
+                        h3 #{device.family} #{group.version}
+                        each item in group.items
+                            a(href="/device/#{item.id}") #{item.name}
+
+
+
+
 

@@ -12,28 +12,148 @@
     font-style: normal;
 }
 
+
+$alizarin = #e74c3c
+$pomegranate = #c0392b
+$midnightblue = #2c3e50
+$wetasphault = #34495e
+
+$slideSpeed = .33s
+
 html
     background #ecf0f1
     color #fff
-    font-size  62.5%
+    font 300 62.5% 'Lato'
 
-body > header
-    height 8em
-    background #2c3e50
+html,
+body
+    height 100%
+    overflow hidden
 
-h2
-    color #fff
-    font-family 'Mojave'
-    font-size 3rem
-    line-height 8rem
-    margin 0
-    padding 0 4vmin
+.page-content
+    min-height 100%
+    transform translate3d(300px,0,0)
+    transition all $slideSpeed
+    overflow scroll-y
 
-.browsers
+    > header
+        background $midnightblue
+        border-top 4px solid $alizarin
+        height 9rem
+        transition border $slideSpeed
+
+        [data-menu-state="2"]&,
+        [data-menu-state="3"]&
+            border-color $pomegranate
+
+        h2
+            font-family 'Mojave'
+            padding-top 2rem
+            margin 0
+
+        span
+            font-size 2rem
+            margin-left 1vmin
+
+    h2
+        color #fff
+        font-size 3rem
+        line-height 8rem
+        margin 0
+        padding 0 4vmin
+
+    &[data-menu-state]:after
+        content ''
+        background rgba(0,0,0,.6)
+        position absolute
+        top 0
+        left 0
+        right 0
+        bottom 0
+
+    &[data-menu-state="1"]
+        -webkit-transform: translate3d(300px,0,0)
+        transform translate3d(300px,0,0)
+
+    &[data-menu-state="2"]
+        -webkit-transform: translate3d(340px,0,0)
+        transform translate3d(340px,0,0)
+
+    &[data-menu-state="3"]
+        -webkit-transform: translate3d(380px,0,0)
+        transform translate3d(380px,0,0)
+
+.page-drawer
+    bottom 0
+    left -300px
+    position absolute
+    top 0
+    width 300px
+
+    [data-group]
+        background $alizarin
+        border-right 1px solid rgba(0,0,0,0)
+        bottom 0
+        left 0
+        position absolute
+        transition all $slideSpeed
+        top 0
+        width 300px
+
+    [data-group-overlay]
+        background $pomegranate
+        border-right 1px solid rgba(0,0,0,.1)
+
+        > a
+            border-color $pomegranate !important
+
+
+    h3
+        color #fff
+        font 300 3rem/10rem 'Lato'
+        padding-left 4vmin
+        margin 0
+        text-align left
+
+    a
+        border-top 1px solid rgba(0,0,0,.1)
+        color #fff
+        display block
+        font-size 2rem
+        font-family 'Lato'
+        font-weight 100
+        line-height 2rem
+        padding .8em 1.6em
+        text-decoration none
+
+        &:last-child
+            border-bottom 1px solid rgba(0,0,0,.1)
+
+        + [data-group]
+            -webkit-transform translate3d(-300px, 0, 0)
+            transform translate3d(-300px, 0, 0)
+
+
+        &.is-open + [data-group]
+            display block
+            -webkit-transform translate3d(-40px, 0, 0)
+            transform translate3d(-40px, 0, 0)
+
+    [data-link] span
+        font-size .4em
+        position absolute
+        left .8rem
+        line-height 2rem
+
+
+
+
+
+.devices
     padding 4vmin
     overflow auto
 
-.browser
+.device
     background #16a085
     float left
     font-size: 1.4rem
@@ -42,29 +162,31 @@ h2
     position relative
     width 20rem
 
-    &.browser-chrome {
+    &.device-chrome {
         background #f1c40f
     }
 
-    &.browser-firefox {
+    &.device-firefox {
         background #e67e22
     }
 
-    &.browser-safari {
+    &.device-safari {
         background #3498db
     }
 
-    &.browser-opera {
+    &.device-opera {
         background #c0392b
     }
 
-    &.browser-ie {
+    &.device-ie {
         background #3498db
     }
 
+    h3
+        display none
 
     a
-        background #2c3e50
+        background $midnightblue
         border-top 1px solid #95a5a6
         color #fff
         display block
@@ -78,7 +200,19 @@ h2
             border-top: 0
 
         &:hover
-            background #34495e
+            background $wetasphault
+
+    [data-link]
+        span
+            float left
+            line-height 4rem
+
+            &:before
+                content "\e00c"
+
+        + [data-group]
+            display none
+
 
     a.group
         line-height 2rem
@@ -91,14 +225,14 @@ h2
             float left
             line-height 2rem
 
-    .browser-heading
-        bottom 0
-        left 0
-        height 8rem
-        position absolute
-        overflow hidden
-        right 0
-        top 0
+.device-heading
+    bottom 0
+    left 0
+    height 8rem
+    position absolute
+    overflow hidden
+    right 0
+    top 0
 
     span.id
         color #fff
@@ -116,4 +250,4 @@ h2
         position absolute
         right -13%
         opacity .8
-        text-shadow 0 1px 2px #2c3e50
+        text-shadow 0 1px 2px $midnightblue

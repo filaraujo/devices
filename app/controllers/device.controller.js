@@ -44,42 +44,13 @@ device.get = {
         });
     },
 
-    browserGrouping: function(req, res, next){
-        Device.aggregate(
-            { $group: {
-                _id: {
-                    name: '$agent.family',
-                    version: '$agent.version'
-                },
-                versions: {
-                    $addToSet : {
-                        id: '$_id',
-                        system: '$system.name'
-                    }
-                }
-            } },
-            { $group: {
-                _id: '$_id.name',
-                versions: {
-                    $addToSet : {
-                        version: '$_id.version',
-                        items: '$versions'
-                    }
-                }
-            } },
-            { $project: {
-                _id: 0,
-                family: '$_id',
-                versions: 1
-            } },
-            { $sort: {
-                family: 1
-            } },
-            function(err, docs){
-                // res.json(docs, 200);
-                res.browsers = docs;
-                next();
-            });
+    browsers: function(req, res, next){
+        Device.findBy('browsers', function(err, docs){
+            // res.json(docs, 200);
+            res.devices = docs;
+            res.grouping = 'browsers';
+            next();
+        });
     },
 
     byAgent: function(req, res, next){
@@ -109,6 +80,15 @@ device.get = {
             }
 
             res.device = docs.toObject();
+            next();
+        });
+    },
+
+    systems: function(req, res, next){
+        Device.findBy('systems',function(err, docs){
+            // res.json(docs, 200);
+            res.devices = docs;
+            res.grouping = 'systems';
             next();
         });
     }
@@ -151,7 +131,7 @@ device.view = {};
 
 device.view.list = function(req, res){
     return res.render('device/list', {
-        browsers: res.browsers || {},
+        grouping: res.grouping || undefined,
         devices: res.devices || {}
     });
 };
