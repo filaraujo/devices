@@ -353,6 +353,9 @@ body {
   -webkit-transform: translate3d(-40px, 0, 0);
   transform: translate3d(-40px, 0, 0);
 }
+.page-drawer a.is-open + [data-group] ~ [data-group] {
+  display: none;
+}
 .page-drawer [data-link] span {
   font-size: 0.4em;
   position: absolute;

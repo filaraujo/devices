@@ -94,14 +94,13 @@ block append foot-js
         var devices = document.querySelector('.devices'),
             drawer = document.querySelector('.page-drawer');
 
-        devices.addEventListener('click', function(e){
-            e.stopPropagation()
-            if(!e.target || e.target.nodeName !== 'A' || e.target.getAttribute('data-link') === null){
-                return;
-            }
+        Array.prototype.forEach.call(devices.querySelectorAll('[data-link], .device-heading'), function(el){
+            el.addEventListener('click', function(e){
+                e.stopPropagation();
+                var evt = new CustomEvent('update', { detail: { markup: this.nextElementSibling.outerHTML } });
+                drawer.dispatchEvent(evt);
+            });
 
-            var evt = new CustomEvent('update', { detail: { markup: e.target.parentNode.outerHTML } });
-            drawer.dispatchEvent(evt);
         });
 
 
@@ -129,18 +128,6 @@ mixin device(device)
         div.device-heading
             span(class="icon-#{device.family.toLowerCase().replace(/\s/g,'-')}")
             span.id #{device.family}
-
-        //- each group in device.versions
-        //-     if group.version && group.items.length > 1
-        //-         div.device-group
-        //-             span #{group.version}
-
-        //-             each item in group.items
-        //-                 a.group(href="/device/") #{item.name}
-
-        //-     else
-        //-         each item in group.items
-        //-             a.group(href="/device/") #{item.name}
 
         div(data-group)
             h3 #{device.family}
