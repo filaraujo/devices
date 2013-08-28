@@ -85,8 +85,8 @@ device.get = {
     },
 
     systems: function(req, res, next){
-        Device.findBy('systems',function(err, docs){
-            // res.json(docs, 200);
+        Device.findBySystem(function(err, docs){
+            res.json(docs, 200);
             res.devices = docs;
             res.grouping = 'systems';
             next();

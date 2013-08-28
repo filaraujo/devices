@@ -118,7 +118,10 @@ block content
         section.devices
             if devices.length
                 each device in devices
-                    mixin device(device)
+                    if grouping === 'systems'
+                        mixin system(device)
+                    else
+                        mixin device(device)
             else
                 div no devices
 
@@ -142,6 +145,23 @@ mixin device(device)
                         h3 #{device.family} #{group.version}
                         each item in group.items
                             a(href="/device/#{item.id}") #{item.name}
+
+
+
+mixin system(device)
+    .device(class="device-#{device.system.toLowerCase().replace(/\s/g,'-')}")
+        div.device-heading
+            span(class="icon-#{device.system.toLowerCase().replace(/\s/g,'-')}")
+            span.id #{device.system}
+
+        div(data-group)
+            h3 #{device.system}
+            each group in device.versions
+                if group.browsers.length === 1
+                    div.x s
+                else
+                    a(data-link, href="#") #{group.version}
+                        span.icon-arrow-left
 
 
 

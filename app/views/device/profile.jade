@@ -1,6 +1,10 @@
 extends ../layout
 include _details
 
+block append head-css
+    link(href="/stylesheets/device.css", rel="stylesheet")
+    link(href="http://fonts.googleapis.com/css?family=Lato:100,300,400", rel="stylesheet")
+
 block append head-js
     script(src="/vendor/jquery/jquery.min.js")
     script(src="javascripts/vendor/modernizr.custom.js")

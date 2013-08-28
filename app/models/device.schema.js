@@ -56,7 +56,7 @@ Device.statics.findBy = function(group, cb){
     }
 
     if(group === 'systems'){
-        addSetQuery = { id: '$_id', name: '$agent.name' };
+        addSetQuery = { id: '$_id', name: '$agent.name', family: '$agent.family' };
         idQuery = { name: '$system.family', version: '$system.version' };
     }
 
@@ -79,6 +79,25 @@ Device.statics.findBy = function(group, cb){
         cb);
 };
 
+Device.statics.findBySystem = function(cb){
+    this.aggregate(
+        { $group: {
+            _id: { sName: '$system.family', aName: '$agent.family', sVersion: '$system.version'  },
+            versions: { $addToSet: { id: '$_id', version: '$agent.version' } }
+        } },
+        { $group: {
+            _id: '$_id',
+            browsers: { $addToSet: { id: '$_id.aName', versions: '$versions' } }
+        }},
+        { $group: {
+            _id: '$_id.sName',
+            versions: { $addToSet: { version: '$_id.sVersion', browsers: '$browsers' } }
+        } },
+        { $project: {
+            _id: 0, system: '$_id', versions: 1
+        } },
+        cb);
+};
 
 Device.post('save', function() {
     loggerDB.info('Device saved to database: ' + this.id);
