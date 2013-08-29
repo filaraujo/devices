@@ -3,14 +3,20 @@ mixin details(details, type)
         each value, id in details
             if value !== undefined
                 if typeof value === "object"
-                    div.detail-group
-                        span #{type}.#{id}
+                    div.device-feature-group
+                        p #{id}
                         mixin details(details[id], type+'.'+id)
                 else
                     if(typeof value != "function")
-                        mixin detail(id, value, type)
+                        mixin detail(id, value)
 
-mixin detail(id, value, type)
-    div.detail(supported="#{value}")
-        span #{type}.#{id}
-        b #{value}
+mixin detail(id, value)
+    div.col.device-feature
+        span #{id}
+        br
+        if value === true
+            | supported
+        else
+            | unsupported
+        b  100%
+

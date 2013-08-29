@@ -5,7 +5,6 @@ block append head-css
     link(href="/stylesheets/device.css", rel="stylesheet")
     link(href="http://fonts.googleapis.com/css?family=Lato:100,300,400", rel="stylesheet")
 
-
 block append foot-js
     script.
         (function(){
@@ -127,8 +126,8 @@ block content
 
 
 mixin device(device)
-    .device(class="device-#{device.family.toLowerCase().replace(/\s/g,'-')}")
-        div.device-heading
+    .device-collection(class="agent-#{device.family.toLowerCase().replace(/\s/g,'-')}")
+        div.device-collection-heading
             span(class="icon-#{device.family.toLowerCase().replace(/\s/g,'-')}")
             span.id #{device.family}
 

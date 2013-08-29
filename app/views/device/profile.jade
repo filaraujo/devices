@@ -11,46 +11,126 @@ block append head-js
     script(src="javascripts/device.js")
 
 block content
+    .page-content
+        header
+            h3 #{device._id}
 
-    section.profile
-        div.detail
-            span User Agent
-            | #{device.id || device.string}
-        if device._id
-            div.detail
-                span Mongo id
-                a(href="/device/#{device._id}") #{device._id}
-
-        div.detail-group
-            span Browser
-            mixin details(device.agent, 'agent')
+        section.device
 
 
-        div.detail-group
-            span Operating System
-            mixin details(device.system, 'system')
+            div.device-agent
+                | #{device.agent.name}
 
-        div.detail-group
-            span Device
-            mixin details(device.device, 'device')
+            div.device-ua #{device.id}
 
-        if device.created
-            div.detail
-                span Date Collected
-                | #{device.created}
+            div.device-module.row
+                p.col
+                    span  #{device.agent.family}
+                    br
+                    |  browser
+                if device.agent.major
+                    p.col
+                        span #{device.agent.major}
+                        br
+                        | Major
+                if device.agent.minor
+                    p.col
+                        span  #{device.agent.minor}
+                        br
+                        | Minor
+                if device.agent.patch
+                    p.col
+                        span  #{device.agent.patch}
+                        br
+                        | Patch
 
 
-    if device._id
+            div.device-module.row
+                p.col
+                    span  #{device.system.family}
+                    br
+                    |  operating system
+                if device.system.major
+                    p.col
+                        span #{device.system.major}
+                        br
+                        | Major
+                if device.system.minor
+                    p.col
+                        span  #{device.system.minor}
+                        br
+                        | Minor
 
-        h2 javascript features
-        section.html
-            mixin details(device.javascript,'javascript')
 
-        h2 css features
-        section.features-css
-            mixin details(device.css,'css')
+            div.device-module.row
+                p.col
+                    span #{device.created.ago}
+                    br
+                    |  captured on #{device.created.exact}
 
-        h2 html features
-        h3 inputs
-        section.html
-            mixin details(device.html.input,'html.input')
+
+            div.row
+                div.device-module.row.col-md-4
+                    h4 Device
+                    span.icon-mobile
+                    p.col
+                        span #{device.device.family}
+                        br
+                        | family
+
+
+                div.device-module.row.col-md-8
+                    h4 Screen
+                    span.icon-screen
+                    p.col
+                        span #{device.device.screen.width}
+                        br
+                        |  wide
+                    p.col
+                        span  #{device.device.screen.height}
+                        br
+                        |  tall
+                    p.col
+                        span  #{device.device.color.depth}
+                        br
+                        |  color depth
+
+        section.device-features
+
+            div.device-module.row
+                h4 Features
+                div
+                    p.col-md-2.device-feature-type javascript
+                    div.col-md-10
+                        mixin details(device.javascript)
+
+            div.device-module.row
+                div
+                    p.col-md-2.device-feature-type css
+                    div.col-md-10
+                        mixin details(device.css)
+
+            div.device-module.row
+                div
+                    p.col-md-2.device-feature-type html
+                    div.col-md-10
+                        mixin details(device.html.input)
+
+
+
+
+
+            //- if device._id
+
+            //-     h2 javascript features
+            //-     section.html
+            //-         mixin details(device.javascript,'javascript')
+
+            //-     h2 css features
+            //-     section.features-css
+            //-         mixin details(device.css,'css')
+
+            //-     h2 html features
+            //-     h3 inputs
+            //-     section.html
+            //-         mixin details(device.html.input,'html.input')

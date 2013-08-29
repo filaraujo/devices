@@ -22,45 +22,43 @@ $slideSpeed = .33s
 
 html
     background #ecf0f1
-    color #fff
     font 300 62.5% 'Lato'
 
 html,
 body
     height 100%
-    overflow hidden
 
 .page-content
     min-height 100%
-    transform translate3d(300px,0,0)
     transition all $slideSpeed
     overflow scroll-y
 
     > header
         background $midnightblue
-        border-top 4px solid $alizarin
-        height 9rem
         transition border $slideSpeed
+        overflow auto
 
         [data-menu-state="2"]&,
         [data-menu-state="3"]&
             border-color $pomegranate
 
         h2
-            font-family 'Mojave'
-            padding-top 2rem
-            margin 0
+            color #fff
+            border-top 4px solid $alizarin
+            font bold 3.2rem 'Mojave'
+            padding 3.8rem 4vmin 0
+            margin 0 0 1rem
+
+        h3
+            color #fff
+            text-align right
+            font 200 1.3rem/1rem 'Lato'
+            padding 0 4vmin 0
 
         span
+            color #fff
             font-size 2rem
-            margin-left 1vmin
-
-    h2
-        color #fff
-        font-size 3rem
-        line-height 8rem
-        margin 0
-        padding 0 4vmin
+            margin-left 2vmin
 
     &[data-menu-state]:after
         content ''
@@ -151,12 +149,12 @@ body
 
 
 
-
+// devices
 .devices
     padding 4vmin
     overflow auto
 
-.device
+.device-collection
     background #16a085
     float left
     font-size: 1.4rem
@@ -165,23 +163,23 @@ body
     position relative
     width 20rem
 
-    &.device-chrome {
+    &.agent-chrome {
         background #f1c40f
     }
 
-    &.device-firefox {
+    &.agent-firefox {
         background #e67e22
     }
 
-    &.device-safari {
+    &.agent-safari {
         background #3498db
     }
 
-    &.device-opera {
+    &.agent-opera {
         background #c0392b
     }
 
-    &.device-ie {
+    &.agent-ie {
         background #3498db
     }
 
@@ -228,7 +226,7 @@ body
             float left
             line-height 2rem
 
-.device-heading
+.device-collection-heading
     bottom 0
     left 0
     height 8rem
@@ -248,9 +246,126 @@ body
         text-transform uppercase
 
     span[class^="icon"]
+        color #fff
         top -38%
         font-size 10em
         position absolute
         right -13%
         opacity .8
         text-shadow 0 1px 2px $midnightblue
+
+
+// device
+.device
+    background $alizarin
+    box-shadow 0 -1px 3px rgba(0,0,0,.4)
+    font-size 1.2rem
+    padding 6vmin 6vmin 3vmin
+
+.device-ua
+    font-size 2rem
+    margin-bottom: 4rem
+
+.device-agent
+    color #fff
+    font-size: 4rem
+    font-weight 400
+    line-height 3.8rem
+
+.device-system
+    font-size 1.6rem
+
+    span
+        font-size 2rem
+        font-weight 400
+
+
+.device-module
+    margin-bottom 2vmin
+
+    h4
+        border-bottom 1px solid rgba(0,0,0,.3)
+        color #fff
+        font-size 2rem
+        font-weight 300
+        margin 0 15px
+        padding 1vmin 0
+        text-transform uppercase
+
+        span
+            float left
+            font-size 1.4rem
+            line-height 2.6rem
+            margin-right 1vmin
+
+    p
+        margin 0
+        padding 1vmin 15px
+        text-transform uppercase
+
+        span:hover
+            color #fff
+            cursor pointer
+            border-bottom 1px dotted #fff
+
+    span
+        font-weight 400
+        font-size 2rem
+
+    span[class^="icon"]
+        float left
+        margin 1vmin 0 0 30px
+        line-height 4rem
+
+
+.device-features
+    padding 3vmin 6vmin
+
+    .device-module
+        h4
+            color $alizarin
+            font-weight 400
+
+        > div
+            border-top 1px solid rgba(0,0,0,.3)
+            margin 0 15px
+
+
+        h4 + div
+            border none
+
+.device-feature-type
+    font-size 1.4rem
+
+.device-feature
+    border 1px solid #aaa
+    padding 10px 20px
+    margin -1px 0 0 -1px
+
+    &:hover
+        color #000
+        border-color #000
+        z-index 2
+
+    &:nth-child(2n+1)
+        background #EEE5E2
+
+.device-feature-group
+    clear left
+    position relative
+
+    &:hover
+        p
+            font-weight bold
+        p,
+        .device-feature
+            color #000
+            border-color #000
+            z-index 2
+
+    > p
+        border-bottom 1px solid #aaa
+        float left
+        position absolute
+        top 10px
+        right 100%

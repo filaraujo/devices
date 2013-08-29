@@ -1,5 +1,6 @@
 var loggerDB = require('winston').loggers.get('database'),
     mongoose = require('mongoose'),
+    moment = require('moment'),
     Schema = mongoose.Schema,
     cssPlugin = require('../../app/models/plugin/css.schema'),
     javascriptPlugin = require('../../app/models/plugin/javascript.schema'),
@@ -37,12 +38,26 @@ var Device = new Schema({
         version: String,
         name: String
     }
+}, {
+    toObject: {
+        virtuals: true
+    }
 });
 
 // add plugins
 Device.plugin(cssPlugin, {});
 Device.plugin(htmlPlugin, {});
 Device.plugin(javascriptPlugin, {});
+
+
+// virtuals
+Device.virtual('created.ago').get(function(){
+    return moment(this.created).fromNow();
+});
+
+Device.virtual('created.exact').get(function(){
+    return moment(this.created).format("MMMM Do YYYY, H:mm:ss");
+});
 
 
 // statics
