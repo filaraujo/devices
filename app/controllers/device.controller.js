@@ -113,11 +113,10 @@ device.post = function(req, res, next){
             loggerDB.error(err);
             res.json({ error: err.err }, 409);
             return;
-
         }
         res.device = device.toObject();
         res.cookie('device', device._id, {  maxAge: 900000, signed: true });
-        res.json({ }, 200);
+        res.json({ id: device._id }, 200);
         next();
     });
 };
@@ -133,6 +132,15 @@ device.view.list = function(req, res){
     return res.render('device/list', {
         grouping: res.grouping || undefined,
         devices: res.devices || {}
+    });
+};
+
+device.view.capture = function(req, res){
+    if(res.device){
+        res.redirect('/device/'+res.device._id);
+    }
+    return res.render('device/capture', {
+        device: res.device || {}
     });
 };
 

@@ -86,7 +86,10 @@
 
     console.log(features);
 
-    saveDevice(features).done(function(){
-        console.log(features);
+    saveDevice(features).done(function(res){
+        console.log(res);
+        if(res.id){
+            window.location = '/device/'+res.id;
+        }
     });
 }());

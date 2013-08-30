@@ -11,7 +11,7 @@ mixin details(details, type)
                         mixin detail(id, value)
 
 mixin detail(id, value)
-    div.col.device-feature
+    div.col.device-feature(class=value ? 'supported' : 'unsupported')
         span #{id}
         br
         if value === true

@@ -1230,7 +1230,7 @@ body {
   border-color: #000;
   z-index: 2;
 }
-.device-feature:nth-child(2n+1) {
+.device-feature.unsupported {
   background: #eee5e2;
 }
 .device-feature-group {

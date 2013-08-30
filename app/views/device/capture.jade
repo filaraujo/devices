@@ -1,0 +1,19 @@
+extends ../layout
+
+block append head-css
+    link(href="/stylesheets/device.css", rel="stylesheet")
+    link(href="http://fonts.googleapis.com/css?family=Lato:100,300,400", rel="stylesheet")
+
+block append head-js
+    script(src="/vendor/jquery/jquery.min.js")
+    script(src="javascripts/vendor/modernizr.custom.js")
+    script(src="javascripts/device.js")
+
+block content
+    .page-content
+        header
+            h3 ...
+
+        section.device
+            div.device-agent Capturing
+            p Device is currently being captured, once captured page will be redirected

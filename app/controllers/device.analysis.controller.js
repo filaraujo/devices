@@ -6,7 +6,7 @@ var loggerDB = require('winston').loggers.get('database'),
 //
 //
 exports.delete = {
-    all: function(req, res){
+    all: function (req, res) {
         DeviceAnalysis.remove({}, function(err){
             if(err){
                 loggerDB.error(err);

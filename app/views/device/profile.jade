@@ -5,11 +5,6 @@ block append head-css
     link(href="/stylesheets/device.css", rel="stylesheet")
     link(href="http://fonts.googleapis.com/css?family=Lato:100,300,400", rel="stylesheet")
 
-block append head-js
-    script(src="/vendor/jquery/jquery.min.js")
-    script(src="javascripts/vendor/modernizr.custom.js")
-    script(src="javascripts/device.js")
-
 block content
     .page-content
         header
@@ -115,22 +110,3 @@ block content
                     p.col-md-2.device-feature-type html
                     div.col-md-10
                         mixin details(device.html.input)
-
-
-
-
-
-            //- if device._id
-
-            //-     h2 javascript features
-            //-     section.html
-            //-         mixin details(device.javascript,'javascript')
-
-            //-     h2 css features
-            //-     section.features-css
-            //-         mixin details(device.css,'css')
-
-            //-     h2 html features
-            //-     h3 inputs
-            //-     section.html
-            //-         mixin details(device.html.input,'html.input')
