@@ -1,37 +1,38 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js",
-    "postinstall": "./node_modules/bower/bin/bower install",
-    "blanket": {
-      "pattern": [
-        "app/controllers",
-        "app/helpers",
-        "app/models"
-      ]
+    "name": "application-name",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js",
+        "postinstall": "./node_modules/bower/bin/bower install",
+        "blanket": {
+            "pattern": [
+                "app/controllers",
+                "app/helpers",
+                "app/models"
+            ]
+        }
+    },
+    "dependencies": {
+        "bower": "~1.1.2",
+        "express": "3.2.4",
+        "lodash": "*",
+        "jade": "*",
+        "moment": "*",
+        "mongoose": "*",
+        "newrelic": "*",
+        "sinon": "~1.7.3",
+        "stylus": "*",
+        "ua-parser": "*",
+        "winston": "~0.7.2"
+    },
+    "devDependencies": {
+        "chai": "*",
+        "grunt": "~0.4.1",
+        "grunt-contrib-watch": "~0.5.1",
+        "grunt-nodemon": "0.0.9",
+        "grunt-mocha-cov": "0.0.7",
+        "mocha": "*",
+        "node-theseus": "*"
     }
-  },
-  "dependencies": {
-    "bower": "~1.1.2",
-    "express": "3.2.4",
-    "lodash": "*",
-    "jade": "*",
-    "moment": "*",
-    "mongoose": "*",
-    "newrelic": "*",
-    "sinon": "~1.7.3",
-    "stylus": "*",
-    "ua-parser": "*",
-    "winston": "~0.7.2"
-  },
-  "devDependencies": {
-    "chai": "*",
-    "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.1",
-    "grunt-nodemon": "0.0.9",
-    "grunt-mocha-cov": "0.0.7",
-    "mocha": "*"
-  }
 }

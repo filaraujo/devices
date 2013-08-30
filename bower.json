@@ -11,7 +11,6 @@
   ],
   "dependencies": {
     "jquery": "git://github.com/components/jquery.git#~2.0.3",
-    "modernizr": "git://github.com/Modernizr/Modernizr.git#~2.6.2",
     "polymer": "git://github.com/components/polymer.git#~0.0.20130808",
     "highlightjs": "~7.3.0"
   }

@@ -29,7 +29,6 @@ exports.post = function(req, res) {
         }
         res.json({}, 200);
     });
-
 };
 
 
@@ -37,16 +36,23 @@ exports.put = {
 
     features: function(req, res) {
         var device = new DeviceAnalysisHelper(res.device),
-            analysis =  device.increment(req.query);
-
+            analysis =  device.increment(req.body.features);
+        
+        console.log(device.reference);
+        
+        DeviceAnalysis.find({ reference: device.reference}, function(err, docs){
+            console.log(err);
+            console.log(docs);
+        });
         DeviceAnalysis.update(
             { reference: device.reference },
             { $inc: analysis },
-            function(err) {
+            function(err, result) {
                 if (err) {
                     loggerDB.error(err);
                     res.json({ error: err.err }, 409);
                 }
+                console.log(result)
 
                 res.json({}, 200);
             });

@@ -10,7 +10,7 @@ var loggerDB = require('winston').loggers.get('database'),
  */
 device.delete = {
 
-    all: function(req, res){
+    all: function (req, res) {
         Device.remove({}, function(err){
             if(err){
                 loggerDB.error(err);
@@ -74,7 +74,7 @@ device.get = {
         var id = req.params.device;
 
         Device.findOne({ _id: id }, function(err, docs){
-            if( err || !docs){
+            if(err || !docs){
                 loggerDB.error(err);
                 return next( new Error( 'Device does not exist') );
             }

@@ -1,9 +1,11 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+    'use strict';
     grunt.initConfig({
         nodemon: {
             dev: {
                 options: {
-                    file: './app.js'
+                    file: './app.js',
+                    exec: 'node-theseus'
                 }
             }
         },
@@ -18,8 +20,9 @@ module.exports = function(grunt) {
                 files: ['app/controllers/**/*.js', 'app/helpers/**/*.js', 'app/models/**/*.js', 'test/**/*.js'],
                 tasks: ['mochacov']
             }
-        },
+        }
     });
+    
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');

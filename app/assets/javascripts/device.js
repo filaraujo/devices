@@ -2,22 +2,31 @@
 
     var
         features,
-
-        // cookieExists = document.cookie.indexOf('device=') > -1,
+        
+        deviceId,
 
         saveDevice = function(features){
+            var method = 'POST';
+                url = '/device';
+            
+            if(deviceId){
+                method = 'PUT';
+                url = '/analysis/'+deviceId;
+            }
+            
+            console.log(method)
+    
             return $.ajax({
-                url: '/device',
-                type: 'POST',
+                url: url,
+                type: method,
                 data: {
                     features: features,
                     useragent: window.navigator.userAgent
                 }
             });
         };
-
-        console.log(window.navigator.userAgent);
-
+    
+    deviceId = (window.location.href.match(/\/device\/([a-z0-9]+)$/) || [])[1] || undefined;
 
     features = [
         // css
