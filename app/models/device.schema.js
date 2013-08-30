@@ -114,9 +114,5 @@ Device.statics.findBySystem = function(cb){
         cb);
 };
 
-Device.post('save', function() {
-    loggerDB.info('Device saved to database: ' + this.id);
-});
-
 // export Device
 module.exports = mongoose.model('Device', Device);

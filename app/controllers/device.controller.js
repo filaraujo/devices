@@ -114,6 +114,8 @@ device.post = function(req, res, next){
             res.json({ error: err.err }, 409);
             return;
         }
+        loggerDB.info('Device saved to database: ' + this.id);
+        
         res.device = device.toObject();
         res.cookie('device', device._id, {  maxAge: 900000, signed: true });
         res.json({ id: device._id }, 200);
