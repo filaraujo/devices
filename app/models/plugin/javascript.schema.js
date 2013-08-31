@@ -11,7 +11,13 @@ module.exports = function(schema, options){
     schema.add({
         javascript: {
             fullscreen: booleanObject,
-            postmessage: booleanObject
+            postmessage: booleanObject,
+            workers: {
+                blob: booleanObject,
+                data: booleanObject,
+                shared: booleanObject,
+                web: booleanObject
+            }
         }
     });
 };

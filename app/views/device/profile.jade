@@ -102,16 +102,16 @@ block content
                 div
                     p.col-md-2.device-feature-type javascript
                     div.col-md-10
-                        mixin details(device.javascript)
+                        mixin details(device.javascript, analysis.javascript)
 
             div.device-module.row
                 div
                     p.col-md-2.device-feature-type css
                     div.col-md-10
-                        mixin details(device.css)
+                        mixin details(device.css, analysis.css)
 
             div.device-module.row
                 div
                     p.col-md-2.device-feature-type html
                     div.col-md-10
-                        mixin details(device.html.input)
+                        mixin details(device.html.input, analysis.html.input)

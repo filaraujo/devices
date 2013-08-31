@@ -89,7 +89,11 @@
 
         // javascript
         { 'javascript.fullscreen': Modernizr.fullscreen },
-        { 'javascript.postmessage': Modernizr.postmessage }
+        { 'javascript.postmessage': Modernizr.postmessage },
+        { 'javascript.workers.blob': Modernizr.blobworkers },
+        { 'javascript.workers.data': Modernizr.dataworkers },
+        { 'javascript.workers.shared': Modernizr.sharedworkers },
+        { 'javascript.workers.web': Modernizr.webworkers }
     ];
 
 

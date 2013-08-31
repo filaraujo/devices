@@ -147,8 +147,10 @@ device.view.capture = function(req, res){
 };
 
 device.view.profile = function(req, res){
+    console.log(res.analysis)
     return res.render('device/profile', {
-        device: res.device || {}
+        device: res.device || {},
+        analysis: res.analysis || {}
     });
 };
 
