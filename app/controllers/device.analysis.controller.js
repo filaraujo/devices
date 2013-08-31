@@ -6,13 +6,29 @@ var loggerDB = require('winston').loggers.get('database'),
 //
 //
 exports.delete = {
-    all: function (req, res) {
+    all: function(req, res) {
         DeviceAnalysis.remove({}, function(err){
             if(err){
                 loggerDB.error(err);
                 res.json({ }, 500);
             }
             res.json({ }, 204);
+        });
+    }
+};
+
+exports.get = {
+    byHash: function(req, res, next){
+        var id = req.params.device;
+        
+        DeviceAnalysis.findOne({ _id: id }, function(err, docs){
+            if(err || !docs){
+                loggerDB.error(err);
+                return next( new Error( 'Device does not exist') );
+            }
+
+            res.analysis = docs.toObject();
+            next();
         });
     }
 };
