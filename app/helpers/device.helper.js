@@ -5,25 +5,25 @@ var _ = require('lodash'),
 /**
  * validates the features values to ensure that they are valid
  */
-var validate = function(obj, ancestor){
-    _.forOwn(obj,function(val,key){
-        var orig = ancestor + '.'+key;
+var validate = function (obj, ancestor) {
+    _.forOwn(obj, function (val, key) {
+        var orig = ancestor + '.' + key;
 
-        if(val === undefined || val === null){
+        if (val === undefined || val === null) {
             delete obj[key];
             logger.info('missing property value @ ' + orig);
         }
 
-        if(_.isObject(val)){
-            if(_.isEmpty(val)){
+        if (_.isObject(val)) {
+            if (_.isEmpty(val)) {
                 return delete obj[key];
             }
             return validate(val, orig);
         }
 
-        if(_.isString(val)){
-            if(/true|false/.test(val)){
-                obj[key] =  val === 'true';
+        if (_.isString(val)) {
+            if (/true|false/.test(val)) {
+                obj[key] = val === 'true';
             }
         }
 
@@ -36,7 +36,7 @@ var validate = function(obj, ancestor){
  * build feature object
  * @param  {Object} feature feature object
  */
-function buildFeature(feature){
+function buildFeature(feature) {
     var scope = this,
         key = Object.keys(feature)[0],
         parts = key.split('.');
@@ -44,12 +44,12 @@ function buildFeature(feature){
     /**
      * recursive namespace walk
      */
-    function walkNamespace(obj){
-        if(!scope[obj]){
+    function walkNamespace(obj) {
+        if (!scope[obj]) {
             scope[obj] = parts.length ? {} : feature[key];
         }
         scope = scope[obj];
-        if(parts.length){
+        if (parts.length) {
             return walkNamespace(parts.shift());
         }
     }
@@ -58,8 +58,8 @@ function buildFeature(feature){
 
 
 
-module.exports = function DeviceHelper(ua, features){
-    if(!ua || !features){
+module.exports = function DeviceHelper(ua, features) {
+    if (!ua || !features) {
         throw new Error('Invalid User agent or Device Properties');
     }
 
@@ -84,5 +84,5 @@ module.exports = function DeviceHelper(ua, features){
     this.system.name = uaObj.os.toString();
     this.system.version = uaObj.os.toVersionString();
 
-    validate(this,'device');
+    validate(this, 'device');
 };

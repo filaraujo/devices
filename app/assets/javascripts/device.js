@@ -98,9 +98,17 @@
 
 
     console.log(features);
+    
+    /*
+     * @TODO
+     * javascript.workers.data race condition in Opera next 
+     */
+    console.log(features['javascript.workers.data'], Modernizr.dataworkers);
 
     saveDevice(features).done(function(res){
         console.log(res);
+        
+    console.log(features['javascript.workers.data'], Modernizr.dataworkers);
         if(res.id){
             window.location = '/device/'+res.id;
         }

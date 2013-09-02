@@ -14,12 +14,7 @@ DeviceHelperAnalysis = function(ua, features) {
         _.assign(this, ua);
         this.reference = this._id;
     }
-
-    // if(!ua._id){
-    //     // if user agent and features passed, build new DeviceHelper with this scope
-    //     DeviceHelper.apply(this, arguments);
-    // }
-
+    
     return this;
 };
 
