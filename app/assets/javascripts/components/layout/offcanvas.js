@@ -1,7 +1,7 @@
 Polymer('ui-layout', {
     state: 'closed',
     val: 'slide',
-    ready: function(){
+    enteredView: function(){
         var scope = this;
 
         this.type = ['slide','pan','meny','parallax','over'].indexOf(this.type) > -1 ? this.type : 'slide';

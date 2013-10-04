@@ -4,8 +4,8 @@ module.exports = function (grunt) {
         nodemon: {
             dev: {
                 options: {
-                    file: './app.js',
-                    exec: 'node-theseus'
+                    file: './app.js'//,
+                    // exec: 'node-theseus'
                 }
             }
         },
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
             }
         }
     });
-    
+
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');

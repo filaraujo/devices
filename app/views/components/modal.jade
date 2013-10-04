@@ -5,11 +5,11 @@ polymer-element(name="ui-modal", \attributes="open")
     template
         include ../../assets/stylus/components/modal.styl
         style.
-
             @host {
                 ui-modal {
                 }
             }
+
 
         .ui-modal(open="{{open}}")
             .ui-modal-content
@@ -23,5 +23,15 @@ polymer-element(name="ui-modal", \attributes="open")
     script.
         Polymer('ui-modal', {
             open: false,
-            ready: function(){}
+            created: function(){
+
+                var scope = this;
+
+                this.querySelectorAll('ui-modal-close').forEach(function(e){
+                    e.addEventListener('click', function(){
+                        scope.open = false;
+                    });
+                });
+                //- console.log(this.querySelectorAll('ui-modal-close').innerHTML)
+            }
         });

@@ -1,37 +1,44 @@
 // variables
-modalBorderRadius = 4px
+modalBorderRadius = 2px
 modalOuterMargin = 20px
 modalInnerPadding = 20px
 overlayOpacitySpeed = .4s
 contentOpacitySpeed = 1s
 
+headerColor = #2980b9
+contentColor = #3498db
+overlayColor = #093156//darken(headerColor, 90%)
+
 // mixins
 fade(oSpd = 1s, vDelay = 1s)
-    -ms-transition opacity oSpd, visibility 0s vDelay
-    -moz-transition opacity oSpd, visibility 0s vDelay
-    -webkit-transition opacity oSpd, visibility 0s vDelay
-    transition opacity oSpd, visibility 0s vDelay
+    -ms-transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
+    -moz-transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
+    -webkit-transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
+    transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
 
 // styles
 .ui-modal
-    bottom: 0;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -webkit-flex;
-    display: flex;
-    left: 0;
-    padding: 20px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1000
+    bottom 0
+    -webkit-align-items center
+    align-items center
+    -webkit-justify-content center
+    justify-content center
+    display -moz-flex
+    display -ms-flex
+    display -webkit-flex
+    display flex
+    left: 0
+    padding 20px
+    position fixed
+    right 0
+    top 0
+    z-index -1
+
+    [open="true"]&
+        z-index: 1000
 
     &:before
-        background #000
+        background overlayColor
         bottom 0
         content ''
         left 0
@@ -49,10 +56,11 @@ fade(oSpd = 1s, vDelay = 1s)
             fade(1s, 0)
 
 .ui-modal-content
-    background: #fff
+    background contentColor
     border-radius modalBorderRadius
-    box-shadow: 0 0 10px rgba(0,0,0,.6)
+    box-shadow 0 0 6px rgba(0,0,0,.2)
     box-sizing border-box
+    color rgba(255,255,255,.7)
     display -webkit-flex;
     display flex;
     -webkit-flex-direction column
@@ -75,22 +83,27 @@ fade(oSpd = 1s, vDelay = 1s)
         transform scale(1)
 
 .ui-modal-header
+    background headerColor
     -webkit-flex none
+    border-radius: modalBorderRadius modalBorderRadius 0 0
     flex none
-    padding 10px 16px
+    font-size 20px
+    margin 0
+    text-align center
 
 .ui-modal-body
-    border-top 1px solid #aaa
+    border-top 1px solid rgba(contentColor, .5)
     -webkit-flex 1 1 auto
+    color #fff
     flex 1 1 auto
     overflow scroll
-    padding 10px 16px
+    padding 10px 24px
 
 .ui-modal-footer
-    background #ddd
+    border-top 1px solid rgba(#fff, .2)
     -webkit-flex none
     flex none
-    padding 12px 16px 14px
+    padding 12px 24px 14px
     border-radius: 0 0 modalBorderRadius modalBorderRadius
 
 

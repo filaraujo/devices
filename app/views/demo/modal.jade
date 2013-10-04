@@ -10,14 +10,24 @@ block append html-import
     link(rel="import", href="/components/modal")
 
 block content
+
+    p inspiration by
+        a(href="http://tympanus.net/Development/ModalWindowEffects/")  typanus
+
+
+    button.btn-open open me!
+
     ui-modal(open)
         ui-modal-header
-            h3
-                | Modal Dialog
+            h3 Modal Dialog
         ui-modal-body
-            a(href="http://tympanus.net/Development/ModalWindowEffects/") modal
-            p Lorem ipsum Elit amet elit tempor dolore dolor dolore ut
-            p Lorem ipsum Elit amet elit tempor dolore dolor dolore ut nostrud dolore
-            p esse fugiat esse proident nostrud aliquip magna qui ea sint Excep
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer bibendum scelerisque luctus. Etiam ut quam massa.
+            p Suspendisse laoreet nibh ut ante lobortis, vel facilisis libero pulvinar. Curabitur faucibus sapien et massa tempus, sed mollis dolor fringilla. Aliquam ut mi libero. Morbi vehicula lorem in urna dictum gravida. Vivamus ullamcorper ante quis hendrerit volutpat. Nam lobortis metus vitae lectus sollicitudin laoreet. Quisque consequat risus nec est malesuada, id molestie elit rutrum. Cras urna arcu, tincidunt ac accumsan vitae, tristique id tellus. Cras varius, magna eget bibendum pharetra, tortor nisl ultrices mauris, vitae hendrerit neque lorem at lorem. Curabitur quis viverra metus, a sodales urna. Nulla aliquet tempus pellentesque. Nunc feugiat nibh vitae est sodales ultricies.
         ui-modal-footer
-            | Lorem ipsum Elit amet elit tempor dolore
+            ui-modal-close close me!
+
+
+    script.
+        document.querySelector('.btn-open').addEventListener('click', function(e){
+            document.querySelector('ui-modal').open = true;
+        });
