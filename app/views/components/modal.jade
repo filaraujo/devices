@@ -3,12 +3,8 @@ include ../../assets/javascripts/components/feature-test.js
 
 polymer-element(name="ui-modal", \attributes="open")
     template
-        include ../../assets/stylus/components/modal.styl
-        style.
-            @host {
-                ui-modal {
-                }
-            }
+        :injectCSS
+            components/modal.styl
 
         .ui-modal(open="{{open}}")
             .ui-modal-content

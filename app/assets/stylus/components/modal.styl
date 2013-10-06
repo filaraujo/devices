@@ -74,13 +74,10 @@ fade(oSpd = 1s, vDelay = 1s)
     z-index 2
     -webkit-transition all .2s ease-in
     transition all .2s ease-in
-    -webkit-transform scale(0.6)
-    transform scale(0.6)
+    animation scale
 
     [open="true"].ui-modal &
         opacity 1
-        -webkit-transform scale(1)
-        transform scale(1)
 
 .ui-modal-header
     background headerColor
@@ -118,3 +115,9 @@ ui-modal-close
     font-size 13px
 
 
+@keyframes scale
+    0%
+        transform scale(0.6)
+
+    100%
+        transform scale(1)

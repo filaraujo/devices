@@ -21,6 +21,7 @@
         "moment": "*",
         "mongoose": "*",
         "newrelic": "*",
+        "nib": "*",
         "sinon": "~1.7.3",
         "stylus": "*",
         "ua-parser": "*",

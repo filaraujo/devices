@@ -17,6 +17,7 @@ npm-debug.log
 *.sublime-workspace
 
 !app/assets/vendor/
+app/assets/stylesheets/*.css
 
 app/assets/vendor*
 !app/assets/vendor/modernizr
