@@ -24,10 +24,11 @@ block content
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer bibendum scelerisque luctus. Etiam ut quam massa.
             p Suspendisse laoreet nibh ut ante lobortis, vel facilisis libero pulvinar. Curabitur faucibus sapien et massa tempus, sed mollis dolor fringilla. Aliquam ut mi libero. Morbi vehicula lorem in urna dictum gravida. Vivamus ullamcorper ante quis hendrerit volutpat. Nam lobortis metus vitae lectus sollicitudin laoreet. Quisque consequat risus nec est malesuada, id molestie elit rutrum. Cras urna arcu, tincidunt ac accumsan vitae, tristique id tellus. Cras varius, magna eget bibendum pharetra, tortor nisl ultrices mauris, vitae hendrerit neque lorem at lorem. Curabitur quis viverra metus, a sodales urna. Nulla aliquet tempus pellentesque. Nunc feugiat nibh vitae est sodales ultricies.
         ui-modal-footer
-            ui-modal-close close me!
+            button.ui-modal-close close me!
 
 
     script.
         document.querySelector('.btn-open').addEventListener('click', function(e){
-            document.querySelector('ui-modal').open = true;
+            var evt = new CustomEvent('open', {});
+            document.querySelector('ui-modal').dispatchEvent(evt);
         });

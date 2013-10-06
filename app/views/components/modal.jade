@@ -10,7 +10,6 @@ polymer-element(name="ui-modal", \attributes="open")
                 }
             }
 
-
         .ui-modal(open="{{open}}")
             .ui-modal-content
                 .ui-modal-header
@@ -24,14 +23,20 @@ polymer-element(name="ui-modal", \attributes="open")
         Polymer('ui-modal', {
             open: false,
             created: function(){
+                var scope = this,
+                    close = this.querySelectorAll('.ui-modal-close');
 
-                var scope = this;
-
-                this.querySelectorAll('ui-modal-close').forEach(function(e){
-                    e.addEventListener('click', function(){
-                        scope.open = false;
-                    });
+                Array.prototype.forEach.call(close, function(e){
+                    e.addEventListener('click', scope.closeCallback.bind(scope));
                 });
-                //- console.log(this.querySelectorAll('ui-modal-close').innerHTML)
+
+                this.addEventListener('open', this.openCallback);
+                this.addEventListener('close', this.closeCallback);
+            },
+            openCallback: function(){
+                this.open = true;
+            },
+            closeCallback: function(){
+                this.open = false;
             }
         });
