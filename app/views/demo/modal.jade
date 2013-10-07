@@ -15,9 +15,20 @@ block content
         a(href="http://tympanus.net/Development/ModalWindowEffects/")  typanus
 
 
-    button.btn-open open me!
+    button.modal-action(data-fx="fade-in-scale") fade in &amp; scale
+    button.modal-action(data-fx="fall") fall
+    button.modal-action(data-fx="side-fall-left") side fall left
+    button.modal-action(data-fx="side-fall-right") side fall right
+    button.modal-action(data-fx="slide-in-bottom") slide in &amp; bottom
+    button.modal-action(data-fx="slide-in-left") slide in &amp; left
+    button.modal-action(data-fx="slide-in-right") slide in &amp; right
+    button.modal-action(data-fx="slide-in-top") slide in &amp; top
+    button.modal-action(data-fx="sticky-bottom") sticky bottom
+    button.modal-action(data-fx="sticky-left") sticky left
+    button.modal-action(data-fx="sticky-right") sticky right
+    button.modal-action(data-fx="sticky-top") sticky top
 
-    ui-modal(open)
+    ui-modal
         ui-modal-header
             h3 Modal Dialog
         ui-modal-body
@@ -28,7 +39,16 @@ block content
 
 
     script.
-        document.querySelector('.btn-open').addEventListener('click', function(e){
-            var evt = new CustomEvent('open', {});
-            document.querySelector('ui-modal').dispatchEvent(evt);
+        Array.prototype.forEach.call(document.querySelectorAll('button[data-fx]'), function(el){
+
+            el.addEventListener('click', function(e){
+                var evt = new CustomEvent('open', {}),
+                    fx = el.getAttribute('data-fx');
+                document.querySelector('ui-modal').fx = fx;
+
+                setTimeout(function(){
+                    document.querySelector('ui-modal').dispatchEvent(evt);
+                }, 300)
+            });
         });
+

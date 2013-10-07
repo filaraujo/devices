@@ -18,106 +18,168 @@ fade(oSpd = 1s, vDelay = 1s)
 
 // styles
 .ui-modal
-    bottom 0
-    -webkit-align-items center
-    align-items center
-    -webkit-justify-content center
-    justify-content center
-    display -moz-flex
-    display -ms-flex
-    display -webkit-flex
-    display flex
+    bottom: 0
+    align-items: center
+    justify-content: center
+    display: flex
     left: 0
-    padding 20px
-    position fixed
-    right 0
-    top 0
-    z-index -1
+    padding: 20px
+    position: fixed
+    right: 0
+    top: 0
+    z-index: -1
 
     [open="true"]&
         z-index: 1000
 
     &:before
-        background overlayColor
-        bottom 0
-        content ''
-        left 0
-        opacity 0
-        position absolute
-        right 0
-        top 0
-        visibility hidden
-        z-index 0
-        fade(1s, 2s)
+        background: overlayColor
+        bottom: 0
+        content: ''
+        left: 0
+        opacity: 0
+        position: absolute
+        right: 0
+        transition: all .32s
+        top: 0
+        visibility: hidden
+        z-index: 0
 
         [open="true"]&
-            visibility visible
-            opacity .85
-            fade(1s, 0)
+            visibility: visible
+            opacity: .85
 
 .ui-modal-content
-    background contentColor
-    border-radius modalBorderRadius
-    box-shadow 0 0 6px rgba(0,0,0,.2)
-    box-sizing border-box
-    color rgba(255,255,255,.7)
-    display -webkit-flex;
-    display flex;
-    -webkit-flex-direction column
-    -webkit-flex-wrap nowrap
-    flex-wrap nowrap
-    flex-direction column
-    max-height 100%
-    min-height 300px
-    min-width 300px
-    opacity 0
-    z-index 2
-    -webkit-transition all .2s ease-in
-    transition all .2s ease-in
-    animation scale
+    background: contentColor
+    border-radius: modalBorderRadius
+    box-shadow: 0 0 6px rgba(0,0,0,.2)
+    box-sizing: border-box
+    color: rgba(255,255,255,.7)
+    display: flex
+    flex-wrap: nowrap
+    flex-direction: column
+    max-height: 100%
+    min-height: 300px
+    min-width: 300px
+    opacity: 0
+    transition: all .32s ease-in
+    z-index: 2
 
-    [open="true"].ui-modal &
-        opacity 1
+    [open="true"] &
+        opacity: 1
 
 .ui-modal-header
-    background headerColor
-    -webkit-flex none
+    background: headerColor
+    -webkit-flex: none
     border-radius: modalBorderRadius modalBorderRadius 0 0
-    flex none
-    font-size 20px
-    margin 0
-    text-align center
+    flex: none
+    font-size: 20px
+    margin: 0
+    text-align: center
 
 .ui-modal-body
-    border-top 1px solid rgba(contentColor, .5)
-    -webkit-flex 1 1 auto
-    color #fff
-    flex 1 1 auto
-    overflow scroll
-    padding 10px 24px
+    border-top: 1px solid rgba(contentColor, .5)
+    -webkit-flex: 1 1 auto
+    color: #fff
+    flex: 1 1 auto
+    overflow: scroll
+    padding: 10px 24px
 
 .ui-modal-footer
-    border-top 1px solid rgba(#fff, .2)
-    -webkit-flex none
-    flex none
-    padding 12px 24px 14px
+    border-top: 1px solid rgba(#fff, .2)
+    -webkit-flex: none
+    flex: none
+    padding: 12px 24px 14px
     border-radius: 0 0 modalBorderRadius modalBorderRadius
 
 ui-modal-close
-    background #256E9E
-    border 0
-    border-radius 2px
-    color #fff
-    cursor pointer
-    letter-spacing 1px
-    padding 0.6em 1.2em
-    text-transform uppercase
-    font-size 13px
+    background: #256E9E
+    border: 0
+    border-radius: 2px
+    color: #fff
+    cursor: pointer
+    letter-spacing: 1px
+    padding: 0.6em 1.2em
+    text-transform: uppercase
+    font-size: 13px
+
+//effects
+.ui-modal
+
+    &[fx="fade-in-scale"],
+    &[fx="fall"],
+    &[fx^="side-fall"]
+        perspective: 1300px
+
+    [fx="sticky-bottom"]&
+        align-items: flex-end
+
+    &[fx="sticky-left"]
+        justify-content: flex-start
+
+    &[fx="sticky-right"]
+        justify-content: flex-end
+
+    &[fx="sticky-top"]
+        align-items: flex-start
 
 
-@keyframes scale
-    0%
-        transform scale(0.6)
+    .ui-modal-content
 
-    100%
-        transform scale(1)
+        [open="true"]&
+            transform: translate3d(0,0,0) !important
+
+        [fx="fade-in-scale"]&
+                transform: translateZ(-300px)
+
+        [fx="fall"]&
+            transform-style: preserve-3d
+            transform: translateZ(600px) rotateX(20deg)
+
+        [fx="side-fall-left"]&
+            transform-style: preserve-3d
+            transform: translate(30%) translateZ(300px) rotate(10deg)
+
+        [fx="side-fall-right"]&
+            transform-style: preserve-3d
+            transform: translate(-30%) translateZ(300px) rotate(-10deg)
+
+        [fx="slide-in-bottom"]&
+            transform: translateY(20%)
+
+        [fx="slide-in-left"]&
+            transform: translateX(-20%)
+
+        [fx="slide-in-right"]&
+            transform: translateX(20%)
+
+        [fx="slide-in-top"]&
+            transform: translateY(-20%)
+
+        [fx="sticky-bottom"]&
+            transform: translateY(200%)
+
+            [open="true"]&
+                transform: translateY(20px) !important
+
+        [fx="sticky-left"]&
+            transform: translateX(-200%)
+
+            [open="true"]&
+                transform: translateX(-20px) !important
+
+        [fx="sticky-right"]&
+            transform: translateX(200%)
+
+            [open="true"]&
+                transform: translateX(20px) !important
+
+        [fx="sticky-top"]&
+            transform: translateY(-200%)
+
+            [open="true"]&
+                transform: translateY(-20px) !important
+
+
+
+

@@ -1,0 +1,7 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
+body{font-family:'Lato'}
+.ui-modal-content{font-weight:300;line-height:1.4em;max-width:600px}
+.ui-modal-header h3{font-size:36px;font-weight:300;margin:.8em}
+.ui-modal-footer{text-align:center}
+.ui-modal-close,.modal-action{background:#256e9e;border:0;border-radius:2px;color:#fff;cursor:pointer;letter-spacing:1px;padding:.6em 1.2em;text-transform:uppercase;font-size:13px;}
+.ui-modal-close:hover,.modal-action:hover{background:#20597e}
