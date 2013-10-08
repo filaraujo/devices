@@ -24,16 +24,22 @@ polymer-element(name="ui-modal", \attributes="open fx")
                     close = this.querySelectorAll('.ui-modal-close');
 
                 Array.prototype.forEach.call(close, function(e){
-                    e.addEventListener('click', scope.closeCallback.bind(scope));
+                    e.addEventListener('click', scope.fire.bind(scope,'close'));
                 });
 
                 this.addEventListener('open', this.openCallback);
                 this.addEventListener('close', this.closeCallback);
+                this.addEventListener('click', this.overlayClickCallback.bind(scope));
+            },
+            closeCallback: function(){
+                this.open = false;
             },
             openCallback: function(){
                 this.open = true;
             },
-            closeCallback: function(){
-                this.open = false;
+            overlayClickCallback: function(e){
+                if(e.srcElement && e.srcElement.className === 'ui-modal'){
+                    this.fire('close');
+                }
             }
         });

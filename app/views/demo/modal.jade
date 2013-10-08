@@ -43,12 +43,17 @@ block content
 
             el.addEventListener('click', function(e){
                 var evt = new CustomEvent('open', {}),
-                    fx = el.getAttribute('data-fx');
-                document.querySelector('ui-modal').fx = fx;
+                    fx = el.getAttribute('data-fx'),
+                    modal = document.querySelector('ui-modal');
+                    clone = modal.cloneNode(true);
+
+                clone.fx = fx;
+                modal.parentNode.insertBefore(clone, modal);
+                modal.parentNode.removeChild(modal);
 
                 setTimeout(function(){
-                    document.querySelector('ui-modal').dispatchEvent(evt);
-                }, 300)
+                    clone.dispatchEvent(evt);
+                }, 16);
             });
         });
 
