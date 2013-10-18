@@ -1,13 +1,16 @@
-polymer-element(name="ui-code", \attributes="class title", extends="pre")
+polymer-element(name="ui-code", \attributes="class heading", extends="pre")
+    style(polymer-scope="global").
+        @import url(http://fonts.googleapis.com/css?family=Source\+Code\+Pro:400);
+
     template
         include ../../../assets/stylus/components/presentation/code.styl
 
         pre
-            code#code(class="{{language}}",title="{{title}}")
+            code#code(class="{{language}}",heading="{{heading}}")
 
     | !{'<script type="text/javascript">'}
     :injectJS
-        components/presentation/code.js
-    :injectJS
         ../vendor/highlightjs/highlight.pack.js
+    :injectJS
+        components/presentation/code.js
     | !{'</script>'}

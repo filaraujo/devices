@@ -1,7 +1,7 @@
 Polymer('ui-code', {
-    title: '',
+    heading: '',
     language: undefined,
-    ready: function(){
+    created: function(){
         var code;
 
         this.language = this.getAttribute('language') || undefined;
@@ -14,6 +14,10 @@ Polymer('ui-code', {
         }
 
         this.$.code.innerHTML = code.value;
+
+        if(this.heading){
+            console.warn('ui-code: heading disabled due to polymer bug: polymer#0.0.20131010');
+        }
     }
 
 });

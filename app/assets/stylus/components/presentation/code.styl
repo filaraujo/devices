@@ -1,17 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Source\+Code\+Pro:400);
-
 pre code
     position relative
 
-pre code[title=""]
+pre code[heading=""]
     &:before
         display none
 
-pre code[title]
+pre code[heading]
   &:before
     background #323a45
     color #fff
-    content attr(title)
+    // content attr(heading)
     padding .5em 1em
     font-size .75em
     position absolute
