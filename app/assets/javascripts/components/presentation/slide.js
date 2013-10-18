@@ -17,7 +17,7 @@ Polymer('ui-slide', {
     /**
      * polymer init
      */
-    ready: function(){
+    created: function(){
         if(this.items.length){
             this.buildItems();
         }
@@ -80,7 +80,7 @@ Polymer('ui-slide', {
     loadSlide: function(){
         var els = this.querySelectorAll('[data-src]');
 
-        els.forEach(function(el){
+        Array.prototype.forEach.call(els, function(el){
             el.src = el.getAttribute('data-src');
             el.removeAttribute('data-src');
         });

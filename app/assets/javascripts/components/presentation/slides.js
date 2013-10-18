@@ -7,7 +7,7 @@ Polymer('ui-slides', {
     presentor: false,
     overview: false,
 
-    /**
+    /*
      * slide states
      * @type {Object}
      */
@@ -19,10 +19,11 @@ Polymer('ui-slides', {
         '2': 'far-next'
     },
 
-    /**
+
+    /*
      * polymer init
      */
-    ready: function(){
+    created: function(){
         var scope = this;
 
         this.slides = Array.prototype.filter.call(this.$.content.getDistributedNodes(), function(i){
@@ -47,7 +48,7 @@ Polymer('ui-slides', {
         this.updateSlides();
     },
 
-    /**
+    /*
      * add base target to force links to open in new tab
      */
     addBaseTarget: function(){
@@ -56,7 +57,7 @@ Polymer('ui-slides', {
         document.head.appendChild(base);
     },
 
-    /**
+    /*
      * set index to next
      */
     nextSlide: function(){
@@ -68,7 +69,7 @@ Polymer('ui-slides', {
         this.updateSlides();
     },
 
-    /**
+    /*
      * on key down handler
      */
     onKeyDown: function(e){
@@ -128,7 +129,7 @@ Polymer('ui-slides', {
         }
     },
 
-    /**
+    /*
      * offset slides
      */
     offsetSlides: function(){
@@ -152,7 +153,7 @@ Polymer('ui-slides', {
         }
     },
 
-    /**
+    /*
      * on pop state handler
      */
     onPopState: function(e){
@@ -181,7 +182,7 @@ Polymer('ui-slides', {
         }
     },
 
-    /**
+    /*
      * set index to previous
      */
     previousSlide: function(){
@@ -193,7 +194,7 @@ Polymer('ui-slides', {
         this.updateSlides();
     },
 
-    /**
+    /*
      * toggle on overview mode
      */
     toggleOverview: function(){
@@ -202,7 +203,7 @@ Polymer('ui-slides', {
         this.updateSlides();
     },
 
-    /**
+    /*
      * update slidedeck
      */
     updateSlides: function(){
