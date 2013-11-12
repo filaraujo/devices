@@ -2,19 +2,12 @@
 modalBorderRadius = 2px
 modalOuterMargin = 20px
 modalInnerPadding = 20px
-overlayOpacitySpeed = .16s
-contentOpacitySpeed = .16s
+overlayOpacitySpeed = .32s
+contentOpacitySpeed = .32s
 
 headerColor = #2980b9
 contentColor = #3498db
 overlayColor = #093156//darken(headerColor, 90%)
-
-// mixins
-fade(oSpd = 1s, vDelay = 1s)
-    -ms-transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
-    -moz-transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
-    -webkit-transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
-    transition opacity oSpd, visibility 0s vDelay, z-index 0s 2s
 
 // styles
 .ui-modal
@@ -28,11 +21,13 @@ fade(oSpd = 1s, vDelay = 1s)
     position: fixed
     right: 0
     top: 0
-    // transition: z-index .32s
-    z-index: -1
+    visibility: hidden;
+    transform: translate3d(0,0,0)
+    transition: visibility overlayOpacitySpeed
+    z-index: 1000
 
     [open="true"]&
-        z-index: 1000
+        visibility: visible;
 
     @media screen and (max-width: 29.9375rem)
         padding: 10px;
@@ -45,7 +40,7 @@ fade(oSpd = 1s, vDelay = 1s)
         opacity: 0
         position: absolute
         right: 0
-        transition: all .32s
+        transition: background .32s
         top: 0
         visibility: hidden
         z-index: 0
@@ -67,7 +62,7 @@ fade(oSpd = 1s, vDelay = 1s)
     min-height: 300px
     min-width: 280px
     opacity: 0
-    transition: all .32s, opacity contentOpacitySpeed
+    transition: all contentOpacitySpeed
     z-index: 2
 
     [open="true"] &
@@ -118,119 +113,176 @@ ui-modal-close
 
     &[fx="fade-in-scale"],
     &[fx|="fall"],
-    &[fx|="side-fall"],
     &[fx|="flip"],
+    &[fx|="rotate"],
+    &[fx|="side-fall"],
     &[fx|="swing"]
         perspective: 1300px
 
-    [fx="sticky-bottom"]&
+    &[fx="sticky-bottom"],
+    &[fx="rotate-bottom"]
         align-items: flex-end
 
-    &[fx="sticky-left"]
+    &[fx="sticky-left"],
+    &[fx="rotate-left"]
         justify-content: flex-start
 
-    &[fx="sticky-right"]
+    &[fx="sticky-right"],
+    &[fx="rotate-right"]
         justify-content: flex-end
 
-    &[fx="sticky-top"]
+    &[fx="sticky-top"],
+    &[fx="rotate-top"]
         align-items: flex-start
 
-
     .ui-modal-content
+        transform: translate3d(0,0,0)
 
         [open="true"]&
             transform: translate3d(0,0,0) !important
 
         [fx="fade-in-scale"]&
-                transform: translateZ(-300px)
+            transform: translate3d(0,0,-300px)
+
+        [fx="super-scale"]&
+            transform: scale(2)
 
         // fall
         [fx="fall"]&
             transform-style: preserve-3d
-            transform: translateZ(600px) rotateX(20deg)
+            transform: translate3d(0,0,600px) rotateX(20deg)
 
         [fx="fall-down"]&
             transform-style: preserve-3d
-            transform: translateY(-30%) translateZ(300px) rotateX(-10deg)
+            transform: translate3d(0,-30%,300px) rotateX(-10deg)
 
         [fx="fall-left"]&
             transform-style: preserve-3d
-            transform: translate(30%) translateZ(300px) rotate(10deg)
+            transform: translate3d(30%,0,300px) rotateX(10deg)
 
         [fx="fall-right"]&
             transform-style: preserve-3d
-            transform: translate(-30%) translateZ(300px) rotate(-10deg)
+            transform: translate3d(-30%,0,300px) rotateX(-10deg)
 
         [fx="fall-up"]&
             transform-style: preserve-3d
-            transform: translateY(30%) translateZ(300px) rotateX(10deg)
+            transform: translate3d(0,30%,300px) rotateX(10deg)
 
         // flip
         [fx="flip-left"]&
-            transform: rotateY(70deg)
+            transform: rotateY(70deg) translate3d(0,0,0)
 
         [fx="flip-right"]&
-            transform: rotateY(-70deg)
+            transform: rotateY(-70deg) translate3d(0,0,0)
 
         [fx="flip-up"]&
-            transform: rotateX(-70deg)
+            transform: rotateX(-70deg) translate3d(0,0,0)
 
         [fx="flip-down"]&
-            transform: rotateX(70deg)
+            transform: rotateX(70deg) translate3d(0,0,0)
+
+        // rotate
+        [fx="rotate-bottom"]&
+            transform-origin: 0 100%
+            transform: translate3d(0,20px,0) rotateX(90deg)
+
+            [open="true"]&
+                transform: translate3d(0,20px,0) !important
+
+        [fx="rotate-left"]&
+            transform-origin: 0 0
+            transform: translate3d(-20px,0,0) rotateY(90deg)
+
+            [open="true"]&
+                transform: translate3d(-20px,0,0) !important
+
+        [fx="rotate-right"]&
+            transform-origin: 100% 0
+            transform: translate3d(20px,0,0) rotateY(-90deg)
+
+            [open="true"]&
+                transform: translate3d(20px,0,0) !important
+
+        [fx="rotate-top"]&
+            transform-origin: 0 0
+            transform: translate3d(0,-20px,0) rotateX(-90deg)
+
+            [open="true"]&
+                transform: translate3d(0,-20px,0) !important
+
 
         // slide
         [fx="slide-in-bottom"]&
-            transform: translateY(20%)
+            transform: translate3d(0,20%,0)
 
         [fx="slide-in-left"]&
-            transform: translateX(-20%)
+            transform: translate3d(-20%,0,0)
 
         [fx="slide-in-right"]&
-            transform: translateX(20%)
+            transform: translate3d(20%,0,0)
 
         [fx="slide-in-top"]&
-            transform: translateY(-20%)
+            transform: translate3d(0,-20%,0)
 
         // stick
         [fx="sticky-bottom"]&
-            transform: translateY(200%)
+            transform: translate3d(0,200%,0)
 
             [open="true"]&
-                transform: translateY(20px) !important
+                transform: translate3d(0,20px,0) !important
 
         [fx="sticky-left"]&
-            transform: translateX(-200%)
+            transform: translate3d(-200%,0,0)
 
             [open="true"]&
-                transform: translateX(-20px) !important
+                transform: translate3d(-20px,0,0) !important
 
         [fx="sticky-right"]&
-            transform: translateX(200%)
+            transform: translate3d(200%,0,0)
 
             [open="true"]&
-                transform: translateX(20px) !important
+                transform: translate3d(20px,0,0) !important
 
         [fx="sticky-top"]&
-            transform: translateY(-200%)
+            transform: translate3d(0,-200%,0)
 
             [open="true"]&
-                transform: translateY(-20px) !important
+                transform: translate3d(0,-20px,0) !important
 
         [fx="swing-down"]&
             transform-origin: 50% 0%
-            transform: rotateX(60deg)
+            transform: rotateX(60deg) translate3d(0,0,0)
 
         [fx="swing-left"]&
             transform-origin: 100% 0%
-            transform: rotateY(-60deg)
+            transform: rotateY(-60deg) translate3d(0,0,0)
 
         [fx="swing-right"]&
             transform-origin: 0% 0%
-            transform: rotateY(60deg)
+            transform: rotateY(60deg) translate3d(0,0,0)
 
         [fx="swing-up"]&
             transform-origin: 50% 0%
-            transform: rotateX(-60deg)
+            transform: rotateX(-60deg) translate3d(0,0,0)
+
+
+    &[fx="just-me"]
+
+        &:before
+            background: headerColor
+            transition: visibility .16s linear .32s, opacity .16s linear .16s
+
+        &[open=true]:before
+            opacity: 1
+            transition: visibility overlayOpacitySpeed
+
+        .ui-modal-content
+            background: transparent
+            box-shadow: none
+            transform: scale(.6)
+
+        .ui-modal-header
+            background: transparent
 
 
 
