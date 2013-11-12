@@ -2,8 +2,8 @@
 modalBorderRadius = 2px
 modalOuterMargin = 20px
 modalInnerPadding = 20px
-overlayOpacitySpeed = .4s
-contentOpacitySpeed = 1s
+overlayOpacitySpeed = .16s
+contentOpacitySpeed = .16s
 
 headerColor = #2980b9
 contentColor = #3498db
@@ -28,7 +28,7 @@ fade(oSpd = 1s, vDelay = 1s)
     position: fixed
     right: 0
     top: 0
-    transition: z-index .32s
+    // transition: z-index .32s
     z-index: -1
 
     [open="true"]&
@@ -67,7 +67,7 @@ fade(oSpd = 1s, vDelay = 1s)
     min-height: 300px
     min-width: 280px
     opacity: 0
-    transition: all .32s ease-in
+    transition: all .32s, opacity contentOpacitySpeed
     z-index: 2
 
     [open="true"] &
@@ -117,8 +117,10 @@ ui-modal-close
 .ui-modal
 
     &[fx="fade-in-scale"],
-    &[fx="fall"],
-    &[fx^="side-fall"]
+    &[fx|="fall"],
+    &[fx|="side-fall"],
+    &[fx|="flip"],
+    &[fx|="swing"]
         perspective: 1300px
 
     [fx="sticky-bottom"]&
@@ -142,18 +144,41 @@ ui-modal-close
         [fx="fade-in-scale"]&
                 transform: translateZ(-300px)
 
+        // fall
         [fx="fall"]&
             transform-style: preserve-3d
             transform: translateZ(600px) rotateX(20deg)
 
-        [fx="side-fall-left"]&
+        [fx="fall-down"]&
+            transform-style: preserve-3d
+            transform: translateY(-30%) translateZ(300px) rotateX(-10deg)
+
+        [fx="fall-left"]&
             transform-style: preserve-3d
             transform: translate(30%) translateZ(300px) rotate(10deg)
 
-        [fx="side-fall-right"]&
+        [fx="fall-right"]&
             transform-style: preserve-3d
             transform: translate(-30%) translateZ(300px) rotate(-10deg)
 
+        [fx="fall-up"]&
+            transform-style: preserve-3d
+            transform: translateY(30%) translateZ(300px) rotateX(10deg)
+
+        // flip
+        [fx="flip-left"]&
+            transform: rotateY(70deg)
+
+        [fx="flip-right"]&
+            transform: rotateY(-70deg)
+
+        [fx="flip-up"]&
+            transform: rotateX(-70deg)
+
+        [fx="flip-down"]&
+            transform: rotateX(70deg)
+
+        // slide
         [fx="slide-in-bottom"]&
             transform: translateY(20%)
 
@@ -166,6 +191,7 @@ ui-modal-close
         [fx="slide-in-top"]&
             transform: translateY(-20%)
 
+        // stick
         [fx="sticky-bottom"]&
             transform: translateY(200%)
 
@@ -189,6 +215,22 @@ ui-modal-close
 
             [open="true"]&
                 transform: translateY(-20px) !important
+
+        [fx="swing-down"]&
+            transform-origin: 50% 0%
+            transform: rotateX(60deg)
+
+        [fx="swing-left"]&
+            transform-origin: 100% 0%
+            transform: rotateY(-60deg)
+
+        [fx="swing-right"]&
+            transform-origin: 0% 0%
+            transform: rotateY(60deg)
+
+        [fx="swing-up"]&
+            transform-origin: 50% 0%
+            transform: rotateX(-60deg)
 
 
 
