@@ -119,27 +119,40 @@ ui-modal-close
     &[fx|="swing"]
         perspective: 1300px
 
-    &[fx="sticky-bottom"],
-    &[fx="rotate-bottom"]
+
+    // pinned
+    &[fx*="bottom-pinned"]
         align-items: flex-end
 
-    &[fx="sticky-left"],
-    &[fx="rotate-left"]
+    &[fx*="left-pinned"]
         justify-content: flex-start
 
-    &[fx="sticky-right"],
-    &[fx="rotate-right"]
+    &[fx*="right-pinned"]
         justify-content: flex-end
 
-    &[fx="sticky-top"],
-    &[fx="rotate-top"]
+    &[fx*="top-pinned"]
         align-items: flex-start
 
     .ui-modal-content
         transform: translate3d(0,0,0)
 
+        // open
         [open="true"]&
             transform: translate3d(0,0,0) !important
+
+            // pinned
+            [fx*="bottom-pinned"]&
+                transform: translate3d(0,20px,0) !important
+
+            [fx*="left-pinned"]&
+                transform: translate3d(-20px,0,0) !important
+
+            [fx*="right-pinned"]&
+                transform: translate3d(20px,0,0) !important
+
+            [fx*="top-pinned"]&
+                transform: translate3d(0,-20px,0) !important
+
 
         [fx="fade-in-scale"]&
             transform: translate3d(0,0,-300px)
@@ -181,89 +194,64 @@ ui-modal-close
         [fx="flip-down"]&
             transform: rotateX(70deg) translate3d(0,0,0)
 
-        // rotate
-        [fx="rotate-bottom"]&
-            transform-origin: 0 100%
-            transform: translate3d(0,20px,0) rotateX(90deg)
-
-            [open="true"]&
-                transform: translate3d(0,20px,0) !important
-
-        [fx="rotate-left"]&
-            transform-origin: 0 0
-            transform: translate3d(-20px,0,0) rotateY(90deg)
-
-            [open="true"]&
-                transform: translate3d(-20px,0,0) !important
-
-        [fx="rotate-right"]&
-            transform-origin: 100% 0
-            transform: translate3d(20px,0,0) rotateY(-90deg)
-
-            [open="true"]&
-                transform: translate3d(20px,0,0) !important
-
-        [fx="rotate-top"]&
-            transform-origin: 0 0
-            transform: translate3d(0,-20px,0) rotateX(-90deg)
-
-            [open="true"]&
-                transform: translate3d(0,-20px,0) !important
-
-
         // slide
-        [fx="slide-in-bottom"]&
+        [fx="slide-bottom"]&
             transform: translate3d(0,20%,0)
 
-        [fx="slide-in-left"]&
+        [fx="slide-left"]&
             transform: translate3d(-20%,0,0)
 
-        [fx="slide-in-right"]&
+        [fx="slide-right"]&
             transform: translate3d(20%,0,0)
 
-        [fx="slide-in-top"]&
+        [fx="slide-top"]&
             transform: translate3d(0,-20%,0)
 
-        // stick
-        [fx="sticky-bottom"]&
-            transform: translate3d(0,200%,0)
+        // slide in pinned
+        [fx="slide-bottom-pinned"]&
+            transform: translate3d(0,100%,0)
 
-            [open="true"]&
-                transform: translate3d(0,20px,0) !important
+        [fx="slide-left-pinned"]&
+            transform: translate3d(-100%,0,0)
 
-        [fx="sticky-left"]&
-            transform: translate3d(-200%,0,0)
+        [fx="slide-right-pinned"]&
+            transform: translate3d(100%,0,0)
 
-            [open="true"]&
-                transform: translate3d(-20px,0,0) !important
+        [fx="slide-in-pinned-top"]&
+            transform: translate3d(0,-100%,0)
 
-        [fx="sticky-right"]&
-            transform: translate3d(200%,0,0)
-
-            [open="true"]&
-                transform: translate3d(20px,0,0) !important
-
-        [fx="sticky-top"]&
-            transform: translate3d(0,-200%,0)
-
-            [open="true"]&
-                transform: translate3d(0,-20px,0) !important
-
-        [fx="swing-down"]&
-            transform-origin: 50% 0%
+        [fx="swing-bottom"]&
+            transform-origin: 50% 100%
             transform: rotateX(60deg) translate3d(0,0,0)
 
         [fx="swing-left"]&
-            transform-origin: 100% 0%
-            transform: rotateY(-60deg) translate3d(0,0,0)
-
-        [fx="swing-right"]&
             transform-origin: 0% 0%
             transform: rotateY(60deg) translate3d(0,0,0)
 
-        [fx="swing-up"]&
+        [fx="swing-right"]&
+            transform-origin: 100% 0%
+            transform: rotateY(-60deg) translate3d(0,0,0)
+
+        [fx="swing-top"]&
             transform-origin: 50% 0%
             transform: rotateX(-60deg) translate3d(0,0,0)
+
+        // rotate
+        [fx="swing-bottom-pinned"]&
+            transform-origin: 0 100%
+            transform: translate3d(0,20px,0) rotateX(90deg)
+
+        [fx="swing-left-pinned"]&
+            transform-origin: 0 0
+            transform: translate3d(-20px,0,0) rotateY(90deg)
+
+        [fx="swing-right-pinned"]&
+            transform-origin: 100% 0
+            transform: translate3d(20px,0,0) rotateY(-90deg)
+
+        [fx="swing-top-pinned"]&
+            transform-origin: 0 0
+            transform: translate3d(0,-20px,0) rotateX(-90deg)
 
 
     &[fx="just-me"]

@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "bower": "~1.1.2",
-    "express": "3.2.4",
+    "express": "3.4.4",
     "lodash": "*",
     "jade": "*",
     "moment": "*",
@@ -33,7 +33,6 @@
     "grunt-contrib-watch": "~0.5.1",
     "grunt-nodemon": "0.0.9",
     "grunt-mocha-cov": "0.0.7",
-    "mocha": "*",
-    "node-theseus": "*"
+    "mocha": "*"
   }
 }
