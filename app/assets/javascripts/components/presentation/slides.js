@@ -23,7 +23,7 @@ Polymer('ui-slides', {
     /*
      * polymer init
      */
-    created: function(){
+    ready: function(){
         var scope = this;
 
         this.slides = Array.prototype.filter.call(this.$.content.getDistributedNodes(), function(i){

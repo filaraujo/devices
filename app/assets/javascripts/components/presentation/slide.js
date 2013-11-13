@@ -17,7 +17,7 @@ Polymer('ui-slide', {
     /**
      * polymer init
      */
-    created: function(){
+    ready: function(){
         if(this.items.length){
             this.buildItems();
         }

@@ -1,7 +1,7 @@
 Polymer('ui-code', {
     heading: '',
     language: undefined,
-    created: function(){
+    ready: function(){
         var code;
 
         this.language = this.getAttribute('language') || undefined;
