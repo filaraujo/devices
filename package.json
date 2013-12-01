@@ -18,6 +18,7 @@
     "express": "3.4.4",
     "lodash": "*",
     "jade": "*",
+    "mers": "~0.7.1-0",
     "moment": "*",
     "mongoose": "*",
     "newrelic": "https://registry.npmjs.org/newrelic/-/newrelic-1.1.1.tgz",

@@ -2,20 +2,20 @@
 
     var
         features,
-        
+
         deviceId,
 
         saveDevice = function(features){
             var method = 'POST';
                 url = '/device';
-            
+
             if(deviceId){
                 method = 'PUT';
                 url = '/analysis/'+deviceId;
             }
-            
+
             console.log(method)
-    
+
             return $.ajax({
                 url: url,
                 type: method,
@@ -25,7 +25,7 @@
                 }
             });
         };
-    
+
     deviceId = (window.location.href.match(/\/device\/([a-z0-9]+)$/) || [])[1] || undefined;
 
     features = [
@@ -98,17 +98,17 @@
 
 
     console.log(features);
-    
+
     /*
      * @TODO
-     * javascript.workers.data race condition in Opera next 
+     * javascript.workers.data race condition in Opera next
      */
     console.log(features['javascript.workers.data'], Modernizr.dataworkers);
 
     saveDevice(features).done(function(res){
         console.log(res);
-        
-    console.log(features['javascript.workers.data'], Modernizr.dataworkers);
+        console.log(features['javascript.workers.data'], Modernizr.dataworkers);
+
         if(res.id){
             window.location = '/device/'+res.id;
         }

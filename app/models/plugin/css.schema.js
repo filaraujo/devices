@@ -1,52 +1,49 @@
 module.exports = function(schema, options){
-    var booleanObject = Boolean;
-
-    if(options.analysis){
-        booleanObject = {
-            supported: Number,
-            unsupported: Number
-        };
-    }
+    var featureObject = {
+        value: Boolean,
+        supported: Number,
+        unsupported: Number
+    };
 
     schema.add({
         css: {
-            animations: booleanObject,
+            animations: featureObject,
             background: {
-                repeatround: booleanObject,
-                repeatspace: booleanObject,
-                size: booleanObject,
-                sizecover: booleanObject
+                repeatround: featureObject,
+                repeatspace: featureObject,
+                size: featureObject,
+                sizecover: featureObject
             },
             border: {
-                image: booleanObject,
-                radius: booleanObject
+                image: featureObject,
+                radius: featureObject
             },
             box: {
-                sizing: booleanObject,
-                shadow: booleanObject
+                sizing: featureObject,
+                shadow: featureObject
             },
-            checked: booleanObject,
-            filters: booleanObject,
+            checked: featureObject,
+            filters: featureObject,
             layouts: {
-                displayrunin: booleanObject,
-                displaytable: booleanObject,
-                flexbox: booleanObject,
-                columns: booleanObject,
-                positionsticky: booleanObject
+                displayrunin: featureObject,
+                displaytable: featureObject,
+                flexbox: featureObject,
+                columns: featureObject,
+                positionsticky: featureObject
 
             },
             text: {},
             transforms: {
-                '2d': booleanObject,
-                '3d': booleanObject
+                '2d': featureObject,
+                '3d': featureObject
             },
-            transitions: booleanObject,
+            transitions: featureObject,
             units: {
-                rem: booleanObject,
-                vh: booleanObject,
-                vmin: booleanObject,
-                vmax: booleanObject,
-                vw: booleanObject
+                rem: featureObject,
+                vh: featureObject,
+                vmin: featureObject,
+                vmax: featureObject,
+                vw: featureObject
             }
         }
     });

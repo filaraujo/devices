@@ -59,12 +59,13 @@ device.get = {
         Device.findOne({ id: ua }, function(err, doc){
             if( err ){
                 loggerDB.error(err);
-                return next( new Error( 'Unable to detect device from database') );
+                next( new Error( 'Unable to detect device from database') );
+                return;
             }
             if(doc){
                 res.device = doc.toObject();
                 loggerDB.info('Device found by agent: ' + ua);
-                res.cookie('device', doc._id, {  maxAge: 900000, signed: true });
+                // res.cookie('device', doc._id, {  maxAge: 900000, signed: true });
             }
             next();
         });
@@ -74,9 +75,12 @@ device.get = {
         var id = req.params.device;
 
         Device.findOne({ _id: id }, function(err, docs){
-            if(err || !docs){
+            if(err){
                 loggerDB.error(err);
                 return next( new Error( 'Device does not exist') );
+            }
+            if(!docs){
+                return next();
             }
 
             res.device = docs.toObject();
@@ -101,12 +105,16 @@ device.get = {
 device.post = function(req, res, next){
     var ua = req.headers['user-agent'];
 
+    console.log(req.body['user-agent']);
+
     if(ua !== req.body.useragent){
         logger.error('Device user agent mismatch: '+ ua + ' - ' + req.body.useragent);
         // return res.json({ message: 'device user agent does not match post data user agent'}, 500);
     }
 
     var device = new DeviceHelper(ua, req.body.features);
+
+    console.log(device)
 
     Device.create(device, function(err, device){
         if(err){
@@ -115,9 +123,9 @@ device.post = function(req, res, next){
             return;
         }
         loggerDB.info('Device saved to database: ' + this.id);
-        
+
         res.device = device.toObject();
-        res.cookie('device', device._id, {  maxAge: 900000, signed: true });
+        // res.cookie('device', device._id, {  maxAge: 900000, signed: true });
         res.json({ id: device._id }, 200);
         next();
     });
@@ -147,10 +155,8 @@ device.view.capture = function(req, res){
 };
 
 device.view.profile = function(req, res){
-    console.log(res.analysis)
     return res.render('device/profile', {
-        device: res.device || {},
-        analysis: res.analysis || {}
+        device: res.device || {}
     });
 };
 

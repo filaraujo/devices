@@ -3,8 +3,8 @@ var chai = require('chai'),
     expect = chai.expect,
     deviceMock = require('../test/mocks/device.mock.js');
 
-var deviceAnalysisController = require('../app/controllers/device.analysis.controller'),
-    DeviceAnalysisHelper = require('../app/helpers/device.analysis.helper');
+var deviceAnalysisController = require('../app/controllers/analysis.controller'),
+    DeviceAnalysisHelper = require('../app/helpers/analysis.helper');
 
 
 describe('Device Analysis Controller', function(){

@@ -7,7 +7,8 @@ var _ = require('lodash'),
  */
 var validate = function (obj, ancestor) {
     _.forOwn(obj, function (val, key) {
-        var orig = ancestor + '.' + key;
+        var orig = ancestor + '.' + key,
+            value;
 
         if (val === undefined || val === null) {
             delete obj[key];
@@ -23,7 +24,12 @@ var validate = function (obj, ancestor) {
 
         if (_.isString(val)) {
             if (/true|false/.test(val)) {
-                obj[key] = val === 'true';
+                value = val === 'true';
+                obj[key] = {
+                    value: value,
+                    supported: Number(value),
+                    unsupported: Number(!value)
+                };
             }
         }
 

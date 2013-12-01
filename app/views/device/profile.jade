@@ -4,7 +4,7 @@ include _details
 block append head-css
     link(href="/stylesheets/device.css", rel="stylesheet")
     link(href="http://fonts.googleapis.com/css?family=Lato:100,300,400", rel="stylesheet")
-    
+
 block append head-js
     script(src="/vendor/jquery/jquery.min.js")
     script(src="/vendor/modernizr/modernizr.js")
@@ -102,16 +102,16 @@ block content
                 div
                     p.col-md-2.device-feature-type javascript
                     div.col-md-10
-                        mixin details(device.javascript, analysis.javascript)
+                        mixin details(device.javascript)
 
             div.device-module.row
                 div
                     p.col-md-2.device-feature-type css
                     div.col-md-10
-                        mixin details(device.css, analysis.css)
+                        mixin details(device.css)
 
             div.device-module.row
                 div
                     p.col-md-2.device-feature-type html
                     div.col-md-10
-                        mixin details(device.html, analysis.html)
+                        mixin details(device.html)

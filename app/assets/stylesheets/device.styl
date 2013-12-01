@@ -1,5 +1,6 @@
 @import normalize
 @import icons
+@import nib
 
 @font-face {
     font-family: 'Mojave';
@@ -339,39 +340,61 @@ body
     font-size 1.4rem
 
 .device-feature
-    border 1px solid #aaa
-    margin -1px 0 0 -1px
-    padding 10px 20px 14px
-
-    &:hover
-        color #000
-        border-color #000
-        z-index 2
+    background #fff
+    height 60px
+    margin-bottom 3px
+    position relative
+    overflow hidden
 
     &[data-support="unsupported"]
-        background #EEE5E2
+        color $pomegranate
 
-    &[data-support-invalid]
-        padding-bottom 44px
-        min-width 180px
+.device-feature-main
+    padding 10px 14px 14px 18px
+
+    [data-support-invalid] &
+        margin-right 110px
+
 
 .device-feature-breakdown
-    border-top 1px dotted #aaa
-    left 0
-    position absolute
-    right 0
     bottom 0
-    height 34px
+    left 100%
+    margin-left 1px
+    position absolute
+    text-align center
+    transition all .33s
+    top 0
+    width 35%
+    transform translate3d(-40%,0,0)
+    box-sizing border-box
 
-    .col
-        line-height 1rem
-        margin 7px 0
-        padding 0 20px
+    > div
+        float left
+
+    > div:nth-child(1n+2)
+        background $pomegranate
+        color #fff
+        padding 10px
+        height: 100%
+        width 30%
 
         b
-            color $alizarin
-            font-size 1.2rem
+            font-weight 300
+            font-size 1.8rem
 
+    > div:first-child
+        background $alizarin
+        font-size 2.3rem
+        height 100%
+        padding-top 1.5rem
+        width 40%
+
+        b
+            color $cloud
+            font-weight 300
+
+    .device-feature:hover &
+        transform translate3d(-100%,0,0)
 
 .device-feature-group
     clear left
@@ -392,14 +415,13 @@ body
 @media all and (max-width:480px)
     .device-module
         margin-bottom 5vmin
-    
+
     .device-feature
         width 100%
-    
+
     .device-feature-type
         padding-top 4vmin !important
-    
+
     .device-feature-group > p
         padding-top 4vmin
-            
-            
+

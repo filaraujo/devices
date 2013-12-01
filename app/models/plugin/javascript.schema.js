@@ -1,22 +1,19 @@
 module.exports = function(schema, options){
-    var booleanObject = Boolean;
-
-    if(options.analysis){
-        booleanObject = {
-            supported: Number,
-            unsupported: Number
-        };
-    }
+    var featureObject = {
+        value: Boolean,
+        supported: Number,
+        unsupported: Number
+    };
 
     schema.add({
         javascript: {
-            fullscreen: booleanObject,
-            postmessage: booleanObject,
+            fullscreen: featureObject,
+            postmessage: featureObject,
             workers: {
-                blob: booleanObject,
-                data: booleanObject,
-                shared: booleanObject,
-                web: booleanObject
+                blob: featureObject,
+                data: featureObject,
+                shared: featureObject,
+                web: featureObject
             }
         }
     });

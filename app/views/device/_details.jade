@@ -1,32 +1,30 @@
-mixin details(details, analysis)
-    analysis = analysis || {}
-    if(details)
-        each value, id in details
-            if value !== undefined
-                if typeof value === "object"
-                    div.device-feature-group
-                        p #{id}
-                        mixin details(details[id], analysis[id])
-                else
-                    if(typeof value != "function")
-                        mixin detail(id, value, analysis[id])
+mixin details(details, namespace)
+    each detail, id in details
+        - ns = namespace ? namespace + '.' + id : id
+        if detail.value === undefined
+            mixin details(details[id], ns)
+        else
+            mixin detail(detail, ns)
 
-mixin detail(id, value, feat)
-    - var support = value ? 'supported' : 'unsupported'
-    - var total = feat.supported + feat.unsupported
-    - var percentage = feat[support]/total * 100
-    div.col.device-feature(data-support=support, data-support-invalid=(percentage<90))
-        span #{id}
-        br
-        | #{support}
+mixin detail(detail, id, ns)
+    - var support = detail.value ? 'supported' : 'unsupported'
+    - var total = detail.supported + detail.unsupported
+    - var percentage = detail[support]/total * 100
+    div.device-feature(data-support=support, data-support-invalid=(percentage<90))
+        div.device-feature-main
+            span  #{ns} #{id}
+            br
+            | #{support}
         if percentage !== 100 && percentage<90
             div.device-feature-breakdown
-                div.col
-                    b #{(feat.supported/total * 100).toFixed(2)}%
+                div.device-feature-breakdown-summary
+                    b #{percentage.toFixed(2)}%
+                div
+                    b #{detail.supported}
                     br
                     | supported
-                div.col
-                    b #{(feat.unsupported/total * 100).toFixed(2)}%
+                div
+                    b #{detail.unsupported}
                     br
                     | unsupported
 
