@@ -7,7 +7,7 @@ module.exports = function(schema, options){
 
     schema.add({
         css: {
-            animations: featureObject,
+            animation: featureObject,
             background: {
                 repeatround: featureObject,
                 repeatspace: featureObject,
@@ -22,9 +22,10 @@ module.exports = function(schema, options){
                 sizing: featureObject,
                 shadow: featureObject
             },
+            calc: featureObject,
             checked: featureObject,
-            filters: featureObject,
-            layouts: {
+            filter: featureObject,
+            layout: {
                 displayrunin: featureObject,
                 displaytable: featureObject,
                 flexbox: featureObject,
@@ -32,13 +33,12 @@ module.exports = function(schema, options){
                 positionsticky: featureObject
 
             },
-            text: {},
-            transforms: {
+            transform: {
                 '2d': featureObject,
                 '3d': featureObject
             },
-            transitions: featureObject,
-            units: {
+            transition: featureObject,
+            unit: {
                 rem: featureObject,
                 vh: featureObject,
                 vmin: featureObject,

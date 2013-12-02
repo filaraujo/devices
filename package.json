@@ -34,6 +34,7 @@
     "grunt-contrib-watch": "~0.5.1",
     "grunt-nodemon": "0.0.9",
     "grunt-mocha-cov": "0.0.7",
+    "grunt-modernizr": "git+ssh://git@github.com:Modernizr/grunt-modernizr.git#feature/modernizr-3.0",
     "mocha": "*"
   }
 }

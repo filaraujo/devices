@@ -8,7 +8,7 @@ module.exports = function(schema, options){
     schema.add({
         html: {
             input: {
-                properties: {
+                property: {
                     autocomplete: featureObject,
                     autofocus: featureObject,
                     list: featureObject,
@@ -20,7 +20,7 @@ module.exports = function(schema, options){
                     required: featureObject,
                     step: featureObject
                 },
-                types: {
+                type: {
                     color: featureObject,
                     date: featureObject,
                     datetime: featureObject,

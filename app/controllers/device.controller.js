@@ -105,7 +105,7 @@ device.get = {
 device.post = function(req, res, next){
     var ua = req.headers['user-agent'];
 
-    console.log(req.body['user-agent']);
+    console.log(req.body.features);
 
     if(ua !== req.body.useragent){
         logger.error('Device user agent mismatch: '+ ua + ' - ' + req.body.useragent);
@@ -122,12 +122,10 @@ device.post = function(req, res, next){
             res.json({ error: err.err }, 409);
             return;
         }
-        loggerDB.info('Device saved to database: ' + this.id);
+        loggerDB.info('Device saved to database: ' + device.id);
 
         res.device = device.toObject();
-        // res.cookie('device', device._id, {  maxAge: 900000, signed: true });
         res.json({ id: device._id }, 200);
-        next();
     });
 };
 

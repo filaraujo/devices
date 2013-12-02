@@ -1,12 +1,13 @@
 (function(){
 
     var
-        features,
 
         deviceId,
 
-        saveDevice = function(features){
-            var method = 'POST';
+        asyncFeatures = ['dataworkers'],
+
+        saveDevice = function(){
+            var method = 'POST',
                 url = '/device';
 
             if(deviceId){
@@ -14,103 +15,114 @@
                 url = '/analysis/'+deviceId;
             }
 
-            console.log(method)
-
             return $.ajax({
                 url: url,
                 type: method,
                 data: {
-                    features: features,
+                    features: setFeatures(),
                     useragent: window.navigator.userAgent
                 }
+            }).done(function(res){
+                if(res.id){
+                    window.location = '/device/'+res.id;
+                }
             });
+        },
+
+        setFeatures = function(){
+            return [
+                // css
+                { 'css.animation': Modernizr.cssanimations },
+                { 'css.background.repeatround': Modernizr.bgrepeatround },
+                { 'css.background.repeatspace': Modernizr.bgrepeatspace },
+                { 'css.background.size': Modernizr.backgroundsize },
+                { 'css.background.sizecover': Modernizr.bgsizecover },
+                { 'css.border.image': Modernizr.borderimage },
+                { 'css.border.radius': Modernizr.borderradius },
+                { 'css.box.shadow': Modernizr.boxshadow },
+                { 'css.box.sizing': Modernizr.boxsizing },
+                { 'css.calc': Modernizr.csscalc },
+                { 'css.checked': Modernizr.checked },
+                { 'css.filter': Modernizr.cssfilters },
+                { 'css.layout.displayrunin': Modernizr['display-runin'] },
+                { 'css.layout.displaytable': Modernizr['display-table'] },
+                { 'css.layout.columns': Modernizr.csscolumns },
+                { 'css.layout.flexbox': Modernizr.flexbox },
+                { 'css.layout.positionsticky': Modernizr.csspositionsticky },
+                { 'css.transform.2d': Modernizr.csstransforms },
+                { 'css.transform.3d': Modernizr.csstransforms3d },
+                { 'css.transition': Modernizr.csstransitions },
+                { 'css.unit.rem': Modernizr.cssremunit },
+                { 'css.unit.vh': Modernizr.cssvhunit },
+                { 'css.unit.vmin': Modernizr.cssvminunit },
+                { 'css.unit.vmax': Modernizr.cssvmaxunit },
+                { 'css.unit.vw': Modernizr.cssvwunit },
+
+                // device
+                { 'device.color.depth': screen.colorDepth },
+                { 'device.screen.height': window.innerHeight > 0 ? window.innerHeight : screen.width },
+                { 'device.screen.width': window.innerWidth > 0 ? window.innerWidth : screen.width },
+
+                //html
+                { 'html.input.property.autocomplete': Modernizr.input.autocomplete },
+                { 'html.input.property.autofocus': Modernizr.input.autofocus },
+                { 'html.input.property.list': Modernizr.input.list },
+                { 'html.input.property.max': Modernizr.input.max },
+                { 'html.input.property.min': Modernizr.input.min },
+                { 'html.input.property.multiple': Modernizr.input.multiple },
+                { 'html.input.property.pattern': Modernizr.input.pattern },
+                { 'html.input.property.placeholder': Modernizr.input.placeholder },
+                { 'html.input.property.required': Modernizr.input.required },
+                { 'html.input.property.step': Modernizr.input.step },
+                { 'html.input.type.color': Modernizr.inputtypes.color },
+                { 'html.input.type.date': Modernizr.inputtypes.date },
+                { 'html.input.type.datetime': Modernizr.inputtypes.datetime },
+                { 'html.input.type.datetimelocal': Modernizr.inputtypes['datetime-local'] },
+                { 'html.input.type.email': Modernizr.inputtypes.email },
+                { 'html.input.type.file': Modernizr.fileinput },
+                { 'html.input.type.month': Modernizr.inputtypes.month },
+                { 'html.input.type.number': Modernizr.inputtypes.number },
+                { 'html.input.type.range': Modernizr.inputtypes.range },
+                { 'html.input.type.search': Modernizr.inputtypes.search },
+                { 'html.input.type.tel': Modernizr.inputtypes.tel },
+                { 'html.input.type.time': Modernizr.inputtypes.time },
+                { 'html.input.type.url': Modernizr.inputtypes.url },
+                { 'html.input.type.week': Modernizr.inputtypes.week },
+
+                // javascript
+                { 'javascript.fullscreen': Modernizr.fullscreen },
+                { 'javascript.postmessage': Modernizr.postmessage },
+                { 'javascript.worker.blob': Modernizr.blobworkers },
+                { 'javascript.worker.data': Modernizr.dataworkers },
+                { 'javascript.worker.shared': Modernizr.sharedworkers },
+                { 'javascript.worker.web': Modernizr.webworkers }
+            ];
         };
 
     deviceId = (window.location.href.match(/\/device\/([a-z0-9]+)$/) || [])[1] || undefined;
 
-    features = [
-        // css
-        { 'css.animations': Modernizr.cssanimations },
-        { 'css.background.repeatround': Modernizr.bgrepeatround },
-        { 'css.background.repeatspace': Modernizr.bgrepeatspace },
-        { 'css.background.size': Modernizr.backgroundsize },
-        { 'css.background.sizecover': Modernizr.bgsizecover },
-        { 'css.border.image': Modernizr.borderimage },
-        { 'css.border.radius': Modernizr.borderradius },
-        { 'css.box.sizing': Modernizr.boxsizing },
-        { 'css.box.shadow': Modernizr.boxshadow },
-        { 'css.checked': Modernizr.checked },
-        { 'css.filters': Modernizr.cssfilters },
-        { 'css.layouts.displaytable': Modernizr['display-table'] },
-        { 'css.layouts.displayrunin': Modernizr['display-runin'] },
-        { 'css.layouts.columns': Modernizr.csscolumns },
-        { 'css.layouts.flexbox': Modernizr.flexbox },
-        { 'css.layouts.positionsticky': Modernizr.csspositionsticky },
-        { 'css.transforms.2d': Modernizr.csstransforms },
-        { 'css.transforms.3d': Modernizr.csstransforms3d },
-        { 'css.transitions': Modernizr.csstransitions },
-        { 'css.units.rem': Modernizr.cssremunit },
-        { 'css.units.vh': Modernizr.cssvhunit },
-        { 'css.units.vmin': Modernizr.cssvminunit },
-        { 'css.units.vmax': Modernizr.cssvmaxunit },
-        { 'css.units.vw': Modernizr.cssvwunit },
-
-        // device
-        { 'device.color.depth': screen.colorDepth },
-        { 'device.screen.height': window.innerHeight > 0 ? window.innerHeight : screen.width },
-        { 'device.screen.width': window.innerWidth > 0 ? window.innerWidth : screen.width },
-
-
-        //html
-        { 'html.input.properties.autocomplete': Modernizr.input.autocomplete },
-        { 'html.input.properties.autofocus': Modernizr.input.autofocus },
-        { 'html.input.properties.list': Modernizr.input.list },
-        { 'html.input.properties.max': Modernizr.input.max },
-        { 'html.input.properties.min': Modernizr.input.min },
-        { 'html.input.properties.multiple': Modernizr.input.multiple },
-        { 'html.input.properties.pattern': Modernizr.input.pattern },
-        { 'html.input.properties.placeholder': Modernizr.input.placeholder },
-        { 'html.input.properties.required': Modernizr.input.required },
-        { 'html.input.properties.step': Modernizr.input.step },
-        { 'html.input.types.color': Modernizr.inputtypes.color },
-        { 'html.input.types.date': Modernizr.inputtypes.date },
-        { 'html.input.types.datetime': Modernizr.inputtypes.datetime },
-        { 'html.input.types.datetimelocal': Modernizr.inputtypes['datetime-local'] },
-        { 'html.input.types.email': Modernizr.inputtypes.email },
-        { 'html.input.types.file': Modernizr.fileinput },
-        { 'html.input.types.month': Modernizr.inputtypes.month },
-        { 'html.input.types.number': Modernizr.inputtypes.number },
-        { 'html.input.types.range': Modernizr.inputtypes.range },
-        { 'html.input.types.search': Modernizr.inputtypes.search },
-        { 'html.input.types.tel': Modernizr.inputtypes.tel },
-        { 'html.input.types.time': Modernizr.inputtypes.time },
-        { 'html.input.types.url': Modernizr.inputtypes.url },
-        { 'html.input.types.week': Modernizr.inputtypes.week },
-
-        // javascript
-        { 'javascript.fullscreen': Modernizr.fullscreen },
-        { 'javascript.postmessage': Modernizr.postmessage },
-        { 'javascript.workers.blob': Modernizr.blobworkers },
-        { 'javascript.workers.data': Modernizr.dataworkers },
-        { 'javascript.workers.shared': Modernizr.sharedworkers },
-        { 'javascript.workers.web': Modernizr.webworkers }
-    ];
-
-
-    console.log(features);
+    /*
+     * iterate through asyncFeatures and create a deferred object for each
+     * resolve when Modernizr asyncTest completion is fired, or after 500ms
+     */
+    asyncFeatures = asyncFeatures.map(function(feature){
+        var dfd = $.Deferred();
+        Modernizr.on(feature, function(){
+            dfd.resolve();
+        });
+        setTimeout(function(){
+            if(dfd.state() !== 'resolved'){
+                console.log('Modernizr feature ' + feature +' resolved by a timeout');
+                dfd.resolve();
+            }
+        }, 500);
+        return dfd.promise();
+    });
 
     /*
-     * @TODO
-     * javascript.workers.data race condition in Opera next
+     * create a promise that when all asyncFeatures promises are fullfilled, save the device
      */
-    console.log(features['javascript.workers.data'], Modernizr.dataworkers);
+    $.when.apply($, asyncFeatures)
+        .done(saveDevice);
 
-    saveDevice(features).done(function(res){
-        console.log(res);
-        console.log(features['javascript.workers.data'], Modernizr.dataworkers);
-
-        if(res.id){
-            window.location = '/device/'+res.id;
-        }
-    });
 }());

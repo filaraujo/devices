@@ -9,7 +9,7 @@ module.exports = function(schema, options){
         javascript: {
             fullscreen: featureObject,
             postmessage: featureObject,
-            workers: {
+            worker: {
                 blob: featureObject,
                 data: featureObject,
                 shared: featureObject,
