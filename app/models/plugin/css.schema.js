@@ -40,14 +40,20 @@ module.exports = function(schema, options){
 
             },
             mask: featureObject,
-            mediaqueries: featureObject,
+            mediaquery: featureObject,
             overflow: {
                 scrolling: featureObject
             },
-            pointerevents: featureObject,
+            pointerevent: featureObject,
+            reflection: featureObject,
+            scrollbar: featureObject,
+            shape: featureObject,
+            support: featureObject,
+            target: featureObject,
             transform: {
                 '2d': featureObject,
-                '3d': featureObject
+                '3d': featureObject,
+                preserve3d: featureObject
             },
             transition: featureObject,
             unit: {
@@ -56,7 +62,9 @@ module.exports = function(schema, options){
                 vmin: featureObject,
                 vmax: featureObject,
                 vw: featureObject
-            }
+            },
+            userselect: featureObject,
+            wrapflow: featureObject
         }
     });
 };

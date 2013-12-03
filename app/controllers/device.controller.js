@@ -148,7 +148,8 @@ device.view.capture = function(req, res){
         res.redirect('/device/'+res.device._id);
     }
     return res.render('device/capture', {
-        device: res.device || {}
+        device: res.device || {},
+        features: require('../../app/assets/vendor/modernizr/modernizr-features.json').features
     });
 };
 

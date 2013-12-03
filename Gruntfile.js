@@ -1,3 +1,5 @@
+var features = require('./app/assets/vendor/modernizr/modernizr-features.json').features;
+
 module.exports = function (grunt) {
     'use strict';
     grunt.initConfig({
@@ -16,43 +18,21 @@ module.exports = function (grunt) {
                 dest : "app/assets/vendor/modernizr/modernizr-custom.js",
                 crawl : false,
                 uglify: false,
-                tests: [
-                    // css
-                    'cssanimations',    // css.animation
-                    'backgroundsize',   // css.background.size
-                    'bgrepeatround',    // css.background.repeatround   @TODO fix
-                    'bgrepeatspace',    // css.background.repeatspace   @TODO fix
-                    'bgsizecover',      // css.background.sizecover
-                    'borderimage',      // css.border.image
-                    'borderradius',     // css.border.radius
-                    'boxshadow',        // css.box.shadow
-                    'boxsizing',        // css.box.sizing
-                    'csscalc',          // css.calc
-                    'checked',          // css.checked
-                    'flexwrap',         // css.flexbox.flexwrap
-                    'cssfilters',       // css.filter
-                    'cssgradients',     // css.gradient
-                    'csshyphens',       // css.hyphen   @TODO fix
-                    'csscolumns',       // css.layout.column
-                    'display-runin',    // css.layout.displayrunin @TODO fix
-                    'displaytable',     // css.layout.displaytable
-                    'flexbox',          // css.layout.flexbox
-                    'objectfit',        // css.layout.objectfit
-                    'cssmask',          // css.mask
-                    'mediaqueries',     // css.mediaqueries
-                    'overflowscrolling',// css.overflow.scrolling
-                    'csspointerevents',  // css.pointerevents
-                    // javascript
-                    'fullscreen',
-                    'postmessage',
-                    'blobworkers',
-                    'dataworkers',
-                    'sharedworkers',
-                    'webworkers',
-                    // html
-                    'input',
-                    'inputtypes'
-                ]
+                tests: features.map(function(feature){
+                    return feature.module;
+                }),
+                // tests: [
+                //     // javascript
+                //     'fullscreen',
+                //     'postmessage',
+                //     'blobworkers',
+                //     'dataworkers',
+                //     'sharedworkers',
+                //     'webworkers',
+                //     // html
+                //     'input',
+                //     'inputtypes'
+                // ]
             }
         },
         mochacov: {

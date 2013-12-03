@@ -7,6 +7,8 @@ block append head-css
 block append head-js
     script(src="/vendor/jquery/jquery.min.js")
     script(src="/vendor/modernizr/modernizr-custom.js")
+    script.
+        window.Features = !{JSON.stringify(features)};
     script(src="/javascripts/device.js")
 
 block content
